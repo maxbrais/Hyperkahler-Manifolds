@@ -1,0 +1,875 @@
+\documentclass[11pt]{amsart}
+
+
+
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+\newcommand{\fA}{\mathfrak{A}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fD}{\mathfrak{D}}
+\newcommand{\fE}{\mathfrak{E}}
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\fG}{\mathfrak{G}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fI}{\mathfrak{I}}
+\newcommand{\fJ}{\mathfrak{J}}
+\newcommand{\fK}{\mathfrak{K}}
+\newcommand{\fL}{\mathfrak{L}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fO}{\mathfrak{O}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fQ}{\mathfrak{Q}}
+\newcommand{\fR}{\mathfrak{R}}
+\newcommand{\fS}{\mathfrak{S}}
+\newcommand{\fT}{\mathfrak{T}}
+\newcommand{\fU}{\mathfrak{U}}
+\newcommand{\fV}{\mathfrak{V}}
+\newcommand{\fW}{\mathfrak{W}}
+\newcommand{\fX}{\mathfrak{X}}
+\newcommand{\fY}{\mathfrak{Y}}
+\newcommand{\fZ}{\mathfrak{Z}}
+
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fc}{\mathfrak{c}}
+\newcommand{\fd}{\mathfrak{d}}
+\newcommand{\fe}{\mathfrak{e}}
+\newcommand{\ff}{\mathfrak{f}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fh}{\mathfrak{h}}
+\newcommand{\fj}{\mathfrak{j}}
+\newcommand{\fk}{\mathfrak{k}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fn}{\mathfrak{n}}
+\newcommand{\fo}{\mathfrak{o}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+\newcommand{\fr}{\mathfrak{r}}
+\newcommand{\fs}{\mathfrak{s}}
+\newcommand{\ft}{\mathfrak{t}}
+\newcommand{\fu}{\mathfrak{u}}
+\newcommand{\fv}{\mathfrak{v}}
+\newcommand{\fw}{\mathfrak{w}}
+\newcommand{\fx}{\mathfrak{x}}
+\newcommand{\fy}{\mathfrak{y}}
+\newcommand{\fz}{\mathfrak{z}}
+
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbb{D}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bI}{\mathbb{I}}
+\newcommand{\bJ}{\mathbb{J}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bM}{\mathbb{M}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bO}{\mathbb{O}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bU}{\mathbb{U}}
+\newcommand{\bV}{\mathbb{V}}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\bX}{\mathbb{X}}
+\newcommand{\bY}{\mathbb{Y}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+\newcommand{\ba}{\mathbb{a}}
+\newcommand{\bb}{\mathbb{b}}
+\newcommand{\bc}{\mathbb{c}}
+\newcommand{\bd}{\mathbb{d}}
+\newcommand{\be}{\mathbb{e}}
+\newcommand{\bg}{\mathbb{g}}
+\newcommand{\bh}{\mathbb{h}}
+\newcommand{\bi}{\mathbb{i}}   
+\newcommand{\bj}{\mathbb{j}}
+\newcommand{\bk}{\mathbb{k}}   
+\newcommand{\bl}{\mathbb{l}}
+\newcommand{\bm}{\mathbb{m}}   
+\newcommand{\bn}{\mathbb{n}}
+\newcommand{\bo}{\mathbb{o}}
+\newcommand{\bp}{\mathbb{p}}  
+\newcommand{\bq}{\mathbb{q}}
+\newcommand{\br}{\mathbb{r}}   
+\newcommand{\bs}{\mathbb{s}}   
+\newcommand{\bt}{\mathbb{t}}
+\newcommand{\bu}{\mathbb{u}}
+\newcommand{\bv}{\mathbb{v}}
+\newcommand{\bw}{\mathbb{w}}
+\newcommand{\bx}{\mathbb{x}} 
+\newcommand{\by}{\mathbb{y}}
+\newcommand{\bz}{\mathbb{z}}
+
+\newcommand{\bfA}{\mathbf{A}}
+\newcommand{\bfB}{\mathbf{B}}
+\newcommand{\bfC}{\mathbf{C}}
+\newcommand{\bfD}{\mathbf{D}}
+\newcommand{\bfE}{\mathbf{E}}
+\newcommand{\bfF}{\mathbf{F}}
+\newcommand{\bfG}{\mathbf{G}}
+\newcommand{\bfH}{\mathbf{H}}
+\newcommand{\bfI}{\mathbf{I}}
+\newcommand{\bfJ}{\mathbf{J}}
+\newcommand{\bfK}{\mathbf{K}}
+\newcommand{\bfL}{\mathbf{L}}
+\newcommand{\bfM}{\mathbf{M}}
+\newcommand{\bfN}{\mathbf{N}}
+\newcommand{\bfO}{\mathbf{O}}
+\newcommand{\bfP}{\mathbf{P}}
+\newcommand{\bfQ}{\mathbf{Q}}
+\newcommand{\bfR}{\mathbf{R}}
+\newcommand{\bfS}{\mathbf{S}}
+\newcommand{\bfT}{\mathbf{T}}
+\newcommand{\bfU}{\mathbf{U}}
+\newcommand{\bfV}{\mathbf{V}}
+\newcommand{\bfW}{\mathbf{W}}
+\newcommand{\bfX}{\mathbf{X}}
+\newcommand{\bfY}{\mathbf{Y}}
+\newcommand{\bfZ}{\mathbf{Z}}
+
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+\newcommand{\sA}{\mathsf{A}}
+\newcommand{\sB}{\mathsf{B}}
+\newcommand{\sC}{\mathsf{C}}
+\newcommand{\sD}{\mathsf{D}}
+\newcommand{\sE}{\mathsf{E}}
+\newcommand{\sF}{\mathsf{F}}
+\newcommand{\sG}{\mathsf{G}}
+\newcommand{\sH}{\mathsf{H}}
+\newcommand{\sI}{\mathsf{I}}
+\newcommand{\sJ}{\mathsf{J}}
+\newcommand{\sK}{\mathsf{K}}
+\newcommand{\sL}{\mathsf{L}}
+\newcommand{\sM}{\mathsf{M}}
+\newcommand{\sN}{\mathsf{N}}
+\newcommand{\sO}{\mathsf{O}}
+\newcommand{\sP}{\mathsf{P}}
+\newcommand{\sQ}{\mathsf{Q}}
+\newcommand{\sR}{\mathsf{R}}
+\newcommand{\sS}{\mathsf{S}}
+\newcommand{\sT}{\mathsf{T}}
+\newcommand{\sU}{\mathsf{U}}
+\newcommand{\sV}{\mathsf{V}}
+\newcommand{\sW}{\mathsf{W}}
+\newcommand{\sX}{\mathsf{X}}
+\newcommand{\sY}{\mathsf{Y}}
+\newcommand{\sZ}{\mathsf{Z}}
+
+\newcommand{\sa}{\mathsf{a}}
+\newcommand{\sd}{\mathsf{d}}
+\newcommand{\se}{\mathsf{e}}
+\newcommand{\sg}{\mathsf{g}}
+\newcommand{\si}{\mathsf{i}}
+\newcommand{\sj}{\mathsf{j}}
+\newcommand{\sk}{\mathsf{k}}
+\newcommand{\sm}{\mathsf{m}}
+\newcommand{\sn}{\mathsf{n}}
+\newcommand{\so}{\mathsf{o}}
+\newcommand{\sq}{\mathsf{q}}
+\newcommand{\sr}{\mathsf{r}}
+\newcommand{\st}{\mathsf{t}}
+\newcommand{\su}{\mathsf{u}}
+\newcommand{\sv}{\mathsf{v}}
+\newcommand{\sw}{\mathsf{w}}
+\newcommand{\sx}{\mathsf{x}}
+\newcommand{\sy}{\mathsf{y}}
+\newcommand{\sz}{\mathsf{z}}
+
+\newcommand{\q}[1]{``#1''}
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand{\Specc}{\text{\Spec}}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\maxinv}{\text{maxinv}}
+\newcommand{\maxord}{\text{maxord}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\pnp}{\par\null\par}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\modulo}{\text{ mod }}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\ddx}{\frac{\partial}{\partial x}}
+\newcommand{\ddy}{\frac{\partial}{\partial y}}
+\newcommand{\ddz}{\frac{\partial}{\partial z}}
+\newcommand{\im}{\text{im }}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\colim}{\text{colim}}
+\newcommand{\nsubeq}{\text{ }\trianglelefteq\text{ }}
+\newcommand{\nsub}{\text{ }\triangleleft\text{ }}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\modd}{\text{  mod}}
+\newcommand{\Spec}{\text{Spec }}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\Q}{\bQ}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\nn}[1]{\lVert#1\rVert}
+\def\dashmapsto{\mathrel{\mapstochar\dashrightarrow}}
+\newcommand{\pa}[1]{\left(#1\right)}
+\newcommand{\brc}[1]{\left\{#1\right\}}
+\newcommand{\brk}[1]{\!\left[#1\right]}
+\newcommand{\id}{\text{id}}
+
+
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xspace}
+\usepackage{lplfitch}
+\usepackage{csquotes}
+\usepackage{faktor}
+\usepackage{comment}
+\usepackage{tikz-cd}
+\usetikzlibrary{cd}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amssymb,amsmath}
+
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={180mm,257mm},
+left=15mm,
+top=15mm,
+}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{intersections}
+\usepackage[backend=biber,style=alphabetic,url=true, doi=true,maxbibnames=99,maxcitenames=99,backref=true]{biblatex}\addbibresource{reference.bib}
+
+
+\newif\ifqedbarused
+\newcommand{\qedbar}{%
+  \unskip\nobreak\hfill % Push content to the right
+  \hspace{1em} % Add space before the bar (adjust "1em" as needed)
+  \rule{3em}{0.4pt} % Horizontal bar
+}
+\newcommand{\qedbarhere}{%
+  \qedbar%
+  \global\qedbarusedtrue% Suppress automatic bar
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margin notes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{todonotes}
+\newcommand\todoin[2][]{\todo[inline, caption={2do}, #1]{\begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
+\newcommand{\brent}[2][]{\todo[#1,color=blue!20!white,size=scriptsize]{\textbf{B:} #2}}
+\newcommand{\maxim}[2][]{\todo[#1,color=red!20!white,size=scriptsize]{\textbf{M:} #2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Colours & links
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xcolor,hyperref}
+\definecolor{darkred}{rgb}{.8,0,0}
+\definecolor{tocolor}{rgb}{.1,.1,.1}
+\definecolor{urlcolor}{rgb}{.2,.2,.6}
+\definecolor{linkcolor}{rgb}{.1,.1,.5}
+\definecolor{citecolor}{rgb}{.4,.2,.1}
+\definecolor{gray}{rgb}{.8,.8,.8}
+
+\hypersetup{
+	backref=true,
+	colorlinks=true,
+	urlcolor=urlcolor,
+	linkcolor=linkcolor,
+	citecolor=citecolor,
+	pdfauthor = {Maxim Brais},
+	}
+	
+%\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+
+\newcommand{\thmautorefname}{Theorem}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Section}
+
+%%%%%%%%%%%%%%%%%%%
+%% Theorem definitions
+%%%%%%%%%%%%%%%%%%%
+
+\usepackage{aliascnt}
+
+\newcommand{\thdef}[2]{
+	\newaliascnt{#1}{theorem}  
+	\newtheorem{#1}[#1]{#2}
+	\aliascntresetthe{#1}  
+	\newtheorem*{#1*}{#2}
+	\expandafter\newcommand\expandafter{\csname #1autorefname\endcsname}{#2}
+}
+
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem*{theorem*}{Theorem}
+\thdef{conjecture}{Conjecture}
+\thdef{problem}{Problem}
+\thdef{lemma}{Lemma}
+\thdef{corollary}{Corollary}
+\thdef{proposition}{Proposition}
+
+
+\theoremstyle{definition}
+\thdef{definition}{Definition}
+\thdef{notation}{Notation}
+\thdef{question}{Question}
+\thdef{remark}{Remark}
+\thdef{example}{Example}
+\thdef{construction}{Construction}
+\thdef{caution}{Caution}
+\thdef{exercise}{Exercise}
+\thdef{fact}{Fact}
+
+\AtEndEnvironment{fact}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse% 
+}
+\AtEndEnvironment{remark}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse% 
+}
+\AtEndEnvironment{definition}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\AtEndEnvironment{example}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\AtEndEnvironment{notation}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\AtEndEnvironment{caution}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\AtEndEnvironment{construction}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\AtEndEnvironment{exercise}{%
+  \ifqedbarused\else\qedbar\fi%
+  \global\qedbarusedfalse%
+}
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Titre %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Hyperkähler manifolds}
+\author{Notes taken by Maxim Jean-Louis Brais}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Counter for table of contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{1}
+
+
+\begin{document}
+\maketitle
+\section{First lecture}
+We first review some complex geometry.
+\begin{definition}
+	A \tbf{complex manifold} is a locally ringed space $(X,\cO_X)$ such that
+	\begin{itemize}
+		\item $X$ is Hausdorff and second countable (this part is to ensure we actually have a topological manifold);
+		\item $(X,\cO_X)$ is locally isomorphic to $(\Delta,\cO_\Delta)$, where $\Delta\subset \C^n$ is the polydisc.\qedbarhere 
+	\end{itemize} 
+\end{definition}
+\begin{example}\label{eg: affine var}
+	Let $f_i,\dots,f_d\in\C[z_1,\dots,z_n]$ be complex polynomials such that the Jacobian of
+	\[f=(f_1,\dots,f_d):\C^n\to \C^d
+	\]
+	has everywhere full rank on the vanishing set $V=V(f)\subset \C^n$. By the holomorphic implicit function theorem (regular value theorem), $V$ is a complex manifold.
+\end{example}
+\begin{example}\label{eg: smooth algebraic var}
+	If $X$ is a smooth algebraic variety over $\C$, we may cover it by affines $V_i$ which are of the same form as in \autoref{eg: affine var}. We may consider the analytic topology $X^{an}$ obtained by gluing the different charts $V_i$. Similarly, we may define the sheaf $\cO_X^{an}$ on $X^{an}$ by considering the sheaf of holomorphic functions on each $V_i$ (the transitions $V_i\to V_j$ are regular algebraic, hence holomorphic, so that this gluing makes sense). Then, $(X^{an},\cO_X^{an})$ is a complex manifold.
+\end{example}
+
+Note that in \autoref{eg: smooth algebraic var}, we obtain a natural map of ringed spaces
+%
+\[
+\alpha:(X^{an},\cO_X^{an})\to (X,\cO_X)
+\]
+since the analytic topology is finer than the Zariski topology, and regular functions are holomorphic. In particular, we obtain a functor between abelian categories:
+\[
+\alpha^*:\cO_X\text{-mod}\to \cO_X^{an}\text{-mod}
+\]
+restricting to
+\[
+\alpha^*:\text{Coh}(X)\to \text{Coh}(X^{an}).
+\]
+\begin{theorem}[Géométrie algébrique géométrie analytique;\;\cite{Serre1956}]
+If $X$ is smooth\footnote{This can be dropped by considering complex analytic spaces (rather than manifolds).} and proper functor $\alpha^*:\text{Coh}(X)\to\text{Coh}(X^{an})$ is an equivalence, therefore inducing an isomorphism.
+\end{theorem}
+\subsection{Almost complex structures}
+A complex manifold $(X,\cO_X)$ has an underlying smooth manifold $(X, C^\infty_X)$, where $C^\infty_X$ denotes the sheaf of smooth functions on $X$; indeed, if $X$ has complex charts $U_i\subset \C^n$, the transitions are holomorphic, hence $C^\infty$. 
+\begin{notation}
+	Since the indices $i$ will be ubiquitous, $\iota$ shall denote the root of $-1$ for these notes (this spares the cumbersome $\sqrt{-1}$ alternative).
+\end{notation}
+On each chart $U_i$, we have multiplication by $\iota$, but this does not globalise, as $\iota$ does not commute with holomorphic functions: in the Taylor expansion, we have terms which are of degree $m$ where $m\neq 1\mod 4$. However, the differential of $\iota$ may be globalised, as we get rid of the higher order terms. In a local chart $U_i\subset \C^n$, the (real) tangent bundle has a local frame
+\[
+T_\R U_i=\langle \partial_{x_j},\partial_{y_j}:1\leq j\leq n\rangle,
+\]
+on which $I:=d\iota$ acts by
+\[
+\begin{cases}
+	\partial_{x_j}\mapsto \partial_{y_j}\\
+	\partial_{y_j}\mapsto -\partial_{x_j}.
+\end{cases}
+\]
+\begin{definition}
+	An \tbf{almost complex structure} on a smooth manifold $X$ is an endomorphism $I\in \text{End}(T_\R X)$ such that $I^2=-1$. We say that $I$ is integrable if $X$ is a complex manifold and $I$ is obtained by locally differentiating $\iota$. 
+\end{definition}
+\begin{question}\label{q: integrable?}
+	Given $I$ an almost complex structure, when is it integrable?
+\end{question}
+Let us first set up some tools in order to address this question appropriately. Assume only for now that $X$ is a smooth manifold and $I$ is an almost complex structure. We can consider the complexified tangent bundle 
+\[
+T_\C X:=T_\R X\otimes_\R \C,
+\]
+to which we can extend the action of $I$. Since $I^2={-1}$, the minimal polynomial of $I$ is $x^2+1$, which is separable over $\C$, meaning that $I$ is diagonalisable, with eigenvalues $\pm \iota$. The eigenspaces must have the same dimension as $I$ acts on the \emph{real} tangent space. We thus obtain a decomposition
+\[
+T_\C X=T^{1,0}X\oplus T^{0,1}X= T^{1,0}X\oplus \overline{T^{1,0}X}.
+\]
+Note that we have
+\begin{align*}
+	T^{1,0}X=\{(v-iIv):v\in T_\C X\}&&T^{0,1}X=\{(v+iIv):v\in T_\C X\}.
+\end{align*}
+\begin{notation}
+	We will use the following notation
+	\begin{itemize}
+		\item $\cA^0(X):=C^\infty_X$;
+		\item $\cA^k(X)$ denotes the sheaf of (smooth) degree $k$ real forms;
+		\item $\cA^k(X,\C)=\oplus_{p+q=k}\cA^{p,q}(X)$ denotes the sheaf of sections of $\bigwedge^kT_\C^*X$ (i.e. smooth complex degree $k$ forms) and $\cA^{p,q}(X)$ denotes the sheaf of sections of $\bigwedge^pT^{1,0}X\otimes \bigwedge^q T^{0,1}X$;
+		\item $d:\cA^k(X,\C)\to \cA^{k+1}(X,\C)$ denotes the complexification of the usual exterior derivative, and can be decomposed by types as $d=\partial+\bar\partial$, where $\partial$ denotes the part corresponding to the differentiation in holomorphic coordinates, and similarly $\bar\partial$ for anti-holomorphic coordinates.
+		\item $A^k(X)$, $A^k(X,\C)$, and $A^{p,q}(X)$ denotes the global sections of respectively $\cA^k(X),\cA^k(X,\C)$, and $\cA^{p,q}(X)$.\
+		\item $\cT_X$ denotes the sheaf of homolorphic vector fields, i.e. $\cT_X:=\cD er(\cO_X,\cO_X)$;
+		\item $\Omega_X:=\cT_X^*$ denotes the cotangent sheaf.\qedbarhere
+		\end{itemize}
+\end{notation}
+The following theorem answers \autoref{q: integrable?}.
+\begin{theorem}[Newlander-Niremberg]
+	$I$ is integrable if and only if $\bar{\partial}^2=0$.
+\end{theorem}
+Note that this is equivalent to $T^{1,0}X$ being closed under the (complex) Lie bracket (this is much related to the Frobenius theorem of differential geometry), and also equivalent of the vanishing of a certain tensor $N_I$ called the \emph{Nijenhuis} tensor. 
+\subsection{Metrics}
+Let $E$ be a real vector bundle on $(X,C_X^\infty)$. A \tbf{Riemannian metric} $g$ on $E$ is a section of $\text{Sym}^2E^\vee$ such that for all $p\in X$, $g_p$ is positive definite. If $E$ is a complex bundle, a \tbf{Hermitian metric} $h$ is a map of sheaves $E\otimes \overline E\to C^\infty(X,\C)$ such that each $h_p$ is Hermitian, i.e. $h_p(e,f)=\overline{h_p(f,e)}$ and $h_p(e,e)>0$ for all $e,f\in E_p$.  When $E=T_\R X$, we say that $g$ (resp. $h$) is a \tbf{Riemannian} (resp. \tbf{Hermitiam}) \tbf{metric on } $X$ (here, the almost complex structure $I$ is used to put a $\C$-structure on $T_\R X$).
+
+If $X$ is a complex manifold and $h$ is a  Hermitian metric, then we can write
+\[
+h=g-i\omega
+\]
+where $g=\fR\fe(h)$ and $\omega=-\fI\fm(h)$. We obtain that $g$ is a Riemannian metric, and $\omega$ is skew-symmetric since
+\[
+\omega(X,Y)=\frac{\iota}{2}(h-\overline h)
+\]
+and $h$ is conjugate skew-symmetric. Thus, $\omega\in A^2(X)$.
+\begin{definition}
+	$(X,h)$ is \tbf{Kähler} if $d\omega=0$.
+\end{definition}
+That $h$ is linear in the first variable and anti-linear in the second ensures that $h(I-,I)=h(-,-)$, implying that $g(I-,I-)=g(-,-)$, a property that is sometimes called \tbf{compatibility} of the metric with $I$. We have 
+\[
+\omega(-,-)=\frac{\iota}{2}(h(-,-)-\overline h(-,-))=\frac{1}{2}(h(I-,-)+\overline h (I-,-))=g(I-,-),
+\]
+which also implies
+\[
+\omega(-,I-)=g(-,-).
+\]
+\begin{definition}\label{def: kahler}
+	A form $\omega\in A^2(X)$ is called \tbf{positive} if $\omega(u,Iu)>0$ for all $u\in T_\R X$. We see that a de Rham cohomology class in $H^2(X,\C)$ is \tbf{positive} if it can be represented by a positive form. If moreover $\omega$ is $I$-invariant (or equivalently, of type $(1,1)$ after embedding $A^2(X)\subset A(X,\C)$), we say $\omega$ is \tbf{Kähler}.
+\end{definition}
+If $\omega$ is Kähler, we may define the hermitian metric $h_\omega=\omega(-,I-)-i\omega$, and we have that $\omega$ is Kähler if and only if $(X,h_\omega)$ is Kähler.
+\begin{example}
+	Let $X=\bP^n$, with projective coordinates $Z_0,\dots,Z_n$. Let $U_i$ be the $Z_i\neq 0$ chart, and define $z_j=\frac{Z_j}{Z_i}$. We may define on $U_i$ the metric
+	\[
+	\omega_{FS}=\omega=i\partial\overline\partial\log\pa{1+\sum_jz_j\overline z_j},
+	\]
+	and one checks that these glue to a global form, which we call the \tbf{Fubini-Study metric}. Written as a Kähler potential this way shows that it is a Kähler metric.
+\end{example}
+Note that if $(X,\omega)$ is Kähler, restricting the metric to a complex submanifold $Y$ preserves all properties of \autoref{def: kahler}, and so $(Y,\omega_Y)$ is Kähler. Thus, any projective manifold is Kähler.
+
+\subsection{Connections}
+
+Let $E$ be a complex (the real case is identical) vector bundle on $(X,C_X^\infty)$. A \tbf{complex connection} in $E$ is a $\C$-linear map 
+\[
+\nabla:\cA^0(E,\C)\to \cA^1(E,\C),
+\]
+(here $\cA^i(E,\C)= \cA^i(X,\C)\otimes \Gamma(E)$) such that
+%
+\[
+\nabla(f\cdot s)=df\otimes s+f\cdot\nabla s
+\]
+for all section $s$ of $E$ and $f\in C^\infty_X$.
+
+If $E$ is a holomorphic bundle on a complex manifold, we can define the operator
+%
+\[
+\overline\partial:\cA^0(E)\to \cA^{0,1}(E)
+\]
+%
+as follows: if $\sigma_i$ is a local frame, and $s=s^i \sigma_i$ a section, we let
+\begin{equation}
+\overline\partial(s^i\sigma_i):=(\overline\partial s^i)\otimes \sigma_i.\label{eq: dbar bundle}
+\end{equation}
+
+Indeed, given another frame $\tau_j$ related by $\sigma_i=g_{ij}\tau_j$, we have
+\[
+\overline\partial (s^i)\otimes \sigma_i=\overline \partial(s_i)\otimes g_{ij}\tau_j=\overline\partial(g_{ij}s^i)\otimes \tau_j
+\]
+since the transitions $g_{ij}$ are holomorphic by assumption.
+
+A (complex) connection being valued in $\cA^1(E,\C)=\cA^{1,0}(E)\oplus\cA^{0,1}(E)$, we may split $\nabla=\nabla^{1,0}+\nabla^{0,1}$.
+\begin{definition}
+	The complex connection $\nabla$ in $E$ is said to be \tbf{compatible} with the holomorphic structure if $\nabla^{0,1}=\overline\partial$. Suppose $E$ has a hermitian metric $h$. We say $\nabla$ is \tbf{compatible} with $h$ if for any sections $e,f$, we have equality of forms
+	\[d(h(e,f))=h(\nabla e,f)+h(e,\nabla f).\]
+More geometrically, this says that $h$ is parallel to the connection, i.e. constant along parallel transport, i.e. the connection has $U(n)$-holonomy. We say $\nabla$ is a \tbf{Chern connection} if it is both compatible with the holomorphic structure and the hermitian metric.
+\end{definition} 
+
+\begin{theorem}[Chern]
+	There exists a unique Chern connection.
+\end{theorem}
+
+When $E=T_\R X$, the Chern connection ought to be regarded as the complex geometric analogue of the Levi-Civita connection from Riemannian geoemtry. In fact this is more than an analogy. If $h$ is a hermitian metric, the Levi-Civita connection of $g=\fR\fe(h)$ can be complexified to a complex connection. It is a theorem that the Levi-Civita connection is the Chern connection if and only if $(X,h)$ is Kähler.
+
+We can extend the connection $\nabla:\cA^0(E,\C)\to \cA^1(E,\C)$ to a connection
+\[
+\nabla:\cA^p(E,\C)\to \cA^{p+1}(E,\C)
+\]
+for all positive $p$ via
+\[
+\nabla(\omega\otimes s)=d\omega\otimes s+(-1)^p\omega\wedge\nabla s,
+\]
+where $\omega$ is a $p$-form and $s$ is a section of $E$.
+
+\begin{remark}
+	Note this different to the usual extension of a connection to tensors since we are dealing with skew-symmetric forms. In particular, this satisfied a different Leibniz rule:
+	\[
+	\nabla(fs)=df\wedge s\otimes d\nabla s.
+	\]
+\end{remark}
+
+\begin{definition}
+	We define the \tbf{curvature} of $\nabla$ to be the composition $\nabla^2=\nabla\circ\nabla=F_\nabla$.
+\end{definition}
+
+Note that
+\begin{align*}
+ \nabla(\nabla fs)=\nabla(df\otimes s+f\nabla s)&=ddf-df\wedge\nabla s+\nabla(f\nabla s)	\\
+ &=-df\wedge\nabla s+df\wedge\nabla s+f\nabla^2s=f\nabla^2s
+\end{align*}
+so that $F_\nabla$ is $C^\infty_X$-linear, that is a section of $\cA^2(End(E),\C)$.
+
+We may also define
+%
+\[F_\nabla^k:=\underbrace{F_\nabla\circ\cdots\circ F_\nabla}_k\in \cA^{2k}(End(E),\C).
+\]
+We define the \tbf{$k$th Chern character} of $\nabla$ to be
+%
+\[
+\text{ch}_k(E,\nabla):= \Tr\pa{\frac{1}{k!}\pa{\frac{\iota}{2\pi}F_\nabla^k}}\in A^{2k}(X,\C).
+\]
+
+\begin{theorem}[Chern-Weil]
+The following is true about the Chern character.
+\begin{enumerate}
+	\item $\text{ch}_k(E,\nabla)$ is closed;
+	\item The cohomology class $\text{ch}_k(E):=[\text{ch}_k(E,\nabla)]\in H^{2k}_{dR}(X,\C)$ is independent of $\nabla$;
+	\item $\text{ch}_k(E)$ is real, i.e. in $H^{2k}_{dR}(X,\R)$ (in fact, it is integral);
+	\item The total Chern character $\sum_k\text{ch}_k(E)$ is equal to the cohomology class of $\Tr(\exp(\frac{\iota}{2\pi}F_\nabla)$ (this one directly follows from developing the exponential).
+\end{enumerate}	
+\end{theorem}
+
+\section{Second Lecture}
+\subsection{Chern classes}
+Let $V$ be a vector space over $\C$ of dimension $r$. Let $P\in \C[End(V)]$ be a homogeneous polynomial of degree $k$. Assume moreover $P$ is $GL(V)$ invariant, that is $P(A^{-1}BA)=P(B)$ for any $A\in GL(V)$.
+
+Let now $E$ be a complex vector bundle and $\nabla$ a connection. By $GL(V)$ invariance, $P(\frac{\iota}{2\pi}F_\nabla)$ is well-defined, and lives in $A^{2k}(X,\C)$.
+\begin{fact}[Chern-Weil]
+	$P(\frac{\iota}{2\pi}F_\nabla)$ is closed, and the class $[P(\frac{\iota}{2\pi}F_\nabla)]\in H^{2k}(X,\C)$ is independent of $\nabla$.
+\end{fact}
+Consider now the $GL(V)$-invariant homogeneous polynomials $P_k$ returning the coefficients of the characteristic polynomials (i.e. $P_k$ $k$th elementary symmetric polynomial on the eigenvalues). We can explicitely define $P_k$ by the formula:
+\[
+\det(I+tB)=\sum_kP_k(B)t^k.
+\]
+
+We define the \tbf{$k$th Chern class} of $E$ to be the cohomology class of $P_k(\frac{i}{2\pi}F_\nabla)$, and the \tbf{total Chern class} of $E$ to be $c(E):=\sum_{i=0}^kc_k(E)$.
+
+The Chern classes and characters satisfy certain properties:
+\begin{itemize}
+	\item $c_0(E)=1$ and $ch_0=r$;
+	\item $c_d=0$ if $d>r$. In particular, if $L$ is a line bundle, $c(L)=1+c_1(L)$;
+	\item $ch(L)=\exp(c_1(L)):=1+c_1(L)+\frac{c_1(L)^2}{2!}+\cdots\in H^{2\bullet}(X,\C)$.
+\end{itemize}
+
+To derive further elementary properties of the Chern characters and classes, let us first observe how we can assemble connections into new connections
+
+	Let $E_1$ and $E_2$ be vector bundles with respective (complex) connections $\nabla_1$ and $\nabla_2$. Then,
+	\begin{itemize}
+		\item $\nabla_{E_1\oplus E_2}:=\nabla_1\oplus\nabla_2$ is a connection on $E_1\oplus E_2$, and $F_{\nabla_1\oplus\nabla_2}=F_{\nabla_1}\oplus F_{\nabla_2}$, where this is seen as a block matrix
+		\[\begin{pmatrix}
+			F_{\nabla_1}&\\&F_{\nabla_2}
+		\end{pmatrix}; \]
+		\item $\nabla_{E_1\otimes E_2}:=\nabla_1\otimes \id_{E_2}+\id_{E_1}\otimes \nabla_2$ is a connection on $E_1\otimes E_2$;
+		\item the assignment
+		\[
+		(\nabla^\vee \phi)(s):=d(\phi(s))-\phi(\nabla(s))
+		\]
+		where $s\in E$ and $\phi\in E^\vee$ defines a connection on $E^\vee$ (note that this is the usual way to extend connections on tensors). In other words, if $\langle-,-\rangle$ denotes the natural pairing on $E\otimes E^\vee$, the dual connection is defined by
+		\[
+		d\langle s,\phi\rangle=\langle\nabla s,\phi\rangle+\langle s,\nabla^\vee \phi\rangle.
+		\]
+		Let us try to compare the two curvature. Given $s_i$ ant $t_j$ frames of $E$, we consider the connexion form $A=(A_i^{\;j})$ satisfying $\nabla s_i=A_i^{\;j}\otimes t_j$. Let $s^i$ and $t^j$ be the dual frames. We obtain
+		\begin{align*}
+			d\langle s_i,t^j\rangle=0&=\langle \nabla s_i,t^j\rangle+\langle s_i,\nabla^\vee t^j\rangle\\
+			&=\langle A_i^{\;k}\otimes t_k,t^j\rangle+\langle s_i,B^j_{\;k}\otimes s^k\rangle\\
+			&=A_i^{\;j}+B^j_{\; i},
+		\end{align*}
+		where $B=(B^j_{\; i})$ is the connection form of $\nabla^\vee$. And so we have $B=-A^t$ as sections of $\cA^2(End(E),\C)=\cA^2(End(E^\vee),\C)$. Using Cartan's formula for the curvature of a connection, we conclude
+		\[
+		F_{\nabla^\vee}=d(-A^t)+(-A^t)\wedge(-A^t)=-(dA+A\wedge A)^t=-F_{\nabla}^t.
+		\]
+		\item connections pull back, that is if $f:Y\to X$ is a smooth map and $E$ is a bundle on $X$ with connection $\nabla_E$, we may define the connection $\nabla_{f^*E}$ by \emph{locally} demanding
+		\[
+		\nabla_{f^*E}(f^*s)=f^*\nabla s.
+		\]
+	\end{itemize}
+
+
+\begin{corollary}
+	Let $E_1,E_2$ be complex vector bundles on $X$. The following hold:
+	\begin{enumerate}
+		\item $ch(E_1\oplus E_2))=ch(E_1)+ch(E_2)$ and $c(E_1\oplus E_2)=c(E_1)\cup c(E_2)$;
+		\item $ch(E_1\otimes E_2)=ch(E_1)\cup ch(E_2)$;
+		\item $c_k(E^\vee)=(-1)^k c_k(E)$
+		\item $ch_k(f^*E)=f^*(ch_k(E))$ and  and $c_k(f^*E)=f^*(c_k(E))$.
+	\end{enumerate}
+\end{corollary}
+
+Note that $c_k(E)\in H^{2k}(X,\C)$ is in fact real: indeed, conjugation acts on via $\overline{F_\nabla}=F_{\overline\nabla}$, and up to choosing a hermitian metric, we have $E^\vee\simeq \overline E$ and $F_{\overline\nabla}=-F_\nabla^t$, and in a Chern splitting, the eigenvalues $\omega_1,\dots,\omega_r$ are purely imaginary. We obtain
+\[c_k(E)=P_k(\frac{\iota}{2\pi}F_\nabla)=\brk{\frac{\iota^k}{(2\pi)^k}P_k(F_\nabla)}=\brk{\frac{\iota^k}{(2\pi)^k}\sigma_k(\omega_1,\dots,\omega_r)}
+\]
+while
+\[
+\overline{c_k(E)}=\brk{\frac{(-1)^k\iota ^k}{(2\pi)^k}\sigma_k(-\omega_1,\dots,-\omega_r)}=\brk{\frac{(-1)^{2k}\iota^k}{2\pi}\sigma_k(\omega_1,\dots,\omega_r)}=c_k(E)
+\]
+where $\sigma_k$ denotes the $k$th standard symmetric polynomial, so that $c_k(E)\in H^{2k}(X,\R)$. The $k$th Chern class is also $(1,1)$. Indeed, consider the Chern connection $\nabla=\nabla^{1,0}+\nabla^{0,1}=\nabla^{1,0}+\overline\partial$. From this decomposition, we see that the $(0,2)$-part of the curvature is $\overline\partial^2=0$. Similarly, one can use the fact that the hermitian metric is parallel to show that the $(2,0)$ part vanishes so that all $\omega_i$ are of type $(1,1)$, from which one obtains that $c_k(E)$ is of type $(k,k)$.
+
+Let $D\subset X$ be a divisor. It is a fact that the fundamental class of $D$ is the Chern class of $\cO(D)$, i.e.
+\[
+[D]=c_1(\cO(D))\in H^{2}(X,\C),
+\]
+showing that the first\,---\,and therefore fore any\,---\,Chern class is integral.
+
+An important theorem relating to chern classes is Kodaira's embedding theorem.
+\begin{theorem}[Kodaira]
+	A (holomorphic) line bundle $L$ on a complex manifold $X$ is ample (i.e. induces an embedding in projective space) if and only if it admits a metric $h$ such that $\frac{\iota}{2\pi}F_{D_h}$ is a positive form.
+\end{theorem}
+In particular, let $h_0$ be any hermitian metric on $L$, and let $\omega_0=\frac{\iota}{2\pi}F_{D_{h_0}}$. If $c_1(L)=[\omega_0]$ is positive, i.e. has a positive form $\omega$ as representative of the cohomology class, then we can write $\omega=\omega_0+\partial\overline\partial\phi$ for some function $\phi$ by the $\partial\overline\partial$-lemma. Then, one may compute that the metric $h:=e^{\phi}\cdot h_0$ satisfies $\frac{\iota}{2\pi}F_{D_h}=\omega$ (this is because the $(1,0)$-part of the Chern connection $D_h$ is $h^{-1}\partial h=\partial\log(h)$). In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the map Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
+\subsection{Hirzebruch-Riemann-Roch}
+\begin{definition}
+	Let $X$ be a compact complex manifold. Let $\nabla$ be a connection in the tangent bundle. We define the \tbf{Todd class} of $X$ to be
+	\[
+	td(X):=\brk{\det\pa{\frac{\frac{\iota}{2\pi}F_\nabla}{1-\exp(\frac{-\iota}{2\pi}F_\nabla}}}\in H^{2\bullet}(X,\C)
+	\]
+\end{definition}
+In terms of Chern roots $\omega_1,\dots,\omega_r$, we have that
+\[
+td(X)=\prod_{i=1}^r\frac{\omega_i}{1-e^{-{\omega_i}}}\]
+It can be computed that we have
+\begin{align*}
+	td_0(X)=1;&&td_1(X)=\frac{c_1}{2};&&td_2(X)=\frac{1}{12}(c_1^2+c_2);&& td_3(X)=\frac{c_1c_2}{24}&&td_4(X);=\frac{-c_1^4+4c_2+c_1c_3+3c_2^2-c_4}{720};&&\cdots
+\end{align*}
+
+where $td_k(X)$ denotes the $k$th homogeneous component of $td(X)$ and $c_i=c_i(X):=c_i(\cT_X)$.
+\begin{theorem}[Hirzebruch-Rieman-Roch]
+	Let $E$ be a holomorphic vector bundle on a compact complex manifold $X$. Then, we have equality
+	\begin{equation}
+	\chi(X,E):=\sum_k(-1)^k h^i(X,E)=\int_X ch(E)\cup td(X).\label{eq: HRR}
+	\end{equation}
+\end{theorem}
+Note that since we are integrating over $X$, we only need to consider the top degree parts.
+\begin{example}\label{eg: HRR curves}
+	Let $X=C$ be a compact Riemann surface and $L$ be a line bundle on $X$. we have $ch(E)=1+c_1(L)$ and $td(1)=1+\frac{c_1(X)}{2}$. thus, we have
+	\[
+	\chi(X,L)=\int_X 1+c_1(L)+\frac{c_1(X)}{2}+\frac{c_1(L)c_1(X)}{2}=\int_X c_1(L)+\frac{c_1(X)}{2}=\deg(L)+\frac{\deg(\cT_C)}{2}.
+	\]
+\end{example}
+What is remarkable about this theorem is that the left-hand side of \eqref{eq: HRR} is purely holomorphic (or algebraic) whilst the right-hand side is purely topological. Another similar theorem is the algebro-geometric Gauss-Bonnet theorem.
+\begin{theorem}
+	Let $X$ be a compact complex dimension of dimension $n$. Then, 
+	\[
+	\chi_{top}(X):=\sum_i(-1)^i b_i(X)=\int_Xc_n(X).
+	\]
+\end{theorem}
+
+Recall the classical relation between the Euler characteristic $e$ and the genus $g$ of a topological surface: $\chi_{top}=2-2g$. In particular, this implies that for a compact Riemann surface $C$ as above, that
+ \[
+	\int_Xc_1(X)=\deg(\cT_C)=2-2g.
+	\]
+In particular, in light of what we found in \autoref{eg: HRR curves}, we recover the classical Riemann-Roch theorem:
+\[
+\chi(X,L)=\deg(L)-g+1.
+\]
+\subsection{Kähler-Einstein manifolds}
+\begin{question}
+	When does a smooth projective variety over $\C$ admit a ``canonical'' metric?
+\end{question}
+\begin{definition}
+	Let $(X,\omega)$ be a compact Kähler manifold, and let $D_\omega$ be the corresponding Chern connection. We define the \tbf{Ricci form} $\text{Ric}(\omega)$ of $\omega$ to be
+	\[
+	\text{Ric}(\omega)=i\Tr(F_{D_\omega})\in A^2(X,\C).
+	\]
+	We say that $(X,\omega)$ is \tbf{Kähler-Einstein} if $\text{Ric}(\omega)=\lambda\omega$ for some constant $\lambda\in \R$. 
+\end{definition}
+\begin{remark} We make the following comments.
+\begin{enumerate}
+	\item  Recall that we argued earlier that all the Chern roots of $F_{D_\omega}$ were pure imaginary of type $(1,1)$ so that $\text{Ric}(\omega)$ is real of type $(1,1)$. 
+	
+	\item Note also that $D_\omega$ is invariant under rescaling $\omega$ by some $\lambda>0$ (indeed, parallelness of $h$ is unaffected so we get the same connection). Thus, we may always assume that $\lambda=-1,0,1$.
+	
+	\item since $c_1(X)=[\frac{\iota}{2\pi}\Tr F_{D_\omega}]$ by definition, we have $[\text{Ric}(\omega)]=2\pi c_1(X)\in H^2(X,\R)$.
+	\item $\lambda$ is proportional to the scalar curvature, and so $(X,\omega)$ being Kähler-Einstain implies that the scalar curvature with respect to $g_\omega=\omega(I-,-)$ is constant.
+	\item If $X$ is Kähler-Einstein, then we have
+	\[
+	c_1(X)=\begin{cases}
+		0\\
+		\pm\text{ positive form}.
+	\end{cases}
+	\]
+\end{enumerate}	
+\end{remark}
+\begin{definition}
+	We say that a complex manifold $X$ is \tbf{Calabi-Yau} if $c_1(X)=0$, \tbf{Fano} if $c_1(X)$ is positive, of \tbf{general type} (or \tbf{canonically polarised}) if $-c_1(X)$ is positive.
+\end{definition}
+Note that by Kodaira's embedding theorem, Fano and general type manifolds are projective.
+\begin{caution}
+	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau proved that any Calabi-Yau manifodl admits a Kähler-Einstein metric, and Aubin--Yau proved the same for general type manifolds.
+	
+	Note also that not all manifolds fit in this trichotomy. 
+\end{caution}
+\begin{example}[Curves]
+Let us see how these categories apply to curves.
+\begin{itemize}
+	\item $g=0$ gives only $\bP^1$. Since it is diffeomorphic to a sphere, we have positive scalar curvature. And indeed, the Fubini-Study metric is Kähler-Einstein with $\lambda=1$. Note also that $\bP^1$ is Fano.
+	\item The $g=1$ case corresponds to elliptic curves. These are Ricci-flat and Calabi-Yau.
+	\item The case $g>1$ are of general type, and there exists a Kähler-Einstein metric with negative scalar curvature.\qedbarhere
+\end{itemize}
+\end{example}
+For Fano manifolds, here is a summary of the known classifications:
+\begin{enumerate}
+	\item In dimension $1$ there is only the projective line.
+	\item In dimension $2$, they are called \emph{del Pezzo} surfaces. There are $10$ different deformation families. First, $\bP^2$ and $\bP^1\times\bP^1$ which are isolates. The other $8$ families are obtained by blowing up $\bP^2$ at d points in general position, where $1\leq d\leq 8$.
+	\item In dimension $3$, Mukai proved there are 105 families.
+	\item In dimension $4$, we know there are finitely many families but it remains open to know how many.
+\end{enumerate}
+
+For Calabi-Yau manifolds, there is the following structural theorem.
+\begin{theorem}[Beauville--Bogomolov]
+	Let $X$ be Kähler and Calabi-Yau. Then, there exists an étale cover $\tilde X\to X$ such that 
+	\[
+	\tilde X=T\times \prod_jX_j\times \prod_i V_i
+	\]
+	where $T$ is a torus, $X_j$ is \tbf{hyperkähler} for all $j$, and $V_i$ are \tbf{strict Calabi-Yau} for all $i$. 
+\end{theorem}
+We now define the terms.
+\begin{definition}
+	A compact Kähler manifold $V$ is called \tbf{strict Calabi-Yau} if
+	\begin{itemize}
+		\item $K_V\simeq \cO_V$ is trivial, where $K_V$ denotes the canonical bundle;
+		\item $V$ is simply connected;
+		\item $H^i(V,\cO_V)=0$ for all $i<i<\dim V$.
+	\end{itemize}
+	A complex manifold $X$ is \tbf{hyperkähler} if
+	\begin{itemize}
+		\item it is simply connected;
+		\item $H^0(X,\Omega_X^2)\simeq \C\sigma$ where $\sigma$ is holomorphic symplectic (in particular, it induces an isomorphism $\cT_X\simeq \Omega_X$).\qedbarhere
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	If $V$ is a strict Calabi-Yau of dimension greater than two, then $h^{2,0}=h^{0,2}=0$. In particular, $H^{1,1}(X,\C)=H^2(X,\C)$, and so $H^{1,1}(X,\R)=H^{2}(X,\R)=H^{1,1}(X,\Z)\otimes_\Z\R$. Since the Kähler cone is not empty by assumption, we conclude that it intersects $H^{1,1}(X,\Z)$, so that $V$ is projective by our discussion on Kodaira's embedding theorem. In dimension $2$, non-projective K3 surfaces yield an example of a non-projective strict Calabi-Yau manifold.
+\end{remark}
+\printbibliography
+\end{document}
+
