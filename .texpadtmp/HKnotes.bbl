@@ -19,86 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
-    \entry{Aubin78}{book}{}
-      \name{author}{10}{}{%
-        {{hash=0838e497671afdd73a76673df9e40c59}{%
-           family={Helffer},
-           familyi={H\bibinitperiod},
-           given={B.},
-           giveni={B\bibinitperiod}}}%
-        {{hash=e323d77761ed92fcb84d2b025becbb7a}{%
-           family={Gallot},
-           familyi={G\bibinitperiod},
-           given={Sylvain},
-           giveni={S\bibinitperiod}}}%
-        {{hash=406597e3d1ef168ccb8e9dd0460c0600}{%
-           family={Polombo},
-           familyi={P\bibinitperiod},
-           given={Albert},
-           giveni={A\bibinitperiod}}}%
-        {{hash=a5434aa7f72bcf2c406d9726fc5b82aa}{%
-           family={Bérard\bibnamedelima Bergery},
-           familyi={B\bibinitperiod\bibinitdelim B\bibinitperiod},
-           given={Lionel},
-           giveni={L\bibinitperiod}}}%
-        {{hash=b3cf71ce2aeb4fb5713157cfa63a58f9}{%
-           family={Averous},
+    \entry{Aubin76}{article}{}
+      \name{author}{1}{}{%
+        {{hash=71edd20a845ee0353f4eae73db783d11}{%
+           family={Aubin},
            familyi={A\bibinitperiod},
-           given={Geneviève},
-           giveni={G\bibinitperiod}}}%
-        {{hash=f7bab8d27269f638b31da942895570d2}{%
-           family={Deschamps},
-           familyi={D\bibinitperiod},
-           given={Annie},
-           giveni={A\bibinitperiod}}}%
-        {{hash=e2ebff972a994f358c76bb9d60673b1e}{%
-           family={Calabi},
-           familyi={C\bibinitperiod},
-           given={Eugenio},
-           giveni={E\bibinitperiod}}}%
-        {{hash=1fe948ed0f80496d0fa57da9a8a1deea}{%
-           family={Bourguignon},
-           familyi={B\bibinitperiod},
-           given={J.-P.},
-           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
-        {{hash=e0fa0ebde45171f17c5e10a87de860ef}{%
-           family={Yau},
-           familyi={Y\bibinitperiod},
-           given={Shing\bibnamedelima Tung},
-           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=9f34d73dece8538370d8d206a453a671}{%
-           family={Ezin},
-           familyi={E\bibinitperiod},
-           given={J.\bibnamedelimi P.},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+           given={Thierry},
+           giveni={T\bibinitperiod}}}%
       }
       \list{language}{1}{%
-        {fr}%
+        {French}%
       }
-      \list{publisher}{1}{%
-        {Société mathématique de France}%
-      }
-      \strng{namehash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \strng{fullhash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \strng{bibnamehash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \strng{authorbibnamehash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \strng{authornamehash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \strng{authorfullhash}{d2c30f660132c978610c10f7a7e6cfc6}
-      \field{labelalpha}{Hel+78}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \strng{namehash}{71edd20a845ee0353f4eae73db783d11}
+      \strng{fullhash}{71edd20a845ee0353f4eae73db783d11}
+      \strng{bibnamehash}{71edd20a845ee0353f4eae73db783d11}
+      \strng{authorbibnamehash}{71edd20a845ee0353f4eae73db783d11}
+      \strng{authornamehash}{71edd20a845ee0353f4eae73db783d11}
+      \strng{authorfullhash}{71edd20a845ee0353f4eae73db783d11}
+      \field{labelalpha}{Aub76}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{number}{58}
-      \field{series}{Astérisque}
-      \field{title}{Première classe de {Chern} et courbure de {Ricci} : preuve de la conjecture de {Calabi}}
-      \field{year}{1978}
-      \verb{urlraw}
-      \verb https://www.numdam.org/item/AST_1978__58__1_0/
-      \endverb
-      \verb{url}
-      \verb https://www.numdam.org/item/AST_1978__58__1_0/
-      \endverb
+      \field{issn}{0366-6034}
+      \field{journaltitle}{C. R. Acad. Sci., Paris, Sér. A}
+      \field{title}{Equations du type {Monge}-{Ampère} sur les variétés kähleriennes compactes}
+      \field{volume}{283}
+      \field{year}{1976}
+      \field{pages}{119\bibrangedash 121}
+      \range{pages}{3}
+      \keyw{53C55,58H05,58J99}
     \endentry
     \entry{Serre1956}{article}{}
       \name{author}{1}{}{%

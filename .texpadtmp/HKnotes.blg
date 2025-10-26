@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is '/Users/maximbrais/Documents/2026/Hiver/HyperkaÌhler/.texpadtmp/HKnotes.blg'
-[46] biber-darwin:340> INFO - === Sun Oct 26, 2025, 21:17:33
-[189] Biber.pm:419> INFO - Reading '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/.texpadtmp/HKnotes.bcf'
-[238] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
-[247] Biber.pm:4419> INFO - Processing section 0
-[255] Biber.pm:4610> INFO - Looking for bibtex file '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/reference.bib' for section 0
-[256] bibtex.pm:1713> INFO - LaTeX decoding ...
-[260] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/reference.bib'
-[296] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[296] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[296] Biber.pm:4239> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[296] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[303] bbl.pm:660> INFO - Writing '/Users/maximbrais/Documents/2026/Hiver/HyperkaÌhler/.texpadtmp/HKnotes.bbl' with encoding 'UTF-8'
-[305] bbl.pm:763> INFO - Output to /Users/maximbrais/Documents/2026/Hiver/HyperkaÌhler/.texpadtmp/HKnotes.bbl
+[46] biber-darwin:340> INFO - === Sun Oct 26, 2025, 21:32:53
+[177] Biber.pm:419> INFO - Reading '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/.texpadtmp/HKnotes.bcf'
+[225] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
+[235] Biber.pm:4419> INFO - Processing section 0
+[244] Biber.pm:4610> INFO - Looking for bibtex file '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/reference.bib' for section 0
+[245] bibtex.pm:1713> INFO - LaTeX decoding ...
+[249] bibtex.pm:1519> INFO - Found BibTeX data source '/Users/maximbrais/Documents/2026/Hiver/Hyperkähler/reference.bib'
+[279] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[279] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[279] Biber.pm:4239> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[279] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[286] bbl.pm:660> INFO - Writing '/Users/maximbrais/Documents/2026/Hiver/HyperkaÌhler/.texpadtmp/HKnotes.bbl' with encoding 'UTF-8'
+[287] bbl.pm:763> INFO - Output to /Users/maximbrais/Documents/2026/Hiver/HyperkaÌhler/.texpadtmp/HKnotes.bbl

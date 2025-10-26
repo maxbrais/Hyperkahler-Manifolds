@@ -2363,7 +2363,7 @@
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">Serre1956</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Yau1978</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Aubin78</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">Aubin76</bcf:citekey>
     <bcf:citekey order="3" intorder="2">Yau1978</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
