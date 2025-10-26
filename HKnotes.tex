@@ -746,7 +746,14 @@ An important theorem relating to chern classes is Kodaira's embedding theorem.
 \begin{theorem}[Kodaira]
 	A (holomorphic) line bundle $L$ on a complex manifold $X$ is ample (i.e. induces an embedding in projective space) if and only if it admits a metric $h$ such that $\frac{\iota}{2\pi}F_{D_h}$ is a positive form.
 \end{theorem}
-In particular, let $h_0$ be any hermitian metric on $L$, and let $\omega_0=\frac{\iota}{2\pi}F_{D_{h_0}}$. If $c_1(L)=[\omega_0]$ is positive, i.e. has a positive form $\omega$ as representative of the cohomology class, then we can write $\omega=\omega_0+\partial\overline\partial\phi$ for some function $\phi$ by the $\partial\overline\partial$-lemma. Then, one may compute that the metric $h:=e^{\phi}\cdot h_0$ satisfies $\frac{\iota}{2\pi}F_{D_h}=\omega$ (this is because the $(1,0)$-part of the Chern connection $D_h$ is $h^{-1}\partial h=\partial\log(h)$). In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the map Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
+In particular, let $h_0$ be any hermitian metric on $L$, and let $\omega_0=\frac{\iota}{2\pi}F_{D_{h_0}}$. Assuming $X$ is Kähler, if $c_1(L)=[\omega_0]$ is positive, i.e. if it has a positive form $\omega$ as representative of the cohomology class, then we can write $\omega=\omega_0+\frac{\iota}{2\pi}\partial\overline\partial\phi$ for some function $\phi$ by the $\partial\overline\partial$-lemma. Then, one may compute that the metric $h:=e^{-\phi}\cdot h_0$ satisfies $\frac{\iota}{2\pi}F_{D_h}=\omega$; indeed the $(1,0)$-part of the Chern of the connection is
+\[
+h^{-1}\partial h=\partial\log h=\partial\log (e^{-\phi}h_0)=\partial\log h_0+\partial (-\phi)
+\]
+so that the curvature is given by
+\[F_{D_{h_0}}+\overline\partial\partial(-\phi)=F_{D_{h_0}}+\partial\overline\partial\phi.
+\]
+ In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the map Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
 \subsection{Hirzebruch-Riemann-Roch}
 \begin{definition}
 	Let $X$ be a compact complex manifold. Let $\nabla$ be a connection in the tangent bundle. We define the \tbf{Todd class} of $X$ to be
@@ -825,7 +832,7 @@ In particular, in light of what we found in \autoref{eg: HRR curves}, we recover
 \end{definition}
 Note that by Kodaira's embedding theorem, Fano and general type manifolds are projective.
 \begin{caution}
-	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau proved that any Calabi-Yau manifodl admits a Kähler-Einstein metric, and Aubin--Yau proved the same for general type manifolds.
+	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi-Yau manifodl admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin78,Yau1978}) proved the same for general type manifolds.
 	
 	Note also that not all manifolds fit in this trichotomy. 
 \end{caution}
