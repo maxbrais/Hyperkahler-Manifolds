@@ -32,7 +32,7 @@ restricting to
 \alpha^*:\text{Coh}(X)\to \text{Coh}(X^{an}).
 \]
 \begin{theorem}[Géométrie algébrique géométrie analytique;\;\cite{Serre1956}]
-	If $X$ is smooth\footnote{This can be dropped by considering complex analytic spaces (rather than manifolds).} and proper functor $\alpha^*:\text{Coh}(X)\to\text{Coh}(X^{an})$ is an equivalence, therefore inducing an isomorphism.
+	If $X$ is smooth\footnote{This can be dropped by considering complex analytic spaces (rather than manifolds).} and proper functor $\alpha^*:\text{Coh}(X)\to\text{Coh}(X^{an})$ is an equivalence, therefore inducing an isomorphism.\todo{Statement needs clarification.}
 \end{theorem}
 \subsection{Almost complex structures}
 A complex manifold $(X,\cO_X)$ has an underlying smooth manifold $(X, C^\infty_X)$, where $C^\infty_X$ denotes the sheaf of smooth functions on $X$; indeed, if $X$ has complex charts $U_i\subset \C^n$, the transitions are holomorphic, hence $C^\infty$. 
@@ -100,7 +100,7 @@ and $h$ is conjugate skew-symmetric. Thus, $\omega\in A^2(X)$.
 \begin{definition}
 	$(X,h)$ is \tbf{Kähler} if $d\omega=0$.
 \end{definition}
-That $h$ is linear in the first variable and anti-linear in the second ensures that $h(I-,I)=h(-,-)$, implying that $g(I-,I-)=g(-,-)$, a property that is sometimes called \tbf{compatibility} of the metric with $I$. We have 
+That $h$ is linear in the first variable and anti-linear in the second ensures that $h(I-,I-)=h(-,-)$, implying that $g(I-,I-)=g(-,-)$, a property that is sometimes called \tbf{compatibility} of the metric with $I$. We have 
 \[
 \omega(-,-)=\frac{\iota}{2}(h(-,-)-\overline h(-,-))=\frac{1}{2}(h(I-,-)+\overline h (I-,-))=g(I-,-),
 \]
@@ -162,7 +162,7 @@ A (complex) connection being valued in $\cA^1(E,\C)=\cA^{1,0}(E)\oplus\cA^{0,1}(
 	There exists a unique Chern connection.
 \end{theorem}
 
-When $E=T_\R X$, the Chern connection ought to be regarded as the complex geometric analogue of the Levi-Civita connection from Riemannian geoemtry. In fact this is more than an analogy. If $h$ is a hermitian metric, the Levi-Civita connection of $g=\fR\fe(h)$ can be complexified to a complex connection. It is a theorem that the Levi-Civita connection is the Chern connection if and only if $(X,h)$ is Kähler.
+When $E=T_\R X$, the Chern connection ought to be regarded as the complex geometric analogue of the Levi-Civita connection from Riemannian geometry. In fact this is more than an analogy. If $h$ is a hermitian metric, the Levi-Civita connection of $g=\fR\fe(h)$ can be complexified to a complex connection. It is a theorem that the Levi-Civita connection is the Chern connection if and only if $(X,h)$ is Kähler.
 
 We can extend the connection $\nabla:\cA^0(E,\C)\to \cA^1(E,\C)$ to a connection
 \[
@@ -175,7 +175,7 @@ for all positive $p$ via
 where $\omega$ is a $p$-form and $s$ is a section of $E$.
 
 \begin{remark}
-	Note this different to the usual extension of a connection to tensors since we are dealing with skew-symmetric forms. In particular, this satisfied a different Leibniz rule:
+	Note that this is different from the usual extension of a connection to tensors since we are dealing with skew-symmetric forms. In particular, this satisfies a different Leibniz rule:
 	\[
 	\nabla(fs)=df\wedge s\otimes d\nabla s.
 	\]
@@ -208,6 +208,6 @@ We define the \tbf{$k$th Chern character} of $\nabla$ to be
 		\item $\text{ch}_k(E,\nabla)$ is closed;
 		\item The cohomology class $\text{ch}_k(E):=[\text{ch}_k(E,\nabla)]\in H^{2k}_{dR}(X,\C)$ is independent of $\nabla$;
 		\item $\text{ch}_k(E)$ is real, i.e. in $H^{2k}_{dR}(X,\R)$ (in fact, it is integral);
-		\item The total Chern character $\sum_k\text{ch}_k(E)$ is equal to the cohomology class of $\Tr(\exp(\frac{\iota}{2\pi}F_\nabla)$ (this one directly follows from developing the exponential).
+		\item The total Chern character $\sum_k\text{ch}_k(E)$ is equal to the cohomology class of $\Tr(\exp(\frac{\iota}{2\pi}F_\nabla))$ (this one directly follows from developing the exponential).
 	\end{enumerate}	
 \end{theorem}

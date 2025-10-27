@@ -7,7 +7,7 @@ Let now $E$ be a complex vector bundle and $\nabla$ a connection. By $GL(V)$ inv
 \begin{fact}[Chern-Weil]
 	$P(\frac{\iota}{2\pi}F_\nabla)$ is closed, and the class $[P(\frac{\iota}{2\pi}F_\nabla)]\in H^{2k}(X,\C)$ is independent of $\nabla$.
 \end{fact}
-Consider now the $GL(V)$-invariant homogeneous polynomials $P_k$ returning the coefficients of the characteristic polynomials (i.e. $P_k$ $k$th elementary symmetric polynomial on the eigenvalues). We can explicitely define $P_k$ by the formula:
+Consider now the $GL(V)$-invariant homogeneous polynomials $P_k$ returning the coefficients of the characteristic polynomials (i.e. $P_k$ $k$th elementary symmetric polynomial on the eigenvalues). We can explicitly define $P_k$ by the formula:
 \[
 \det(I+tB)=\sum_kP_k(B)t^k.
 \]
@@ -38,7 +38,7 @@ Let $E_1$ and $E_2$ be vector bundles with respective (complex) connections $\na
 	\[
 	d\langle s,\phi\rangle=\langle\nabla s,\phi\rangle+\langle s,\nabla^\vee \phi\rangle.
 	\]
-	Let us try to compare the two curvature. Given $s_i$ ant $t_j$ frames of $E$, we consider the connexion form $A=(A_i^{\;j})$ satisfying $\nabla s_i=A_i^{\;j}\otimes t_j$. Let $s^i$ and $t^j$ be the dual frames. We obtain
+	Let us try to compare the two curvatures. Given $s_i$ and $t_j$ frames of $E$, we consider the connection form $A=(A_i^{\;j})$ satisfying $\nabla s_i=A_i^{\;j}\otimes t_j$. Let $s^i$ and $t^j$ be the dual frames. We obtain
 	\begin{align*}
 		d\langle s_i,t^j\rangle=0&=\langle \nabla s_i,t^j\rangle+\langle s_i,\nabla^\vee t^j\rangle\\
 		&=\langle A_i^{\;k}\otimes t_k,t^j\rangle+\langle s_i,B^j_{\;k}\otimes s^k\rangle\\
@@ -65,7 +65,7 @@ Let $E_1$ and $E_2$ be vector bundles with respective (complex) connections $\na
 	\end{enumerate}
 \end{corollary}
 
-Note that $c_k(E)\in H^{2k}(X,\C)$ is in fact real: indeed, conjugation acts on via $\overline{F_\nabla}=F_{\overline\nabla}$, and up to choosing a hermitian metric, we have $E^\vee\simeq \overline E$ and $F_{\overline\nabla}=-F_\nabla^t$, and in a Chern splitting, the eigenvalues $\omega_1,\dots,\omega_r$ are purely imaginary. We obtain
+Note that $c_k(E)\in H^{2k}(X,\C)$ is in fact real: indeed, conjugation acts on\todo{on what} via $\overline{F_\nabla}=F_{\overline\nabla}$, and up to choosing a hermitian metric, we have $E^\vee\simeq \overline E$ and $F_{\overline\nabla}=-F_\nabla^t$, and in a Chern splitting, the eigenvalues $\omega_1,\dots,\omega_r$ are purely imaginary. We obtain
 \[c_k(E)=P_k(\frac{\iota}{2\pi}F_\nabla)=\brk{\frac{\iota^k}{(2\pi)^k}P_k(F_\nabla)}=\brk{\frac{\iota^k}{(2\pi)^k}\sigma_k(\omega_1,\dots,\omega_r)}
 \]
 while
@@ -78,7 +78,7 @@ Let $D\subset X$ be a divisor. It is a fact that the fundamental class of $D$ is
 \[
 [D]=c_1(\cO(D))\in H^{2}(X,\C),
 \]
-showing that the first\,---\,and therefore fore any\,---\,Chern class is integral.
+showing that the first\,---\,and therefore any\,---\,Chern class is integral.
 
 An important theorem relating to chern classes is Kodaira's embedding theorem.
 \begin{theorem}[{\cite{Kodaira54}}]
@@ -91,7 +91,7 @@ h^{-1}\partial h=\partial\log h=\partial\log (e^{-\phi}h_0)=\partial\log h_0+\pa
 so that the curvature is given by
 \[F_{D_{h_0}}+\overline\partial\partial(-\phi)=F_{D_{h_0}}+\partial\overline\partial\phi.
 \]
-In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the map Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
+In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
 \subsection{Hirzebruch-Riemann-Roch}
 \begin{definition}
 	Let $X$ be a compact complex manifold. Let $\nabla$ be a connection in the tangent bundle. We define the \tbf{Todd class} of $X$ to be
@@ -129,7 +129,7 @@ What is remarkable about this theorem is that the left-hand side of \eqref{eq: H
 	\]
 \end{theorem}
 
-Recall the classical relation between the Euler characteristic $\chi_{top}$ and the genus $g$ of a topological surface: $\chi_{top}=2-2g$. In particular, this implies that for a compact Riemann surface $C$ as above, that
+Recall the classical relation between the Euler characteristic $\chi_{top}$ and the genus $g$ of a topological surface: $\chi_{top}=2-2g$. In particular, this implies for a compact Riemann surface $C$ as above, that
 \[
 \int_Xc_1(X)=\deg(\cT_C)=2-2g.
 \]
@@ -155,7 +155,7 @@ In particular, in light of what we found in \autoref{eg: HRR curves}, we recover
 		\item Note also that $D_\omega$ is invariant under rescaling $\omega$ by some $\lambda>0$ (indeed, parallelness of $h$ is unaffected so we get the same connection). Thus, we may always assume that $\lambda=-1,0,1$.
 		
 		\item since $c_1(X)=[\frac{\iota}{2\pi}\Tr F_{D_\omega}]$ by definition, we have $[\text{Ric}(\omega)]=2\pi c_1(X)\in H^2(X,\R)$.
-		\item $\lambda$ is proportional to the scalar curvature, and so $(X,\omega)$ being Kähler-Einstain implies that the scalar curvature with respect to $g_\omega=\omega(I-,-)$ is constant.
+		\item $\lambda$ is proportional to the scalar curvature, and so $(X,\omega)$ being Kähler-Einstein implies that the scalar curvature with respect to $g_\omega=\omega(I-,-)$ is constant.
 		\item If $X$ is Kähler-Einstein, then we have
 		\[
 		c_1(X)=\begin{cases}
@@ -170,7 +170,7 @@ In particular, in light of what we found in \autoref{eg: HRR curves}, we recover
 \end{definition}
 Note that by Kodaira's embedding theorem, Fano and general type manifolds are projective.
 \begin{caution}
-	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi-Yau manifodl admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin76,Yau1978}) proved the same for general type manifolds.
+	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi-Yau manifold admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin76,Yau1978}) proved the same for general type manifolds.
 	
 	Note also that not all manifolds fit in this trichotomy. 
 \end{caution}
@@ -204,7 +204,7 @@ We now define the terms.
 	\begin{itemize}
 		\item $K_V\simeq \cO_V$ is trivial, where $K_V$ denotes the canonical bundle;
 		\item $V$ is simply connected;
-		\item $H^i(V,\cO_V)=0$ for all $i<i<\dim V$.
+		\item $H^i(V,\cO_V)=0$ for all $0<i<\dim V$.\todo{I think this definition is wrong. One wants $h^{i,0}$ to vanish instead.}
 	\end{itemize}
 	A complex manifold $X$ is \tbf{hyperkähler} if
 	\begin{itemize}
