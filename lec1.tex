@@ -1,0 +1,213 @@
+% !TEX root = main.tex
+\section{First lecture}
+We first review some complex geometry.
+\begin{definition}
+	A \tbf{complex manifold} is a locally ringed space $(X,\cO_X)$ such that
+	\begin{itemize}
+		\item $X$ is Hausdorff and second countable (this part is to ensure we actually have a topological manifold);
+		\item $(X,\cO_X)$ is locally isomorphic to $(\Delta,\cO_\Delta)$, where $\Delta\subset \C^n$ is the polydisc.\qedbarhere 
+	\end{itemize} 
+\end{definition}
+\begin{example}\label{eg: affine var}
+	Let $f_i,\dots,f_d\in\C[z_1,\dots,z_n]$ be complex polynomials such that the Jacobian of
+	\[f=(f_1,\dots,f_d):\C^n\to \C^d
+	\]
+	has everywhere full rank on the vanishing set $V=V(f)\subset \C^n$. By the holomorphic implicit function theorem (regular value theorem), $V$ is a complex manifold.
+\end{example}
+\begin{example}\label{eg: smooth algebraic var}
+	If $X$ is a smooth algebraic variety over $\C$, we may cover it by affines $V_i$ which are of the same form as in \autoref{eg: affine var}. We may consider the analytic topology $X^{an}$ obtained by gluing the different charts $V_i$. Similarly, we may define the sheaf $\cO_X^{an}$ on $X^{an}$ by considering the sheaf of holomorphic functions on each $V_i$ (the transitions $V_i\to V_j$ are regular algebraic, hence holomorphic, so that this gluing makes sense). Then, $(X^{an},\cO_X^{an})$ is a complex manifold.
+\end{example}
+
+Note that in \autoref{eg: smooth algebraic var}, we obtain a natural map of ringed spaces
+%
+\[
+\alpha:(X^{an},\cO_X^{an})\to (X,\cO_X)
+\]
+since the analytic topology is finer than the Zariski topology, and regular functions are holomorphic. In particular, we obtain a functor between abelian categories:
+\[
+\alpha^*:\cO_X\text{-mod}\to \cO_X^{an}\text{-mod}
+\]
+restricting to
+\[
+\alpha^*:\text{Coh}(X)\to \text{Coh}(X^{an}).
+\]
+\begin{theorem}[Géométrie algébrique géométrie analytique;\;\cite{Serre1956}]
+	If $X$ is smooth\footnote{This can be dropped by considering complex analytic spaces (rather than manifolds).} and proper functor $\alpha^*:\text{Coh}(X)\to\text{Coh}(X^{an})$ is an equivalence, therefore inducing an isomorphism.
+\end{theorem}
+\subsection{Almost complex structures}
+A complex manifold $(X,\cO_X)$ has an underlying smooth manifold $(X, C^\infty_X)$, where $C^\infty_X$ denotes the sheaf of smooth functions on $X$; indeed, if $X$ has complex charts $U_i\subset \C^n$, the transitions are holomorphic, hence $C^\infty$. 
+\begin{notation}
+	Since the indices $i$ will be ubiquitous, $\iota$ shall denote the root of $-1$ for these notes (this spares the cumbersome $\sqrt{-1}$ alternative).
+\end{notation}
+On each chart $U_i$, we have multiplication by $\iota$, but this does not globalise, as $\iota$ does not commute with holomorphic functions: in the Taylor expansion, we have terms which are of degree $m$ where $m\neq 1\mod 4$. However, the differential of $\iota$ may be globalised, as we get rid of the higher order terms. In a local chart $U_i\subset \C^n$, the (real) tangent bundle has a local frame
+\[
+T_\R U_i=\langle \partial_{x_j},\partial_{y_j}:1\leq j\leq n\rangle,
+\]
+on which $I:=d\iota$ acts by
+\[
+\begin{cases}
+	\partial_{x_j}\mapsto \partial_{y_j}\\
+	\partial_{y_j}\mapsto -\partial_{x_j}.
+\end{cases}
+\]
+\begin{definition}
+	An \tbf{almost complex structure} on a smooth manifold $X$ is an endomorphism $I\in \text{End}(T_\R X)$ such that $I^2=-1$. We say that $I$ is integrable if $X$ is a complex manifold and $I$ is obtained by locally differentiating $\iota$. 
+\end{definition}
+\begin{question}\label{q: integrable?}
+	Given $I$ an almost complex structure, when is it integrable?
+\end{question}
+Let us first set up some tools in order to address this question appropriately. Assume only for now that $X$ is a smooth manifold and $I$ is an almost complex structure. We can consider the complexified tangent bundle 
+\[
+T_\C X:=T_\R X\otimes_\R \C,
+\]
+to which we can extend the action of $I$. Since $I^2={-1}$, the minimal polynomial of $I$ is $x^2+1$, which is separable over $\C$, meaning that $I$ is diagonalisable, with eigenvalues $\pm \iota$. The eigenspaces must have the same dimension as $I$ acts on the \emph{real} tangent space. We thus obtain a decomposition
+\[
+T_\C X=T^{1,0}X\oplus T^{0,1}X= T^{1,0}X\oplus \overline{T^{1,0}X}.
+\]
+Note that we have
+\begin{align*}
+	T^{1,0}X=\{(v-iIv):v\in T_\C X\}&&T^{0,1}X=\{(v+iIv):v\in T_\C X\}.
+\end{align*}
+\begin{notation}
+	We will use the following notation
+	\begin{itemize}
+		\item $\cA^0(X):=C^\infty_X$;
+		\item $\cA^k(X)$ denotes the sheaf of (smooth) degree $k$ real forms;
+		\item $\cA^k(X,\C)=\oplus_{p+q=k}\cA^{p,q}(X)$ denotes the sheaf of sections of $\bigwedge^kT_\C^*X$ (i.e. smooth complex degree $k$ forms) and $\cA^{p,q}(X)$ denotes the sheaf of sections of $\bigwedge^pT^{1,0}X\otimes \bigwedge^q T^{0,1}X$;
+		\item $d:\cA^k(X,\C)\to \cA^{k+1}(X,\C)$ denotes the complexification of the usual exterior derivative, and can be decomposed by types as $d=\partial+\bar\partial$, where $\partial$ denotes the part corresponding to the differentiation in holomorphic coordinates, and similarly $\bar\partial$ for anti-holomorphic coordinates.
+		\item $A^k(X)$, $A^k(X,\C)$, and $A^{p,q}(X)$ denotes the global sections of respectively $\cA^k(X),\cA^k(X,\C)$, and $\cA^{p,q}(X)$.\
+		\item $\cT_X$ denotes the sheaf of homolorphic vector fields, i.e. $\cT_X:=\cD er(\cO_X,\cO_X)$;
+		\item $\Omega_X:=\cT_X^*$ denotes the cotangent sheaf.\qedbarhere
+	\end{itemize}
+\end{notation}
+The following theorem answers \autoref{q: integrable?}.
+\begin{theorem}[Newlander-Niremberg]
+	$I$ is integrable if and only if $\bar{\partial}^2=0$.
+\end{theorem}
+Note that this is equivalent to $T^{1,0}X$ being closed under the (complex) Lie bracket (this is much related to the Frobenius theorem of differential geometry), and also equivalent of the vanishing of a certain tensor $N_I$ called the \emph{Nijenhuis} tensor. 
+\subsection{Metrics}
+Let $E$ be a real vector bundle on $(X,C_X^\infty)$. A \tbf{Riemannian metric} $g$ on $E$ is a section of $\text{Sym}^2E^\vee$ such that for all $p\in X$, $g_p$ is positive definite. If $E$ is a complex bundle, a \tbf{Hermitian metric} $h$ is a map of sheaves $E\otimes \overline E\to C^\infty(X,\C)$ such that each $h_p$ is Hermitian, i.e. $h_p(e,f)=\overline{h_p(f,e)}$ and $h_p(e,e)>0$ for all $e,f\in E_p$.  When $E=T_\R X$, we say that $g$ (resp. $h$) is a \tbf{Riemannian} (resp. \tbf{Hermitiam}) \tbf{metric on } $X$ (here, the almost complex structure $I$ is used to put a $\C$-structure on $T_\R X$).
+
+If $X$ is a complex manifold and $h$ is a  Hermitian metric, then we can write
+\[
+h=g-i\omega
+\]
+where $g=\fR\fe(h)$ and $\omega=-\fI\fm(h)$. We obtain that $g$ is a Riemannian metric, and $\omega$ is skew-symmetric since
+\[
+\omega(X,Y)=\frac{\iota}{2}(h-\overline h)
+\]
+and $h$ is conjugate skew-symmetric. Thus, $\omega\in A^2(X)$.
+\begin{definition}
+	$(X,h)$ is \tbf{Kähler} if $d\omega=0$.
+\end{definition}
+That $h$ is linear in the first variable and anti-linear in the second ensures that $h(I-,I)=h(-,-)$, implying that $g(I-,I-)=g(-,-)$, a property that is sometimes called \tbf{compatibility} of the metric with $I$. We have 
+\[
+\omega(-,-)=\frac{\iota}{2}(h(-,-)-\overline h(-,-))=\frac{1}{2}(h(I-,-)+\overline h (I-,-))=g(I-,-),
+\]
+which also implies
+\[
+\omega(-,I-)=g(-,-).
+\]
+\begin{definition}\label{def: kahler}
+	A form $\omega\in A^2(X)$ is called \tbf{positive} if $\omega(u,Iu)>0$ for all $u\in T_\R X$. We see that a de Rham cohomology class in $H^2(X,\C)$ is \tbf{positive} if it can be represented by a positive form. If moreover $\omega$ is $I$-invariant (or equivalently, of type $(1,1)$ after embedding $A^2(X)\subset A(X,\C)$), we say $\omega$ is \tbf{Kähler}.
+\end{definition}
+If $\omega$ is Kähler, we may define the hermitian metric $h_\omega=\omega(-,I-)-i\omega$, and we have that $\omega$ is Kähler if and only if $(X,h_\omega)$ is Kähler.
+\begin{example}
+	Let $X=\bP^n$, with projective coordinates $Z_0,\dots,Z_n$. Let $U_i$ be the $Z_i\neq 0$ chart, and define $z_j=\frac{Z_j}{Z_i}$. We may define on $U_i$ the metric
+	\[
+	\omega_{FS}=\omega=i\partial\overline\partial\log\pa{1+\sum_jz_j\overline z_j},
+	\]
+	and one checks that these glue to a global form, which we call the \tbf{Fubini-Study metric}. Written as a Kähler potential this way shows that it is a Kähler metric.
+\end{example}
+Note that if $(X,\omega)$ is Kähler, restricting the metric to a complex submanifold $Y$ preserves all properties of \autoref{def: kahler}, and so $(Y,\omega_Y)$ is Kähler. Thus, any projective manifold is Kähler.
+
+\subsection{Connections}
+
+Let $E$ be a complex (the real case is identical) vector bundle on $(X,C_X^\infty)$. A \tbf{complex connection} in $E$ is a $\C$-linear map 
+\[
+\nabla:\cA^0(E,\C)\to \cA^1(E,\C),
+\]
+(here $\cA^i(E,\C)= \cA^i(X,\C)\otimes \Gamma(E)$) such that
+%
+\[
+\nabla(f\cdot s)=df\otimes s+f\cdot\nabla s
+\]
+for all section $s$ of $E$ and $f\in C^\infty_X$.
+
+If $E$ is a holomorphic bundle on a complex manifold, we can define the operator
+%
+\[
+\overline\partial:\cA^0(E)\to \cA^{0,1}(E)
+\]
+%
+as follows: if $\sigma_i$ is a local frame, and $s=s^i \sigma_i$ a section, we let
+\begin{equation}
+	\overline\partial(s^i\sigma_i):=(\overline\partial s^i)\otimes \sigma_i.\label{eq: dbar bundle}
+\end{equation}
+
+Indeed, given another frame $\tau_j$ related by $\sigma_i=g_{ij}\tau_j$, we have
+\[
+\overline\partial (s^i)\otimes \sigma_i=\overline \partial(s_i)\otimes g_{ij}\tau_j=\overline\partial(g_{ij}s^i)\otimes \tau_j
+\]
+since the transitions $g_{ij}$ are holomorphic by assumption.
+
+A (complex) connection being valued in $\cA^1(E,\C)=\cA^{1,0}(E)\oplus\cA^{0,1}(E)$, we may split $\nabla=\nabla^{1,0}+\nabla^{0,1}$.
+\begin{definition}
+	The complex connection $\nabla$ in $E$ is said to be \tbf{compatible} with the holomorphic structure if $\nabla^{0,1}=\overline\partial$. Suppose $E$ has a hermitian metric $h$. We say $\nabla$ is \tbf{compatible} with $h$ if for any sections $e,f$, we have equality of forms
+	\[d(h(e,f))=h(\nabla e,f)+h(e,\nabla f).\]
+	More geometrically, this says that $h$ is parallel to the connection, i.e. constant along parallel transport, i.e. the connection has $U(n)$-holonomy. We say $\nabla$ is a \tbf{Chern connection} if it is both compatible with the holomorphic structure and the hermitian metric.
+\end{definition} 
+
+\begin{theorem}[Chern]
+	There exists a unique Chern connection.
+\end{theorem}
+
+When $E=T_\R X$, the Chern connection ought to be regarded as the complex geometric analogue of the Levi-Civita connection from Riemannian geoemtry. In fact this is more than an analogy. If $h$ is a hermitian metric, the Levi-Civita connection of $g=\fR\fe(h)$ can be complexified to a complex connection. It is a theorem that the Levi-Civita connection is the Chern connection if and only if $(X,h)$ is Kähler.
+
+We can extend the connection $\nabla:\cA^0(E,\C)\to \cA^1(E,\C)$ to a connection
+\[
+\nabla:\cA^p(E,\C)\to \cA^{p+1}(E,\C)
+\]
+for all positive $p$ via
+\[
+\nabla(\omega\otimes s)=d\omega\otimes s+(-1)^p\omega\wedge\nabla s,
+\]
+where $\omega$ is a $p$-form and $s$ is a section of $E$.
+
+\begin{remark}
+	Note this different to the usual extension of a connection to tensors since we are dealing with skew-symmetric forms. In particular, this satisfied a different Leibniz rule:
+	\[
+	\nabla(fs)=df\wedge s\otimes d\nabla s.
+	\]
+\end{remark}
+
+\begin{definition}
+	We define the \tbf{curvature} of $\nabla$ to be the composition $\nabla^2=\nabla\circ\nabla=F_\nabla$.
+\end{definition}
+
+Note that
+\begin{align*}
+	\nabla(\nabla fs)=\nabla(df\otimes s+f\nabla s)&=ddf-df\wedge\nabla s+\nabla(f\nabla s)	\\
+	&=-df\wedge\nabla s+df\wedge\nabla s+f\nabla^2s=f\nabla^2s
+\end{align*}
+so that $F_\nabla$ is $C^\infty_X$-linear, that is a section of $\cA^2(End(E),\C)$.
+
+We may also define
+%
+\[F_\nabla^k:=\underbrace{F_\nabla\circ\cdots\circ F_\nabla}_k\in \cA^{2k}(End(E),\C).
+\]
+We define the \tbf{$k$th Chern character} of $\nabla$ to be
+%
+\[
+\text{ch}_k(E,\nabla):= \Tr\pa{\frac{1}{k!}\pa{\frac{\iota}{2\pi}F_\nabla^k}}\in A^{2k}(X,\C).
+\]
+
+\begin{theorem}[Chern-Weil]
+	The following is true about the Chern character.
+	\begin{enumerate}
+		\item $\text{ch}_k(E,\nabla)$ is closed;
+		\item The cohomology class $\text{ch}_k(E):=[\text{ch}_k(E,\nabla)]\in H^{2k}_{dR}(X,\C)$ is independent of $\nabla$;
+		\item $\text{ch}_k(E)$ is real, i.e. in $H^{2k}_{dR}(X,\R)$ (in fact, it is integral);
+		\item The total Chern character $\sum_k\text{ch}_k(E)$ is equal to the cohomology class of $\Tr(\exp(\frac{\iota}{2\pi}F_\nabla)$ (this one directly follows from developing the exponential).
+	\end{enumerate}	
+\end{theorem}

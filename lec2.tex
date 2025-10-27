@@ -1,0 +1,217 @@
+% !TEX root = main.tex
+\section{Second Lecture}
+\subsection{Chern classes}
+Let $V$ be a vector space over $\C$ of dimension $r$. Let $P\in \C[End(V)]$ be a homogeneous polynomial of degree $k$. Assume moreover $P$ is $GL(V)$ invariant, that is $P(A^{-1}BA)=P(B)$ for any $A\in GL(V)$.
+
+Let now $E$ be a complex vector bundle and $\nabla$ a connection. By $GL(V)$ invariance, $P(\frac{\iota}{2\pi}F_\nabla)$ is well-defined, and lives in $A^{2k}(X,\C)$.
+\begin{fact}[Chern-Weil]
+	$P(\frac{\iota}{2\pi}F_\nabla)$ is closed, and the class $[P(\frac{\iota}{2\pi}F_\nabla)]\in H^{2k}(X,\C)$ is independent of $\nabla$.
+\end{fact}
+Consider now the $GL(V)$-invariant homogeneous polynomials $P_k$ returning the coefficients of the characteristic polynomials (i.e. $P_k$ $k$th elementary symmetric polynomial on the eigenvalues). We can explicitely define $P_k$ by the formula:
+\[
+\det(I+tB)=\sum_kP_k(B)t^k.
+\]
+
+We define the \tbf{$k$th Chern class} of $E$ to be the cohomology class of $P_k(\frac{i}{2\pi}F_\nabla)$, and the \tbf{total Chern class} of $E$ to be $c(E):=\sum_{i=0}^kc_k(E)$.
+
+The Chern classes and characters satisfy certain properties:
+\begin{itemize}
+	\item $c_0(E)=1$ and $ch_0=r$;
+	\item $c_d=0$ if $d>r$. In particular, if $L$ is a line bundle, $c(L)=1+c_1(L)$;
+	\item $ch(L)=\exp(c_1(L)):=1+c_1(L)+\frac{c_1(L)^2}{2!}+\cdots\in H^{2\bullet}(X,\C)$.
+\end{itemize}
+
+To derive further elementary properties of the Chern characters and classes, let us first observe how we can assemble connections into new connections
+
+Let $E_1$ and $E_2$ be vector bundles with respective (complex) connections $\nabla_1$ and $\nabla_2$. Then,
+\begin{itemize}
+	\item $\nabla_{E_1\oplus E_2}:=\nabla_1\oplus\nabla_2$ is a connection on $E_1\oplus E_2$, and $F_{\nabla_1\oplus\nabla_2}=F_{\nabla_1}\oplus F_{\nabla_2}$, where this is seen as a block matrix
+	\[\begin{pmatrix}
+		F_{\nabla_1}&\\&F_{\nabla_2}
+	\end{pmatrix}; \]
+	\item $\nabla_{E_1\otimes E_2}:=\nabla_1\otimes \id_{E_2}+\id_{E_1}\otimes \nabla_2$ is a connection on $E_1\otimes E_2$;
+	\item the assignment
+	\[
+	(\nabla^\vee \phi)(s):=d(\phi(s))-\phi(\nabla(s))
+	\]
+	where $s\in E$ and $\phi\in E^\vee$ defines a connection on $E^\vee$ (note that this is the usual way to extend connections on tensors). In other words, if $\langle-,-\rangle$ denotes the natural pairing on $E\otimes E^\vee$, the dual connection is defined by
+	\[
+	d\langle s,\phi\rangle=\langle\nabla s,\phi\rangle+\langle s,\nabla^\vee \phi\rangle.
+	\]
+	Let us try to compare the two curvature. Given $s_i$ ant $t_j$ frames of $E$, we consider the connexion form $A=(A_i^{\;j})$ satisfying $\nabla s_i=A_i^{\;j}\otimes t_j$. Let $s^i$ and $t^j$ be the dual frames. We obtain
+	\begin{align*}
+		d\langle s_i,t^j\rangle=0&=\langle \nabla s_i,t^j\rangle+\langle s_i,\nabla^\vee t^j\rangle\\
+		&=\langle A_i^{\;k}\otimes t_k,t^j\rangle+\langle s_i,B^j_{\;k}\otimes s^k\rangle\\
+		&=A_i^{\;j}+B^j_{\; i},
+	\end{align*}
+	where $B=(B^j_{\; i})$ is the connection form of $\nabla^\vee$. And so we have $B=-A^t$ as sections of $\cA^2(End(E),\C)=\cA^2(End(E^\vee),\C)$. Using Cartan's formula for the curvature of a connection, we conclude
+	\[
+	F_{\nabla^\vee}=d(-A^t)+(-A^t)\wedge(-A^t)=-(dA+A\wedge A)^t=-F_{\nabla}^t.
+	\]
+	\item connections pull back, that is if $f:Y\to X$ is a smooth map and $E$ is a bundle on $X$ with connection $\nabla_E$, we may define the connection $\nabla_{f^*E}$ by \emph{locally} demanding
+	\[
+	\nabla_{f^*E}(f^*s)=f^*\nabla s.
+	\]
+\end{itemize}
+
+
+\begin{corollary}
+	Let $E_1,E_2$ be complex vector bundles on $X$. The following hold:
+	\begin{enumerate}
+		\item $ch(E_1\oplus E_2))=ch(E_1)+ch(E_2)$ and $c(E_1\oplus E_2)=c(E_1)\cup c(E_2)$;
+		\item $ch(E_1\otimes E_2)=ch(E_1)\cup ch(E_2)$;
+		\item $c_k(E^\vee)=(-1)^k c_k(E)$
+		\item $ch_k(f^*E)=f^*(ch_k(E))$ and  and $c_k(f^*E)=f^*(c_k(E))$.
+	\end{enumerate}
+\end{corollary}
+
+Note that $c_k(E)\in H^{2k}(X,\C)$ is in fact real: indeed, conjugation acts on via $\overline{F_\nabla}=F_{\overline\nabla}$, and up to choosing a hermitian metric, we have $E^\vee\simeq \overline E$ and $F_{\overline\nabla}=-F_\nabla^t$, and in a Chern splitting, the eigenvalues $\omega_1,\dots,\omega_r$ are purely imaginary. We obtain
+\[c_k(E)=P_k(\frac{\iota}{2\pi}F_\nabla)=\brk{\frac{\iota^k}{(2\pi)^k}P_k(F_\nabla)}=\brk{\frac{\iota^k}{(2\pi)^k}\sigma_k(\omega_1,\dots,\omega_r)}
+\]
+while
+\[
+\overline{c_k(E)}=\brk{\frac{(-1)^k\iota ^k}{(2\pi)^k}\sigma_k(-\omega_1,\dots,-\omega_r)}=\brk{\frac{(-1)^{2k}\iota^k}{2\pi}\sigma_k(\omega_1,\dots,\omega_r)}=c_k(E)
+\]
+where $\sigma_k$ denotes the $k$th standard symmetric polynomial, so that $c_k(E)\in H^{2k}(X,\R)$. The $k$th Chern class is also $(1,1)$. Indeed, consider the Chern connection $\nabla=\nabla^{1,0}+\nabla^{0,1}=\nabla^{1,0}+\overline\partial$. From this decomposition, we see that the $(0,2)$-part of the curvature is $\overline\partial^2=0$. Similarly, one can use the fact that the hermitian metric is parallel to show that the $(2,0)$ part vanishes so that all $\omega_i$ are of type $(1,1)$, from which one obtains that $c_k(E)$ is of type $(k,k)$.
+
+Let $D\subset X$ be a divisor. It is a fact that the fundamental class of $D$ is the Chern class of $\cO(D)$, i.e.
+\[
+[D]=c_1(\cO(D))\in H^{2}(X,\C),
+\]
+showing that the first\,---\,and therefore fore any\,---\,Chern class is integral.
+
+An important theorem relating to chern classes is Kodaira's embedding theorem.
+\begin{theorem}[{\cite{Kodaira54}}]
+	A (holomorphic) line bundle $L$ on a complex manifold $X$ is ample (i.e. induces an embedding in projective space) if and only if it admits a metric $h$ such that $\frac{\iota}{2\pi}F_{D_h}$ is a positive form.
+\end{theorem}
+In particular, let $h_0$ be any hermitian metric on $L$, and let $\omega_0=\frac{\iota}{2\pi}F_{D_{h_0}}$. Assuming $X$ is Kähler, if $c_1(L)=[\omega_0]$ is positive, i.e. if it has a positive form $\omega$ as representative of the cohomology class, then we can write $\omega=\omega_0+\frac{\iota}{2\pi}\partial\overline\partial\phi$ for some function $\phi$ by the $\partial\overline\partial$-lemma. Then, one may compute that the metric $h:=e^{-\phi}\cdot h_0$ satisfies $\frac{\iota}{2\pi}F_{D_h}=\omega$; indeed the $(1,0)$-part of the Chern of the connection is
+\[
+h^{-1}\partial h=\partial\log h=\partial\log (e^{-\phi}h_0)=\partial\log h_0+\partial (-\phi)
+\]
+so that the curvature is given by
+\[F_{D_{h_0}}+\overline\partial\partial(-\phi)=F_{D_{h_0}}+\partial\overline\partial\phi.
+\]
+In particular, a line bundle $L$ is ample if and only if $c_1(L)$ is positive, i.e. is represented by a Kähler form. Now, on a compact manifold, slightly perturbing a Kähler form inside $H^{1,1}(X,\R)$ still yields a Kähler form, since it preserves the positivity criterion. Thus, Kähler forms form an open positive cone $\cK_X$ inside of $H^{1,1}(X,\R)$ (scaling by a positive real preserves Kählerness). Moreover, by the Lefschetz theorem on $(1,1)$ classes, the map Chern map $\text{Pic}(X) \to H^{1,1}(X,\Z)$ is surjective.  Thus, we conclude that a compact complex manifold is projective if and only if $\cK_X$ intersects with $H^{1,1}(X,\Z)$ inside of $H^{1,1}(X,\R)$.
+\subsection{Hirzebruch-Riemann-Roch}
+\begin{definition}
+	Let $X$ be a compact complex manifold. Let $\nabla$ be a connection in the tangent bundle. We define the \tbf{Todd class} of $X$ to be
+	\[
+	td(X):=\brk{\det\pa{\frac{\frac{\iota}{2\pi}F_\nabla}{1-\exp(\frac{-\iota}{2\pi}F_\nabla}}}\in H^{2\bullet}(X,\C)
+	\]
+\end{definition}
+In terms of Chern roots $\omega_1,\dots,\omega_r$, we have that
+\[
+td(X)=\prod_{i=1}^r\frac{\omega_i}{1-e^{-{\omega_i}}}\]
+It can be computed that we have
+\begin{align*}
+	td_0(X)=1;&&td_1(X)=\frac{c_1}{2};&&td_2(X)=\frac{1}{12}(c_1^2+c_2);&& td_3(X)=\frac{c_1c_2}{24}&&td_4(X);=\frac{-c_1^4+4c_2+c_1c_3+3c_2^2-c_4}{720};&&\cdots
+\end{align*}
+
+where $td_k(X)$ denotes the $k$th homogeneous component of $td(X)$ and $c_i=c_i(X):=c_i(\cT_X)$.
+\begin{theorem}[Hirzebruch-Rieman-Roch]
+	Let $E$ be a holomorphic vector bundle on a compact complex manifold $X$. Then, we have equality
+	\begin{equation}
+		\chi(X,E):=\sum_k(-1)^k h^i(X,E)=\int_X ch(E)\cup td(X).\label{eq: HRR}
+	\end{equation}
+\end{theorem}
+Note that since we are integrating over $X$, we only need to consider the top degree parts.
+\begin{example}\label{eg: HRR curves}
+	Let $X=C$ be a compact Riemann surface and $L$ be a line bundle on $X$. we have $ch(E)=1+c_1(L)$ and $td(1)=1+\frac{c_1(X)}{2}$. thus, we have
+	\[
+	\chi(X,L)=\int_X 1+c_1(L)+\frac{c_1(X)}{2}+\frac{c_1(L)c_1(X)}{2}=\int_X c_1(L)+\frac{c_1(X)}{2}=\deg(L)+\frac{\deg(\cT_C)}{2}.
+	\]
+\end{example}
+What is remarkable about this theorem is that the left-hand side of \eqref{eq: HRR} is purely holomorphic (or algebraic) whilst the right-hand side is purely topological. Another similar theorem is the algebro-geometric Gauss-Bonnet theorem.
+\begin{theorem}
+	Let $X$ be a compact complex dimension of dimension $n$. Then, 
+	\[
+	\chi_{top}(X):=\sum_i(-1)^i b_i(X)=\int_Xc_n(X).
+	\]
+\end{theorem}
+
+Recall the classical relation between the Euler characteristic $\chi_{top}$ and the genus $g$ of a topological surface: $\chi_{top}=2-2g$. In particular, this implies that for a compact Riemann surface $C$ as above, that
+\[
+\int_Xc_1(X)=\deg(\cT_C)=2-2g.
+\]
+In particular, in light of what we found in \autoref{eg: HRR curves}, we recover the classical Riemann-Roch theorem:
+\[
+\chi(X,L)=\deg(L)-g+1.
+\]
+\subsection{Kähler-Einstein manifolds}
+\begin{question}
+	When does a smooth projective variety over $\C$ admit a ``canonical'' metric?
+\end{question}
+\begin{definition}
+	Let $(X,\omega)$ be a compact Kähler manifold, and let $D_\omega$ be the corresponding Chern connection. We define the \tbf{Ricci form} $\text{Ric}(\omega)$ of $\omega$ to be
+	\[
+	\text{Ric}(\omega)=i\Tr(F_{D_\omega})\in A^2(X,\C).
+	\]
+	We say that $(X,\omega)$ is \tbf{Kähler-Einstein} if $\text{Ric}(\omega)=\lambda\omega$ for some constant $\lambda\in \R$. 
+\end{definition}
+\begin{remark} We make the following comments.
+	\begin{enumerate}
+		\item  Recall that we argued earlier that all the Chern roots of $F_{D_\omega}$ were pure imaginary of type $(1,1)$ so that $\text{Ric}(\omega)$ is real of type $(1,1)$. 
+		
+		\item Note also that $D_\omega$ is invariant under rescaling $\omega$ by some $\lambda>0$ (indeed, parallelness of $h$ is unaffected so we get the same connection). Thus, we may always assume that $\lambda=-1,0,1$.
+		
+		\item since $c_1(X)=[\frac{\iota}{2\pi}\Tr F_{D_\omega}]$ by definition, we have $[\text{Ric}(\omega)]=2\pi c_1(X)\in H^2(X,\R)$.
+		\item $\lambda$ is proportional to the scalar curvature, and so $(X,\omega)$ being Kähler-Einstain implies that the scalar curvature with respect to $g_\omega=\omega(I-,-)$ is constant.
+		\item If $X$ is Kähler-Einstein, then we have
+		\[
+		c_1(X)=\begin{cases}
+			0\\
+			\pm\text{ positive form}.
+		\end{cases}
+		\]
+	\end{enumerate}	
+\end{remark}
+\begin{definition}
+	We say that a complex manifold $X$ is \tbf{Calabi-Yau} if $c_1(X)=0$, \tbf{Fano} if $c_1(X)$ is positive, of \tbf{general type} (or \tbf{canonically polarised}) if $-c_1(X)$ is positive.
+\end{definition}
+Note that by Kodaira's embedding theorem, Fano and general type manifolds are projective.
+\begin{caution}
+	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi-Yau manifodl admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin76,Yau1978}) proved the same for general type manifolds.
+	
+	Note also that not all manifolds fit in this trichotomy. 
+\end{caution}
+\begin{example}[Curves]
+	Let us see how these categories apply to curves.
+	\begin{itemize}
+		\item $g=0$ gives only $\bP^1$. Since it is diffeomorphic to a sphere, we have positive scalar curvature. And indeed, the Fubini-Study metric is Kähler-Einstein with $\lambda=1$. Note also that $\bP^1$ is Fano.
+		\item The $g=1$ case corresponds to elliptic curves. These are Ricci-flat and Calabi-Yau.
+		\item The case $g>1$ are of general type, and there exists a Kähler-Einstein metric with negative scalar curvature.\qedbarhere
+	\end{itemize}
+\end{example}
+For Fano manifolds, here is a summary of the known classifications:
+\begin{enumerate}
+	\item In dimension $1$ there is only the projective line.
+	\item In dimension $2$, they are called \emph{del Pezzo} surfaces. There are $10$ different deformation families. First, $\bP^2$ and $\bP^1\times\bP^1$ which are isolates. The other $8$ families are obtained by blowing up $\bP^2$ at d points in general position, where $1\leq d\leq 8$.
+	\item In dimension $3$, Mukai proved there are 105 families.
+	\item In dimension $4$, we know there are finitely many families but it remains open to know how many.
+\end{enumerate}
+
+For Calabi-Yau manifolds, there is the following structural theorem.
+\begin{theorem}[Beauville--Bogomolov]
+	Let $X$ be Kähler and Calabi-Yau. Then, there exists an étale cover $\tilde X\to X$ such that 
+	\[
+	\tilde X=T\times \prod_jX_j\times \prod_i V_i
+	\]
+	where $T$ is a torus, $X_j$ is \tbf{hyperkähler} for all $j$, and $V_i$ are \tbf{strict Calabi-Yau} for all $i$. 
+\end{theorem}
+We now define the terms.
+\begin{definition}
+	A compact Kähler manifold $V$ is called \tbf{strict Calabi-Yau} if
+	\begin{itemize}
+		\item $K_V\simeq \cO_V$ is trivial, where $K_V$ denotes the canonical bundle;
+		\item $V$ is simply connected;
+		\item $H^i(V,\cO_V)=0$ for all $i<i<\dim V$.
+	\end{itemize}
+	A complex manifold $X$ is \tbf{hyperkähler} if
+	\begin{itemize}
+		\item it is simply connected;
+		\item $H^0(X,\Omega_X^2)\simeq \C\sigma$ where $\sigma$ is holomorphic symplectic (in particular, it induces an isomorphism $\cT_X\simeq \Omega_X$).\qedbarhere
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	If $V$ is a strict Calabi-Yau of dimension greater than two, then $h^{2,0}=h^{0,2}=0$. In particular, $H^{1,1}(X,\C)=H^2(X,\C)$, and so $H^{1,1}(X,\R)=H^{2}(X,\R)=H^{1,1}(X,\Z)\otimes_\Z\R$. Since the Kähler cone is not empty by assumption, we conclude that it intersects $H^{1,1}(X,\Z)$, so that $V$ is projective by our discussion on Kodaira's embedding theorem. In dimension $2$, non-projective K3 surfaces yield an example of a non-projective strict Calabi-Yau manifold.
+\end{remark}
