@@ -191,7 +191,7 @@ For Fano manifolds, here is a summary of the known classifications:
 \end{enumerate}
 
 For Calabi-Yau manifolds, there is the following structural theorem.
-\begin{theorem}[Beauville--Bogomolov]
+\begin{theorem}[Beauville--Bogomolov;\; \citeplain{Bog1974}  and\;\citeplain{Beauville1983}]\label{thm: BG decomp}
 	Let $X$ be Kähler and Calabi-Yau. Then, there exists an étale cover $\tilde X\to X$ such that 
 	\[
 	\tilde X=T\times \prod_jX_j\times \prod_i V_i
@@ -215,3 +215,20 @@ We now define the terms.
 \begin{remark}
 	If $V$ is a strict Calabi-Yau of dimension greater than two, then $h^{2,0}=h^{0,2}=0$. In particular, $H^{1,1}(X,\C)=H^2(X,\C)$, and so $H^{1,1}(X,\R)=H^{2}(X,\R)=H^{1,1}(X,\Z)\otimes_\Z\R$. Since the Kähler cone is not empty by assumption, we conclude that it intersects $H^{1,1}(X,\Z)$, so that $V$ is projective by our discussion on Kodaira's embedding theorem. In dimension $2$, non-projective K3 surfaces yield an example of non-projective strict Calabi-Yau manifolds.
 \end{remark}
+\begin{remark}
+\autoref{thm: BG decomp} has an important corollarly. Namely, if $X$ is a Kähler, we have a degree $n$ étale map $f:\tilde X\to X$ with the canonical bunlde $K_{\tilde X}$ of $\tilde X$ trivial. Since $f$ is étale, $f^*K_X=K_{\tilde X}$, which implies that $nK_X=0$ (this follows from existence of a norm map $\cO_{\tilde X}\to \cO_X$ mapping $f^*g\mapsto g^n$; see \cite[\href{https://stacks.math.columbia.edu/tag/0BD3}{Tag 0BD3} and \href{https://stacks.math.columbia.edu/tag/0BCY}{Tag 0BCY}]{stacks-project} for the algebraic case). Thus, for Kähler manifolds, being Calabi-Yau and that $nK_X=0$ for some $n\geq 0$ are equivalent conditions.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

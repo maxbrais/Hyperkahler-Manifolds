@@ -445,3 +445,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{tocdepth}{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%Plain citation%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareCiteCommand{\citeplain}
+{\unspace\usebibmacro{prenote}}
+{\printtext[bibhyperref]{%
+		\iffieldundef{labelalpha}
+		{\printfield{labelnumber}}
+		{\printfield{labelalpha}}}}
+{\multicitedelim}
+{\usebibmacro{postnote}\unspace}
+
+
