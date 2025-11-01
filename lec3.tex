@@ -1,0 +1,477 @@
+% !TEX root = main.tex
+
+\section{Third lecture: Hodge theory}
+In this lecture, we recollect Hodge theory.
+%
+\subsection{Linear algebra}
+Let  us first explore the constructions of Hodge theory in the setting of linear algebra, our toy model.
+
+Let $V$ be a real vector space of dimension $n$ and $\langle-,-\rangle$ be an inner product on $V$. The scalar product induces a scalar product on $\bigwedge^k V$ via declaring
+\[
+\langle v_1\wedge\cdots\wedge v_k,u_1\wedge\cdots\wedge u_k\rangle:=\det(\langle u_i,v_j\rangle)_{ij}.
+\]
+Moreover, if $e_1,\dots,e_n$ is an \emph{ordered} orthonormal basis of $V$, the vectors $e_{i_1}\wedge\cdots\wedge e_{i_k}$ for $i_1<\cdots<i_k$ form an orthonormal basis of $\bigwedge^kV$.
+\begin{definition}
+	The \tbf{volume form} of $V$ (with respect to the chosen ordered basis) is 
+	%
+	\[
+	\text{vol}_V=\text{vol}:=e_1\wedge\cdots\wedge e_n.
+	\]
+	%
+	For any $k\leq n$, we define the \tbf{Hodge operator} to be the map
+	%
+	\begin{align*}
+		*:\bigwedge^k &V\to \bigwedge^{n-k}V\\
+		e_{i_1}\wedge\cdots\wedge e_{i_k}&\mapsto \varepsilon e_{j_1}\wedge \cdots\wedge e_{j_{n-k}},
+	\end{align*}
+	where $\{e_{j_1},\dots,e_{n-k}\}$ is the complement of $\{e_{i_1},\dots,e_{i_k}\}$ in the full basis $\{e_1,\dots,e_n\}$ and this map is well-defined because of the permutation index $\varepsilon=\text{sgn}(i_1,\dots,i_k,j_1,\dots,j_{n-k})$.
+\end{definition}
+
+Let $\alpha=e_{i_1}\wedge\cdots\wedge e_{i_k}$ and $\beta=e_{j_1}\wedge\cdots\wedge e_{j_k}$ be elements of the basis of $\bigwedge^kV$. We have that
+\[
+\alpha\wedge *\beta=\begin{cases}
+	0 & \text{if }\{i_1,\dots,i_k\}\neq \{j_1,\dots,j_k\}\\
+	\text{vol}&\text{otherwise}.
+\end{cases}
+\]
+In any case, we have that 
+\begin{equation}
+	\alpha\wedge *\beta=\langle\alpha,\beta\rangle\cdot\text{vol}\label{eq:hodge-vol},
+	\end{equation}
+and by bilinearity of the left and right hand side, we see that \eqref{eq:hodge-vol} holds for any $\alpha,\beta\in\bigwedge^kV$.
+
+Let $I$ be a complex structure on $V$, i.e. $I^2=-\id_V$. Recall that it forces the dimension of $V$ to be even. Suppose furthermore that the inner product is compatible with $I$, i.e. $\langle I-,I-\rangle=\langle -,-\rangle$. Let $\langle -,-\rangle$ also denote the $\C$-sesquilinear extension of the inner product to a hermitian product on the complexified space $V_\C$.
+
+The decomposition $V=V^{1,0}\oplus V^{0,1}$ into $\pm \iota$ eigenspaces is orthodonal for $\langle-,-\rangle$, indeed, for $v\in V^{1,0}$ and $u\in V^{0,1}$, we have
+\[
+\langle v,u\rangle=\langle Iv,Iu\rangle=\langle \iota v,\iota u\rangle=-\langle v,u\rangle.
+\]
+%
+By extension, this shows that the decomposition
+%
+\begin{flalign}
+&&&&&&&&&\bigwedge^kV_\C=\bigoplus_{p+q=k}\bigwedge^{p,q}V&&\text{where }
+ \bigwedge^{p,q}V:=\bigwedge^pV^{1,0}\otimes\bigwedge^qV^{0,1}\label{eq:hodge-dec-vs}
+\end{flalign}
+%
+is orthogonal.
+We may extend the hodge star operator $\C$-linearly to
+%
+\[
+*:\bigwedge^kV_\C\to \bigwedge^{n-k}V_\C,
+\]
+%
+and by looking at an orthonormal basis for \eqref{eq:hodge-dec-vs}, we see that the operator restricts to
+%
+\[
+*:\bigwedge^{p,q}V\to\bigwedge^{n-q,n-p}V.
+\]
+Note that the equality \eqref{eq:hodge-vol} now becomes
+%
+\[
+\alpha\wedge*\overline\beta=\langle \alpha,\beta\rangle\text{vol}_{V_\C},
+\]
+%	
+where $\text{vol}_{V_\C}:=(e_1+\iota e_1)\wedge(e_1-\iota e_1)\wedge\cdots\wedge (e_n+\iota e_n)\wedge(e_n-\iota e_n)$.
+
+\subsection{Harmonic forms}
+From now on, $(X,h)$ is a Kähler manifold and $g=\fR\fe(h)$ is the compatible Riemannian metric associated to $h$. We will write $\langle -,-\rangle$ for the hermitian metric induced by $h$ on $T^*_\R X$. We have the real volume form
+\[
+\text{vol}\in A^{2n}(X).
+\]
+%
+The decomposition
+%
+\[
+\cA^k(X,\C)=\bigoplus _{p+q=k}\cA^{p,q}(X)
+\]	
+is orthogonal with respect to $\langle-,-\rangle$.  As before, we have the hodge operator
+%
+\[
+*:\cA^{p,q}(X)\to \cA^{n-q,n-p}.
+\]
+Recall also our three different exterior derivatives:
+\begin{align*}
+	d:\cA^k(X)&\to \cA^{k+1}(X)\\
+	\partial:\cA^{p,q}(X)&\to \cA^{p+1,q}(X)\\
+	\overline\partial:\cA^{p,q}(X)&\to\cA^{p,q+1}(X).
+\end{align*}	
+%
+We use the hodge operator to define other operators:
+\begin{align*}
+	d^*:=(-1)^k*^{-1}\circ\, d\circ*:\cA^k(X)&\to \cA^{k-1}(X)\\
+	\partial^*:=-*\circ\,\overline\partial\circ*:\cA^{p,q}(X)&\to \cA^{p-1,q}(X)\\
+		\overline\partial^*:=-*\circ\,\partial\circ*:\cA^{p,q}(X)&\to \cA^{p,q-1}(X).
+\end{align*}	
+%
+The mismatch in the sign is a convention, and we note that $*^2=(-1)^{k(n-k)}$. Extending $d^*$ $\C$-linearly, these operators satisfy
+%
+\[
+d^*=\p^*+\op^*
+\]
+%
+We use these operators to define three different Laplacians:
+%
+\begin{align*}
+	\Delta_d&:=dd^*+d^*d:\cA^k(X)\to\cA^k(X)\\
+	\Delta_\partial&:=\partial\partial^*+\partial^*\partial:\cA^{p,q}(X)\to \cA^{p,q}(X)\\
+	\Delta_{\overline\partial}&:=\op\,\op^*+\op^*\op:\cA^{p,q}(X)\to \cA^{p,q}(X).
+\end{align*}
+%
+A $k$-form $\alpha$ is \tbf{$d$-harmonic} if $\Delta_d\alpha=0$, and a $(p,q)$-form $\beta$ is \tbf{$\op$-harmonic} if $\Delta_{\op}\beta=0$. We will write $\cH^k(X):=\ker\Delta_d$ for the space of $d$-harmonic $k$-forms (note, we can do this either over $\R$ or $\C$ and do not specify), and $\cH^{p,q}(X):=\ker\Delta_\op$ for the space of $\op$-harmonic $(p,q)$-forms. 
+
+	We have an $L^2$ inner product
+	\begin{align*}
+		A^k(X)\otimes A^k(X)&\to \R\\
+		(\alpha,\beta)&\mapsto\int_X\langle \alpha,\beta\rangle\text{vol}=\int_X\alpha\wedge *\beta.
+	\end{align*}
+	From the right hand side, we compute that for $\alpha\in A^k(X)$ and $\beta\in A^{k+1}(X)$,
+	\begin{equation*}
+		(d\alpha,\beta)=\int_Xd\alpha\wedge *\beta=\int_X\alpha\wedge (-1)^{k+1}d(*\beta)=\int_X\alpha\wedge * (-1)^{k+1} *^{-1}d(*\beta)=\int_X\alpha\wedge *d^*\beta=(\alpha,d^*\beta),
+	\end{equation*}
+	%
+	so that $d$ and $d^*$ are formal adjoints with respect to $(-,-)$. From this, we see that 
+	\[
+	(\alpha,\Delta_d\alpha)=(\alpha,dd^*\alpha+d^*d\alpha)=(d^*\alpha,d^*\alpha)+(d\alpha,d\alpha),
+	\]
+	and so by positive definiteness, $\Delta\alpha=0$ if and only if $d\alpha=d^*\alpha=0$. This yields a map 
+	\[
+	\cH^k(X,\R)\to H^k(X,\R).
+	\]
+	%
+	\begin{theorem}[\citeplain{Hodge1941}]
+This map is an isomorphism.
+	\end{theorem}
+%
+\begin{remark}
+	Note that this works equally well over $\C$ witht the hermitian product
+	\[
+	(\alpha,\beta)\mapsto\int_X\langle\alpha,\beta\rangle \text{vol}=\int_X\alpha\wedge *\overline\beta
+	\]
+\end{remark}
+	
+\subsection{The Dolbeault side}
+We can get a similar theorem by taking into account the $(p,q)$ type of forms.  First note that for any $p$,  we have a complex
+\[
+0\to \Omega_X^p\to \cA^{p,0}(X)\to \cA^{p,1}(X)\to\cdots\to\cA^{p,n}(X)\to 0.
+\]	
+%
+The $\op$-Poincaré lemma (also called the Dolbeault--Grothendieck lemma) says that this complex is exact, i.e. that analytically locally, a $\op$-closed form is $\op$-exact. Moreover, since each $\cA^{p,q}(X)$ admits partitions of unity (these are smooth sections), this is an acyclic resolution. As corollary, we obtain an isomorphism
+\begin{equation}
+H^q(X,\Omega_X^p)=\bH^q(\cA^{p,0}(X)\to\cdots\to \cA^{p,n}(X)\to 0)=\frac{\ker\pa{\op:A^{p,q}(X)\to A^{p,q+1}(X)}}{\im(\op:A^{p-1,q}(X)\to A^{p,q}(X))}=:H^{p,q}(X),\label{eq:dol}
+\end{equation}
+and we call the right-hand side the $(p,q)$ Dolbeault cohomology of $X$.
+
+As before, we have an inner product on $(p,q)$-forms:
+\[
+(\alpha,\beta):=\int_X\alpha\wedge *\overline\beta,
+\]
+and the same computation shows that $\p^*$ and $\op^*$ are formal adjoints. Therefore, $\Delta_\op\alpha=0$ if and only if $\op\alpha=\op^*\alpha=0$. This yields a map
+\[
+\cH^{p,q}(X)\to H^{p,q}(X).
+\]
+\begin{theorem}\label{thm:harm-sing-pq}
+This map is an isomorphism.
+\end{theorem}
+It is worth noting that \autoref{thm:harm-sing-pq} does not require $X$ to be Kähler.
+%
+\begin{proposition}\label{prop:lapl}
+	If $X$ is compact Kähler, then 
+	\[
+	\Delta_d=2\Delta_\op=2\Delta_\p.
+	\]
+\end{proposition}
+%
+\begin{corollary}[Hodge decomposition]
+	Let $X$ be a compact Kähler manifold. We have a decomposition
+	\[
+	H^k(X,\C)=\oplus_{p+q=k}H^{p,q}(X)
+	\]
+	such that $H^{p,q}(X)=\overline{H^{q,p}(X)}$ and $H^{p,q}(X)\simeq H^q(X,\Omega_X^p)$.
+\end{corollary}
+%
+\begin{proof}
+	Note that $\Delta_\op$ preserves the $(p,q)$-type, and thus so does $\Delta_d$ by \autoref{prop:lapl}. Therefore, we have
+	\begin{equation}
+	\bigoplus_{p+q=k} H^{p,q}(X)\simeq \bigoplus_{p+q=k}\cH^{p,q}(X)=\cH^k(X,\C)\xrightarrow{\sim}H^k(X,\C).\label{eq:hdg-dec}
+	\end{equation}
+	It remains to show that $H^{p,q}(X)=\overline{H^{q,p}(X)}$, and this follows from the fact that $\Delta_d(\overline\alpha)=\overline{\Delta_d(\alpha})$, as $\Delta_d$ is a real operator.
+\end{proof}
+	
+\begin{remark}
+It is worthwile to observe that along the isomorphism \eqref{eq:hdg-dec}, $H^{p,q}(X)$ is identified with the subset $\{[\alpha]: d\alpha=0 \text{ and } \alpha\in A^{p,q}\}\subset H^k(X,\C)$. Note moreover that the Hodge decomposition is compatible witht the wedge product (that is, wedging $(p,q)$ $\op$-closed forms yields the same algebra structure as that on $H^\bullet(X,\C)$ along \eqref{eq:hdg-dec}). However, there is no clear algebra structure on
+\[
+\bigoplus_{p,q\geq 0}\cH^{p,q}(X),
+\]
+as wedging two harmonic forms need not yield a harmonic form (this comes from the fact that $d^*$ does not satisfy a Leibniz rule).
+\end{remark}
+
+\begin{corollary}
+	Let $X$ be a compact Kähler manifold. If $k$ is odd, then the $k$th Betti number $b_k(X)$ is even.
+\end{corollary}	
+	
+\begin{remark}
+	For any Kähler form $\omega$,
+	\[
+	\int_X\omega^{\dim X}=n!\cdot\text{vol}(X)>0,
+	\]
+	implying that $\omega$ is not $d$-exact (assuming $X$ compact), i.e. that $b_k>0$ for $k$ odd.
+\end{remark}
+%
+\begin{remark}[Hodge diamond]
+	We can make the Hodge numbers fit in what is called the Hodge diamond:\\
+	\[
+	\begin{tikzcd}[
+		 row sep=1em,
+		column sep=0em,
+		cells={nodes={inner sep=0.3pt, outer sep=0pt, text height=1.2ex, text depth=0.2ex}},
+		cramped
+		]
+		&&&&h^{0,0}&&&&\\
+		&&&h^{1,0}&&h^{0,1}&&&\\
+		&&h^{2,0}&&h^{1,1}&&h^{0,2}&&\\
+		&\iddots&&&&&&\ddots\\
+		h^{n,0}&&\cdots&&\scalebox{2}{$\circlearrowleft$}&&\cdots&&&h^{0,n}\\
+		&\ddots&&&&&&\iddots&\\
+		&&h^{n,n-2}&&h^{n-1,n-1}&&h^{n-2,n}\\
+		&&&h^{n,n-1}&&h^{n-1,n}\\
+		&&&&h^{n,n}\\
+		&&&&\longleftrightarrow
+	\end{tikzcd}
+	\]
+	\\
+	where $n=\dim_\C X$, and these are the only non-zero Hodge numbers. Moreover, there are some symmetries. We already saw Hodge symmetry, which implies $h^{p,q}=h^{q,p}$, which is represented by the arrow in the bottom. 
+	
+	Recalll that some version of Poincaré duality says that there is a non-degenerate pairing
+	%
+	\begin{align}
+	H^k(X,\C)\times H^{2n-k}(X,\C)&\to \C\label{eq:poin-du}\\
+	(\alpha,\beta)&\mapsto\int_X\alpha\wedge\beta,\notag
+	\end{align}
+	%
+	yielding an isomorphism $H^k(X,\C)^\vee=H_k(X,\C)\simeq H^{2n-k}(X,\C)$.  This pairing restricts to a non-degenerate pairing
+	\[
+	H^{p,q}(X)\times H^{n-p,n-q}(X)\to\C;
+	\]
+	indeed, if a $d$-closed form of type $(p,q)$ is non-zero, we know by \eqref{eq:poin-du} that we may pair it with a form $\beta$ with $\alpha\wedge\beta\neq 0$, but this forces the type of $\beta$ to be $(n-p,n-q)$. Therefore, we get an isomorphism
+	\begin{equation}
+	H^{p,q}(X)=H^{n-p,n-q}(X)^\vee.\label{eq:dol-poinc-du}
+	\end{equation}
+	 In particular, our diamond has the symmetry $h^{p,q}=h^{n-p,n-q}$, which is represented by the central circling arrow in the Hodge diamond. Note that \eqref{eq:dol-poinc-du} can also be seen using Serre duality:
+	 %
+	 \[
+	 H^{p,q}(X)=H^q(X,\Omega_X^p)=H^{n-q}(X,(\Omega_X^p)^\vee\otimes K_X)^\vee=H^{n-q}(X,\Omega_X^{n-p})^\vee=H^{n-p,n-q}(X)^\vee,
+	 \]
+	where the isomorphism $(\Omega_X^p)^\vee\otimes K_X=\bigwedge^p\cT_X\otimes K_X\simeq \Omega^{n-p}$ comes from contraction of vector fields:
+	\begin{align*}
+		\bigwedge^p\cT_X\otimes K_X&\xrightarrow{\sim} \Omega^{n-p}\\
+		X_1\wedge\cdots\wedge X_p\otimes \alpha&\mapsto \alpha(X_1,\dots,X_p,-,\dots,-).
+	\end{align*}
+	Note that there is also a way to see this duality with the Hodge star operator.
+	
+	The Hodge diamond also satisfies a unimodal condition. Namely, in each row (hence each column by Poincaré/Serre-duality), the Hodge numbers increase before reaching half, then decrease (the latter follows from the former by Hodge symmetry).
+\end{remark}
+%
+\subsection{Lefschetz theorems}
+Let $X$ be compact Kähler manifold with Kähler form $\omega$. As $\omega$ is a $(1,1)$ real form, we obtain an operator
+%
+\begin{align*}
+L_\omega: A^k(X)&\to A^{k+2}(X)\\
+\alpha&\mapsto\omega\wedge\alpha.
+\end{align*}
+In the complexification, this restrict to
+\[
+L_\omega: A^{p,q}(X)\to A^{p+1,q+1}(X),
+\]
+and these operators descend to cohomology by definition.	
+We define the operator
+\[
+\Lambda_\omega:=*^{-1}\circ L_\omega\circ *,
+\]	
+%
+and the degree operator
+%
+\[
+h:H^*(X)\to H^*(X)
+\]
+where $h|_{H^k(X)}=(k-n)\id|_{H^k(X)}$. Here, we do not specify the coefficients, as we want to work over either $\R$ or $\C$.
+\begin{theorem}
+	On cohomology, we have $[L_\omega,\Lambda_\omega]=h$, $[h,L_\omega]=2L_\omega$ and $[2,\Lambda_\omega]=-2\Lambda_\omega$, that is, $L_\omega,\Lambda_\omega$ and $h$ form an $\fs\mathfrak l_2$-triple. Moreover, we have $[L_\omega,\Delta_d]=0=[\Lambda_\omega,\Delta_d]$.
+\end{theorem}
+From this $\fs\mathfrak l_2$-representation, one can deduce the following.
+\begin{theorem}[Hard Lefschetz]
+	Let $k\leq n$. 
+	\begin{enumerate}
+		\item the map 	\[
+		L_\omega^{n-k}:H^k(X)\to H^{2n-k}(X)
+		\]
+		is an isomorphism.
+		\item
+Let $H^k(X)_{\text{prim}}\subset H^k(X)$ be the kernel of $L_\omega^{n-k+1}$. We have a \tbf{Lefschetz decomposition}
+%
+\[
+H^k(X)=\bigoplus_{2r\leq kr}L_\omega^rH^{k-2r}(X)_{\text{prim}}.
+\]
+Moreover, over $\C$, this decomposition is compatible with the Hodge decomposition; i.e, if we define 
+\[
+H^{p,q}(X)_{\text{prim}}:=\ker\pa{L_\omega^{2n-p-q+1}:H^{p,q}(X)\to H^{n-p+1,n-q+1}(X)},
+\]
+we have 
+\[
+H^{p,q}(X)=\bigoplus_{2r\leq p+q}L_\omega^rH^{p-r,q-r}(X)_{\text{prim}},
+\]
+and 
+\[
+H^k(X,\C)_{prim}=\bigoplus_{p+q=k}H^{p,q}(X)_{\text{prim}}.
+\]
+\end{enumerate}
+\end{theorem}
+\begin{remark}
+	Note that when $X$ is projective, we may choose $\omega$ to be integral and the Lefschetz decomposition also holds over $\Q$.
+\end{remark}
+%
+\begin{example}
+	Let us study the consequences of these theorems on the cohomology of a surface $X$ with Kähler form $\omega$. We have the diagram
+	\[
+	\begin{tikzcd}[row sep=0.5em,column sep= 0.5em]
+		H^0(X)\ar[dddd, bend right=100,"L_\omega^2" description,  leftrightarrow]& H^0(X)_{\text{prim}}\ar[l,equal]\\H^1(X)\ar[dd, bend right=80, "L_\omega" description,leftrightarrow]& H^1(X)_{\text{prim}}\ar[l,equal]\\ H^2(X)\ar[r,equal]&H^2(X)_{\text{prim}}\oplus L H^0(X)\\H^3(X)\\H^4(X),
+	\end{tikzcd}
+	\]
+%
+where $H^0(X)_{\text{prim}}=H^0(X)$ and $H^1(X)_{\text{prim}}=H^1(X)$ since the primitive parts are defined as the kernel of maps to a cohomology groups that vanish for dimension reasons.
+Since $H^0(X)$ is generated by the identity element in the cohomology ring, we obtain (over say $\R$ coefficients) $H^2(X,\R)=\R[\omega]\oplus H^2(X,\R)_{\text{prim}}$. As we soon shall see, this decomposition is orthogonal with respect to a certain intersection pairing, so that we may write $H^2(X,\R)=\R[\omega]\oplus[\omega]^\bot$.	
+\end{example}
+%
+\subsection{Hodge index theorem}
+%
+Let $X$ be compact and $\omega$ be a Kähler form. Consider the complex Poincaré pairing
+%
+\begin{align*}
+H^k(X,\C)\times H^{2n-k}(X,\C)&\to\C\\
+(\alpha,\beta)&\mapsto\int_X\alpha\wedge\beta.
+\end{align*}
+%
+This pairing is skew symmetric for $k$ odd and symmetric for $k$ even. We use the polarisation $\omega$ to turn this into a pairing on $H^k(X,\C)$ for $k\leq n$:
+%
+\begin{align*}
+	Q_k:H^k(X,\C)\times H^k(X,\C)&\to \C\\
+	(\alpha,\beta)\mapsto \int_X\alpha \wedge L_\omega^{n-k}(\beta).
+\end{align*}
+	%
+We now define the hermitian pairing $H_k(\alpha,\beta):=\iota^kQ_k(\alpha,\overline\beta)$ called the \tbf{Hodge--Riemann bilinear form}.
+%
+\begin{theorem}[Hodge--Riemann bilinear relations]\label{thm:hdg-rie} The following hold true
+	\begin{enumerate}
+		\item The Hodge decomposition is orthogonal with respect to $H_k$;
+		\item The Lefschetz decomposition is orthogonal with respect to $H_k$, and for $\alpha,\beta\in H^{k-2r}(X,\C)_{\text{prim}}$, we have
+		\[
+		H_k(L^r(\alpha),L^r(\beta))=(-1)^{k+r}H_{k-2r}(\alpha,\beta);
+		\]
+		\item The form
+		\[
+		(-1)^{\frac{k(k-1)}{2}}\iota^{p-q-k}H_k
+		\]
+		is positive definite on $H^{p,q}(X)_{\text{prim}}$.
+	\end{enumerate}
+\end{theorem}	
+
+\begin{proof}
+(1) Let $\alpha\in H^{p,q}(X)$ and $\beta\in H^{p',q'}(X)$ with $p+q=p'+q'$. By definition, we have
+\[
+H_k(\alpha,\beta)=\iota^k\int_X\alpha\wedge\omega^{n-k}\wedge\overline{\beta},
+\]
+but the form $\alpha\omega^{n-k}\wedge \wedge\overline{\beta}$ is of degree $2n$ but not of type $(n,n)$. Hence it vanishes, implying that the integral vanishes.
+
+(2) Let $\alpha'=L_\omega^r(\alpha)$ for $\alpha\in H^{k-2r}(X)_{\text{prim}}$ and $\beta'=L_\omega^s(\beta)$ for $\beta\in H^{k-2s}(X)_{\text{prim}}$. Without loss of generality, assume $r>s$. We have that
+\[
+H_k(\alpha',\beta')=\iota^k\int_X\alpha'\wedge L_\omega^{n-k+s}(\overline{\beta'})=\iota^k\int_X \omega ^r\alpha\wedge \omega^{n-k+s}\wedge\overline{\beta}=(-1)^k\iota^k\int_X \alpha\wedge L_\omega^{n-k+r+s}(\overline{\beta})=0
+\]
+since $n-k+r+s>n-k+2s$, so that primitiveness of $\beta$ ensures it is in the kernel of $L_\omega^{n-k+r+s}$.
+
+Now if $\alpha',\beta'$ are chosen as above but $r=s$, we have
+\begin{align*}
+H_k(\alpha',\beta')&=\iota^k\int_X\alpha\wedge L^{n-k+r}(\overline{\beta'})=\iota^k\int_X\omega^{r}\wedge\alpha\wedge\omega^{n-k+r}\wedge\overline{\beta}\\&=(-1)^k\iota ^{2r}\iota^{k-2r}\int_X\alpha\wedge \omega^{n-k+2r}\wedge\overline{\beta}=(-1)^{k+r}H_{k-2r}(\alpha,\beta).
+\end{align*}
+%
+(3) For $\alpha\in H^{p,q}(X)_{\text{prim}}$. For such form, on Kähler manifolds, we have
+\[
+*\alpha=\iota^{p-q}(-1)^{\frac{k(k-1)}{2}}\frac{\omega^{n-k}}{(n-k)!}\wedge\alpha;
+\]
+see \cite[Proposition 6.29]{Voisin1998}. Therefore, we obtain that 
+\begin{align*}
+H_k(\alpha,\alpha)&=\iota^{k}\int_X\alpha\wedge\omega^{n-k}\wedge\overline\alpha= (n-k)!(-1)^{\frac{k(k-1)}{2}}\iota^{k-p+q}\int_X\alpha\wedge*\overline \alpha\\
+&= (n-k)!(-1)^{\frac{k(k-1)}{2}}\iota^{k-p+q}\int_X\langle \alpha,\alpha\rangle\text{vol}_\C
+\end{align*}
+so that 
+\[
+(-1)^{\frac{k(k-1)}{2}}\iota^{p-q+k}H_k
+\]
+is positive-definite.
+\end{proof}	
+%
+\begin{corollary}[Hodge index theorem]
+	Let $X$ be a compact Kähler surface. Then, the signature of the Poincaré intersection pairing $Q_2$ on $H^2(X,\R)$ is 
+	\[
+	(2h^{2,0}+1,h^{1,1}-1).
+	\]
+\end{corollary}
+\begin{proof}
+Let $\alpha\in H^2(X,\R)$. We may decompose into types: $\alpha=\alpha^{2,0}+\alpha^{1,1}+\alpha^{0,2}$. The fact that $\alpha=\overline \alpha$ forces $\alpha^{1,1}\in H^{1,1}(X,\R)$, and $\alpha^{2,0}=\overline{\alpha^{2,0}}$. 
+We thus have the decomposition
+\[
+H^2(X,\R)=((H^{2,0}(X)\oplus H^{0,2})\cap H^2(X,\R))\oplus H^{1,1}(X,\R),
+\]
+which we know to be orthogonal with respect to the Poincaré pairing. Any $\alpha\in(H^{2,0}(X)\oplus H^{0,2}(X))\cap H^2(X,\R)$ is primitive for degree reasons: taking the cup product with $\omega$ yields types $(3,1)$ or $(1,3)$. Thus, we have
+\[
+Q_2(\alpha,\alpha)=\int_X\alpha\wedge\alpha=\int_X\alpha^{2,0}\wedge\overline{\alpha^{2,0}},
+\]
+which is positive by \autoref{thm:hdg-rie}(3). Now, we have the Lefschetz decomposition
+%
+\[
+H^{1,1}(X,\R)=H^{1,1}(X,\R)_{\text{prim}}\oplus L_\omega H^0(X,\R)=H^{1,1}(X,\R)_{\text{prim}}\oplus \R[\omega].
+\]
+This decomposition is orthogonal: if $\alpha\in H^{1,1}(X,\R)_{\text{prim}}$, then
+\[
+Q_2(\omega,\alpha)=\int_X\omega\wedge\alpha=0
+\]
+as $\omega\wedge\alpha=0$ by definition of primitive cohomology. We have
+%
+\[
+Q_2(\omega,\omega)=\int_X\omega^2=2\cdot\text{vol}(X)>0.
+\]
+There remains to compute $Q_2$ on real $(1,1)$ primitive classes. But by \autoref{thm:hdg-rie}, 
+\[
+\int_X\alpha^2<0,
+\]
+and so we obtain the right count for the index of the pairing.
+\end{proof}
+%
+\subsection{(1,1) classes}
+Consider now the exponential exact sequence
+\[
+0\to \Z\to \cO_X\xrightarrow{exp(2\pi i-)} \cO_X^*\to 0.
+\]
+It is a fact that the induced connecting homomorphism $\delta$ in the long exact cohomological sequence
+\[
+\cdots\to H^1(X,\Z)\to H^1(X,\cO_X)\to \text{Pic}(X)\xrightarrow{\delta}H^2(X,\Z)\to H^2(X,\cO_X)\to \cdots
+\]	
+is the opposite of the first chern map: $\delta=-c_1$.
+\begin{theorem}[Lefschetz theorem on $(1,1)$ classes]
+	If $X$ is compact Kähler, then the first chern map $c_1$ is surjective onto $H^{1,1}(X,\Z)$.
+\end{theorem}
+\begin{proof}
+	Note that the first chern map is indeed valued in $H^{1,1}(X,\Z)$ by definition of the Chern class (indeed, the $(2,0)$ and $(0,2)$ part of the curvature of the Chern connection vanish). The map $H^2(X,\Z)\to H^2(X,\cO_X)$ factors as
+	\[
+	H^2(X,\Z)\hookrightarrow H^2(X,\C)\to H^{2,0}(X,\C)\simeq H^2(X,\cO_X),
+	\]
+	and thus vanishes on $(1,1)$ classes, so that $(1,1)$ classes are in the kernel of this map, and equivalently in the image of $c_1=-\delta$. 
+\end{proof}
+	
+	
+	
+	
+	
+	
+	
+	
+	
