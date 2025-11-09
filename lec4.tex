@@ -1,0 +1,384 @@
+% !TEX root = main.tex
+\section{Fourth Lecture: K3 surfaces}
+% Plan: Introduce the two definitions of K3 surfaces and prove their equivalence using the Bogomolov decomposition theorem.
+
+\subsection{K3 Surfaces}
+We now focus on K3 surfaces, which are the fundamental examples in dimension 2 arising from the Beauville-Bogomolov decomposition theorem.
+
+\begin{definition}[Strong definition]\label{def: K3 strong}
+	A \tbf{K3 surface} is a compact connected Kähler surface $S$ such that
+	\begin{enumerate}
+		\item The canonical bundle is trivial, $K_S\simeq \cO_S$;
+		\item $S$ is simply connected, i.e. $\pi_1(S)=\{e\}$.\qedbarhere
+	\end{enumerate}
+\end{definition}
+
+K3 surfaces are exactly strict Calabi-Yau manifolds of dimension $2$. To show this, we introduce a second definition of K3 surfaces, which we will show are equivalent.
+
+\begin{definition}[Weak definition]\label{def: K3 weak}
+	A K3 surface is a compact, connected Kähler surface $S$ such that
+	\begin{enumerate}
+		\item $K_S\simeq \cO_S$;
+		\item $H^1(S,\cO_S)=0$.\qedbarhere
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	The two definitions (\autoref{def: K3 strong} and \autoref{def: K3 weak}) are equivalent. In particular, K3 surfaces are exactly strict Calabi-Yau manifolds surfaces.
+\end{proposition}
+\begin{proof}
+	(\ref{def: K3 strong} $\implies$ \ref{def: K3 weak}): Assume $S$ satisfies the strong definition. We need to show $H^1(S,\cO_S)=0$. Since $S$ is simply connected, $H_1(S,\C)$ and hence $H^1(S,\C)=H_1(S,\C)^\vee$ vanish. Since $S$ is Kähler, the Hodge decomposition gives $H^1(S,\bC)=H^{1,0}(S)\oplus H^{0,1}(S)$. Thus $H^{0,1}(S)\simeq H^1(S,\cO_S)=0$.
+
+	(\ref{def: K3 weak} $\implies$ \ref{def: K3 strong}): Assume $S$ satisfies the weak definition. A deep theorem proved by Siu in \cite{Siu1983} that any such surface is Kähler. We need to prove that $S$ is simply connected.
+
+	First, we compute the holomorphic Euler characteristic:
+	\begin{align*}
+		\chi(S,\cO_S) &= h^0(S,\cO_S) - h^1(S,\cO_S) + h^2(S,\cO_S) \\
+		&= 1 - 0 + h^0(S,K_S) \quad\text{(by Serre duality)}\\
+		&= 1 - 0 + 1 = 2.
+	\end{align*}
+
+	We apply the Beauville-Bogomolov decomposition theorem (\autoref{thm: BG decomp}) to conclude that there exists an étale cover $\pi: \tilde{S}\to S$ where $\tilde S$ is either a complex torus, a Hyperkähler surface,  a strict Calabi-Yau surface, or a product of two elliptic curves. Suppose first that $\tilde S$ is either a product of two elliptic curves or of a complex torus. Then,
+	%
+	\[
+	\chi(\tilde S,\cO_{\tilde S})=\int_{\tilde S} ch(\cO_S)\cup td(S)=\int_{\tilde S}\frac{c_1^2(S)+c_2(S)}{12}=0
+	\]
+	since $\tilde S$ is flat. But by Hirzebruch-Riemann-Roch again, we have $\chi(\tilde S,\cO_{\tilde S})=\deg(\pi)\chi(S,\cO_S)=2\deg(\pi)$, which forces $\deg(\pi)=0$, contradicting that $\pi$ is a covering.
+	
+	Therefore, $\tilde S$ is either a strict Calabi-Yau or a Hyperkähler manifold (we will see \emph{a posteriori} that these two conditions coincide for surfaces), and in particular is simply connected. Thus, $\deg(\pi)=1$ and $S=\tilde S$ is simply connected.
+\end{proof}
+\begin{remark}
+	Importantly, it is also true that K3 surfaces are exactly Hyperkähler manifolds of dimension $2$, but we shall see this later.
+\end{remark}
+% Plan: State the main theorem about the integral cohomology of K3 surfaces and provide the proof. Mention the Hodge diamond and the Picard group.
+
+\subsection{Cohomology and Picard group of K3 surfaces}
+
+\begin{theorem}\label{thm: K3 cohomology}
+	Let $S$ be a K3 surface. Then:
+	\begin{enumerate}
+		\item $H^0(S,\bZ)\simeq H^4(S,\bZ)\simeq \bZ$.
+		\item $H^1(S,\bZ)=H^3(S,\bZ)=0$.
+		\item $H^2(S,\bZ)\simeq \bZ^{22}$ and is torsion-free.
+		\item The intersection pairing (cup product)
+		\[
+		(-,-): H^2(S,\bZ)\times H^2(S,\bZ)\to \bZ, \quad (\alpha,\beta)\mapsto \int_S \alpha\cup\beta
+		\]
+		is symmetric, bilinear, and unimodular (i.e. induces an isomorphism $H^2(S,\Z)\to H^2(S,\Z)^\vee$).
+		\item The signature of the pairing is $(3,19)$.
+		\item The pairing is even, i.e., $\alpha^2:=(\alpha,\alpha)\equiv 0 \pmod 2$ for all $\alpha\in H^2(S,\bZ)$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	We use the strong definition.
+	
+	(1): $S$ is  compact and oriented.
+	
+	 (2): Since $S$ is simply connected, $H_1(S,\bZ)=0$. By the universal coefficient theorem, $H^1(S,\bZ)=0$ (there is no torsion in $H_0(S,\Z)$). By Poincaré duality, $H^3(S,\bZ)\simeq H_1(S,\bZ)^\vee=0$.
+
+	(3) By the universal coefficient theorem, the torsion subgroup of $H^2(S,\bZ)$ comes from the torsion of $H_1(S,\Z)=0$. So $H^2(S,\bZ)$ is torsion-free.
+
+	To compute the rank $b_2(S)$, we use the topological Euler characteristic $e(S)$.
+	\[
+	\chi_{top}(S) = \sum (-1)^i b_i(S) = 1-0+b_2(S)-0+1 = 2+b_2(S).
+	\]
+	By the Gauss-Bonnet theorem, we have 
+	\[
+	\chi_{top}(S)=\int_S c_2(S).
+	\]
+	 However, Hirzebruch-Riemann-Roch theorem gives us
+	 \[
+	 \chi(S,\cO_S)=\int_S\frac{c_1(S)^2+c_2(S)}{12}=\int_S\frac{c_2(S)}{12},
+	 \]
+	 since $S$ is Ricci-flat by definition. Since $\chi(S,\cO_S)=2$, we conclude that $b_2(S)=2\cdot 12-2=22$. 
+
+	(4) Unimodularity follows from Poincaré duality over $\Z$. Symmetry just follows from the degree in cohomology.
+
+	(5) This is a direct consequence of the Hodge index theorem (\autoref{cor:hdg-ind}) and the fact that $h^{1,1}(S)=20$ since $h^{2,0}=h^0(S,\cO_S)=1$.
+
+	(6) For algebraic classes $\alpha=c_1(L)\in NS(S)$, we use Hirzebruch-Riemann-Roch:
+	\[
+	\chi(S,L) = \frac{c_1(L)^2}{2} + \chi(S,\cO_S) = \frac{\alpha^2}{2} + 2.
+	\]
+	Since $\chi(S,L)\in \bZ$, $\alpha^2$ must be even.
+
+	For the general $\alpha\in H^2(S,\bZ)$, this follows from Wu's formula.
+\end{proof}
+
+\begin{remark}[Hodge Diamond]
+	The Hodge diamond of a K3 surface is the following
+	\[
+	\begin{array}{ccccc}
+		& & 1 & & \\
+		& 0 & & 0 & \\
+		1 & & 20 & & 1 \\
+		& 0 & & 0 & \\
+		& & 1 & &
+	\end{array}
+	\]
+\end{remark}
+
+\begin{proposition}
+	For a K3 surface $S$, the Picard group is isomorphic to the Néron-Severi group.
+\end{proposition}
+\begin{proof}
+	Consider the exponential sequence:
+	\[
+	\cdots \to H^1(S,\cO_S) \to \Pic(S) \xrightarrow{-c_1} H^2(S,\bZ) \to \cdots
+	\]
+	Since $H^1(S,\cO_S)=0$, the map $c_1$ is injective. Thus $\Pic(S)\simeq \im(c_1)=\NS(S)$.
+\end{proof}
+\begin{remark}
+	This implies that a line bundle on a K3 surface is determined by its first Chern class. 
+	
+	The Picard number satisfies $\rho(S)\leq h^{1,1}(S)=20$. If $S$ is algebraic, $\rho(S)\geq 1$ by Kodaira's embedding theorem. For the very general\footnote{The notion of ``very general'' is to be distinguished from ``generic'': a property holds for the very general K3 surface if, in the appropriate moduli space, it holds outside of a \emph{countable} union of (analytic) Zariski-closed sets.} K3 surface, $\rho(S)=0$.
+\end{remark}
+
+% Plan: Give the example of the quartic surface. Introduce the cyclic cover construction and the relevant lemmas. Apply it to the double cover of P2. Introduce the Kummer construction.
+
+\subsection{Examples of K3 surfaces}
+We now discuss examples of how K3 surfaces may be constructed.
+
+\begin{example}[Quartic surface in $\bP^3$]\label{eg: quartic K3}
+	Let $S=\{f=0\}\subset \bP^3$ be a smooth hypersurface defined by a homogeneous polynomial $f$ of degree 4. We verify that $S$ is a K3 surface.
+	
+	By adjunction formula, we have
+	%
+	\[
+	K_S = (K_{\bP^3}\otimes \cO_{\bP^3}(4))|_S = (\cO_{\bP^3}(-4)\otimes \cO_{\bP^3}(4))|_S = \cO_S.
+	\]
+There remains to show $H^1(S,\cO_S)=0$: Consider the short exact sequence defining $S$:
+	\[
+	0\to \cO_{\bP^3}(-4)\xrightarrow{\cdot f} \cO_{\bP^3}\to \cO_S\to 0.
+	\]
+	The long exact sequence in cohomology gives:
+	\[
+	\cdots\to H^1(\bP^3,\cO_{\bP^3})\to H^1(S,\cO_S)\to H^2(\bP^3,\cO_{\bP^3}(-4))\to \cdots.
+	\]
+	Since $H^1(\bP^3,\cO_{\bP^3})=H^2(\bP^3,\cO_{\bP^3}(-4))=0$, we conclude $H^1(X,\cO_X)=0$.
+\end{example}
+%
+%
+To construct further examples, we review the cyclic covering trick, used to construct branched covers. If we are given a covering $f:X\to Y$, the ramification divisor $R$ is that where the rank of the differential drops, i.e. the zero locus of 
+%
+\[
+\det(df):f^*K_Y\to K_X.
+\]
+%
+This shows that $R\in |f^*K_Y^\vee\otimes K_X|$. Quite tautologically, the Hurwitz formula follows:
+\[
+K_X=f^*K_Y\otimes \cO(R).
+\]
+%
+We say that $f$ is ramified over $f(R)_{\text{red}}=B$. Conversely, given the choice of an effective divisor $B\subset Y$, we want to describe ways to construct finite coverings of $Y$ that are ramified over $B$. 
+%
+\begin{construction}[Cyclic covering trick]
+Assume for simplicity that $Y$ is algebraic, the analytic case shall be discussed in \autoref{rem:an-case}. Let $B\subset Y$ be an effective reduced divisor, and suppose that $\cO(B)$ is a $m$th power for some $m\geq 2$, that is, there exists a line bundle $\cL\in\Pic(Y)$ with $\cL^m=\cO(B)$, and let $s\in\cO(B)$ be a defining section for $D$.
+	
+	Let $\bV(\cL)$ be the total space of $\cL$.
+We have
+	\[
+	\bV(\cL)=\text{Spec}(\text{Sym}^\bullet\cL^\vee).
+	\]
+ Let $\pi: \bV(\cL)\to Y$ be the projection. We have a tautological section 
+	\[
+	\tau\in H^0(\bV(\cL),\pi^*\cL)=\cL\otimes\bigoplus_{i\le 0}\cL^i
+	\]
+	given by the identity element of $\cL^\vee\otimes\cL$ and whose zero locus coincides with that of the zero section $Y\subset \bV(\cL)$. Consider the variety $X$ defined as the zero locus of the section $\tau^m-\pi^* s\in \pi^*\cL^m$, i.e.
+	\[
+	X:=Z(\tau^m-\pi^*s)\subset \bV(\cL).
+	\]
+	the map $f:X\hookrightarrow\bV(\cL)\xrightarrow{\pi}Y$ is finite, and it is ramified over $B$
+\end{construction}
+
+\begin{remark}
+	By using the Jacobian criterion on the local equations for $X$, it is obvious that $X$ is smooth if and only if $B$ is.
+\end{remark}
+
+\begin{lemma}\label{lem: cyclic cover properties}
+	Let $\pi:X\to Y$ be the $m$-cyclic cover defined by $B$ as above.
+	\begin{enumerate}
+		\item The pushforward of the structure sheaf is $f_*\cO_X \simeq \bigoplus_{j=0}^{m-1} \cL^{-j}$.
+		\item The canonical bundle is $K_X \simeq f^*(K_Y\otimes \cL^{m-1})$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1): Consider the short exact sequence defining $X$ in $\bV(\cL)$:
+	\[
+	0\to \cO_{\bV(\cL)}(-X)\xrightarrow{\tau^m-\pi^*s} \cO_{\bV(\cL)}\to \cO_X\to 0.
+	\]
+	We have by definition $\cO_{\bV(\cL)}(-X)\simeq \pi^*(\cL^{-m})$. We push-forward via $\pi$, which preserves exactness since $\pi$ is affine:
+	\begin{equation}
+	0\to \pi_*(\pi^*L^{-m})=\cL^{-m}\otimes \text{Sym}^\bullet\cL^\vee\xrightarrow{-s} \text{Sym}^\bullet\cL^\vee\to f_*\cO_X\to 0,\label{eq:ex-sq-cyc}
+	\end{equation}
+	where the equality is obtained from the projection formula. Since $s$ has degree $m$, this multiplication map identifies a section in $\text{Sym}^\bullet\cL^\vee$ of degree $a+mb$ (where $a,b\leq 0$, $a> -m$) with a section of degree $a$. Therefore, as $\cO_Y$-modules, we have
+	\[
+	f_*\cO_X\simeq \bigoplus_{j=0}^{m-1}\cL^{-j}.
+	\]
+	
+	(2): By the adjunction formula, we have
+	\[
+	K_X\simeq \pa{K_{\bV(\cL)}\otimes\cO_{\bV(\cL)}(X)}|_X=\pa{\pi^*(K_Y\otimes \cL^{-1})\otimes \pi^*\cL^m}|_X=f^*(K_Y\otimes \cL^{m-1}).
+	\]
+	
+	Alternatively, looking at the defining equation, the ramification divisor of $X\to Y$ is $(m-1)Z(\tau)\subset X$, and so we have by the Hurwitz formula
+	\[
+	K_X=f^*(K_Y\otimes \cL^{m-1}).\qedhere
+	\]
+\end{proof}
+\begin{remark}
+	Such a cyclic cover has a $\mu_m$-action, acting transitively on the fibers, which can be seen from the $\mu_m$-graded structure on $f_*\cO_X$. Conversely, it can be shown that any cover that has such a $\mu_m$-action arises as a cyclic covering as constructed above. 
+	
+	Note that not every finite covering $f:X\to Y$ of degree $m$ that is a cyclic covering. However, in characteristic coprime to $m$, we can say the following.  The exact sequence 
+	\[
+	0\to \cO_Y\to f_*\cO_X\to\text{coker}\to 0
+	\]
+	of $\cO_Y$-modules splits as we have a retraction given by $\frac{1}{m}\Tr$, where $\Tr:\pi_*\cO_X\to \cO_Y$ is the trace, defined because we can view elements of $f_*\cO_X$ as acting on $f_*\cO_X$ by multiplication. Since $\pi_*\cO_X$ is locally free of rank $m$, this implies that $\cT^\vee:=\text{coker}$ is also locally free, of rank $m-1$.  The splitting also ensures that we have a section $\cT^\vee\to f_*\cO_X$, and the universal property of the symmetric algebra yields a map of $\cO_Y$-algebras
+	\[
+	\text{Sym}^\bullet\cT^\vee\to f_*\cO_X,
+	\]
+	which is obviously surjective. Since $f$ is affine, this map comes from a closed immersion
+	\[
+	X\hookrightarrow\bV(\cT)
+	\]
+	over $Y$. $\cT$ is called the \emph{Tschirnhausen} bundle, and we have shown that any finite map (under characteristic assumptions) factors through its Tschirnhausen bundle. It is to be expected that this bundle would have rank $m-1$. Indeed, if we take $m$ points in a very big vector space, the affine space they span has dimension $m-1$.
+\end{remark}
+\begin{remark}\label{rem:an-case}
+	The only subtlety in the analytic case is that the total space of the line bundle $\cL$ has more functions than $\text{Sym}^\bullet\cL^\vee$. But we can circumvent this e.g. by constructing directly the $\cO_Y$-algebra structure on 
+	\[
+	\cO_Y\oplus\cL^{-1}\oplus\cdots\oplus\cL^{m-1},
+	\] 
+	and showing afterwards it corresponds to $Z(\tau^m-\pi^*s)\subset \bV(\cL)$. Alternatively, one may also show that the analytic counterpart of the exact sequence \eqref{eq:ex-sq-cyc} yields the desired $\cO_Y$-algebra structure in the same way, e.g. after locally injecting holomorphic functions into formal functions and taking Taylor expansions in local coordinates. 
+\end{remark}
+\begin{example}[Double cover of $\bP^2$ branched over a sextic]\label{eg: double cover K3}
+	Let $Y=\bP^2$. Let $B\subset \bP^2$ be a smooth curve of degree 6. We have $\cO(B)=\cO(6)$. We take $m=2$ and $\cL=\cO(3)$.
+	Let $f:X\to \bP^2$ be the double cyclic cover branched along $B$. We check the K3 conditions.
+	
+	1. Canonical bundle: Using \autoref{lem: cyclic cover properties} (2),
+	\[
+	K_X=f^*(K_{\bP^2}\otimes \cL) = f^*(\cO(-3)\otimes \cO(3))=\cO_X.
+	\]
+	
+	2. Vanishing of $H^1(X,\cO_X)$: Using \autoref{lem: cyclic cover properties} (1),
+	\[
+	f_*\cO_X = \cO_{\bP^2}\oplus \cL^{-1} = \cO_{\bP^2}\oplus \cO(-3).
+	\]
+	Since $f$ is finite, 
+	\[
+	H^1(X,\cO_X)\simeq H^1(\bP^2,f*\cO_X)=H^1(\bP^2,\cO_{\bP^2})\oplus H^1(\bP^2,\cO(-3))=0.
+	\]
+	Since $B$ was chosen to be smooth, so is $X$, which is also connected since it is smooth and a ramified cover. Thus, $X$ is a K3 surface.
+\end{example}
+
+\begin{example}[Kummer surfaces]\label{eg: Kummer K3}
+	Let $A$ be a complex torus of dimension 2. Consider the involution $i:A\to A$, $x\mapsto -x$.
+	
+	The fixed locus of $i$ is the set of 2-torsion points $A[2]$, which consists of $16$ points. These points induce $16$ singularities in $A/i$. So we first blow up.
+	
+	Let $p:\tilde{A}\to A$ be the blow-up of $A$ at the 16 fixed points. The exceptional locus is a disjoint union of 16 smooth rational curves $\tilde E_i$.
+	The involution $i$ lifts to an involution $\tilde{i}:\tilde{A}\to \tilde{A}$ by the universal property of the blow-up: indeed, we have the commutative square
+	\[
+	\begin{tikzcd}
+		\tilde A\ar[r,"\tilde i",dotted]\ar[d]\ar[dr]&\tilde A\ar[d]\\
+		A\ar[r,"i"]&A,
+	\end{tikzcd}
+	\] 
+	and so the diagonal arrow lifts to $\tilde i$ since the total transform of the $16$ points under the diagonal arrow is a Cartier divisor.
+	Incidentally, the fixed locus of $\tilde{i}$ is exactly the union of the exceptional divisors $\bigcup E_i$. This implies that the quotient $X=\tilde A/\tilde i$, which we define to be the \tbf{Kummer surface} of $A$, is smooth because the fixed locus has codimension $1$. $X$ is Kähler since it isthe quotient of a Kähler surface by a finite group. In order to check that it is a K3 surface, there are two conditions to check: that the canonical bundle is trivial, and that $H^1(X,\cO_X)=0$.
+	
+	We first show that $H^1(X,\cO_X)=0$. Let $f:\tilde A\to \tilde A/\tilde i$ be the quotient map. Since $f$ is finite, we have that the pullback $f^*:H^1(X,\C)\to H^1(\tilde A,\C) $ is injective; indeed this is seen easily as for a given $\alpha\in H^1(X,\C)$, the projection formula (singular cohomology version) gives
+	\[
+	f_*f^*\alpha=\alpha\cup f_*1_{\tilde A}=2\alpha,
+	\]
+	and so $f_*f^*$ is injective. Thus, we may identify
+	\[
+	H^1(X,\C)=H^1(\tilde A,\C)^{\mu_2}=H^1(A,\C)^{\mu_2},
+	\]
+	where the superscript indicates taking the invariants under $i$, and the last equality holds because blowing up a point does not affect singular cohomology\footnote{In general, if $\tilde Y\to Y$ is the blow-up at a complex submanifold $Z$, we have the formula \[H^\bullet(\tilde Y)=H^\bullet(Y)\oplus\bigoplus_{i=1}^{\text{codim}(Z)-1}H^{\bullet-2i}(Z).\]}.
+	But now, on $H^1(A,\C)= \C^4$, the involution acts as multiplication by $-1$; this can be seen directly by looking at how it acts on the generators $dz_1,dz_2,d\overline z_1$ and $d\overline z_2$. Therefore, $H^1(A,\C)^{\mu_2}=H^1(X,\C)=0$, implying that $H^1(X,\cO_X)=0$ by the Hodge decomposition.
+	
+	We now show that $K_X=\cO_X$. Let $b:\tilde A\to A$ be the blow-down. By the Hurwitz formula, we have
+	%
+	\[
+	K_{\tilde A}\simeq f^*K_X\otimes \cO\pa{\sum \tilde E_i},
+	\]
+	and similarly, by Hurwitz, we have
+	%
+	\[
+	K_{\tilde A}\simeq b^*K_{A}\otimes \cO\pa{\sum\tilde E_i}=\cO\pa{\sum \tilde E_i},
+	\]
+	so that $f^*K_X=\cO_{\tilde A}$. Using the projection formula, we obtain
+	%
+	\begin{align}
+		f_*\cO_{\tilde A}\simeq f_*f^*K_X\simeq f_*\cO_{\tilde A}\otimes K_X,\label{eq:can-kum}
+	\end{align}
+	implying, after taking determinants, that $K_X$ is $2$-torsion.
+	Now, $f$ is a $\mu_2$-covering, and so by our previous discussion on the cyclic covering trick, we have
+	\[
+	f_*\cO_{\tilde A}\simeq\cO_X\oplus \cL^\vee,
+	\]
+	where  $f^*\cL^2=\cO\pa{\sum\tilde E_i}$. Thus, we have	
+	\[
+	K_X\oplus \pa{K_X\otimes\cL^\vee}\simeq \cO_X\oplus\cL^\vee.
+	\]
+	This isomorphism has to be given by a matrix of the form
+	\begin{equation}
+	\begin{pmatrix}
+		\Hom(K_X,\cO_X)&\Hom(K_X,\cL^\vee)\\\Hom(K_X\otimes\cL^\vee,\cO_X)&\Hom(K_X\otimes \cL^\vee,\cL^\vee)
+	\end{pmatrix}=
+	\begin{pmatrix}
+	H^0(X,K_X^\vee)&H^0(X,\pa{K_X\otimes \cL}^\vee)\\
+	H^0(X,K_X^\vee\otimes \cL)& H^0(X,K_X^\vee).\label{eq:mat}
+	\end{pmatrix}
+	\end{equation}
+	Suppose for the purpose of contradiction that $K_X\neq O_X$. Then, since $K_X=K_X^\vee$, it cannot have a non-zero global section, and so \eqref{eq:mat} is of the form
+	\[
+		\begin{pmatrix}
+		0&H^0(X,\pa{K_X\otimes \cL}^\vee)\\
+		H^0(X,K_X^\vee\otimes \cL)& 0,
+	\end{pmatrix}
+	\]
+	implying that we must have an isomorphism $K_X\simeq \cL^\vee$, so that $\cL$ is $2$-torsion. But this is impossible, as $f^*\cL^2=\cO\pa{\sum\tilde E_i}\not\simeq \cO_{\tilde A}$. Thus, $K_X\simeq \cO_X$.
+\end{example}
+
+\begin{remark}
+	Note that the map $q:A\to A/i$ is flat. Let $Z$ be the singular locus of $A/i$, comprising of 16 points. Recall that the blow-up (i.e. Rees) algebra of $A$ at $Z$ is
+	\[
+	\cO_{A/i}[\cI_Zt],
+	\]
+	where $\cI_Z$ is the ideal at $Z$. We can equally recover the blow-up from the Rees algebra in the analytic setting, where there exists an analytic version of the projective spectrum; see \cite{Aroca2018}. Now, since $q$ is flat,
+	\[
+	q^*\cO_{A/i}[\cI_Zt]=\cO_{A}[(q^*\cI_Z)t]=\cO_A[\cI_{Z'}t],
+	\] 
+	where $Z'=q^{-1}(Z)$, that is, $Z'$ consists of the 16 points fixed by $i$. The projective spectrum commutes with base change, and so if $\widetilde{A/i}$ denotes the blow up of $A/i$ at $Z$, we have a cartesian diagram
+	\[
+	\begin{tikzcd}
+		\tilde A\ar[r]\ar[d]&\widetilde {A/i}\ar[d]\\
+		A\ar[r,"q"]&A/i
+	\end{tikzcd}
+	\] 
+	now the quotient $q:A\to A/i$ may locally be defined as a GIT quotient, (we are quotienting by a finite group), and so it is universal under base change, hence $\tilde A\to\widetilde{A/i}$ is also the quotient of $\tilde A$ by the lifted action. But this implies that $\tilde A/\tilde i=\widetilde{A/i}=X.$ That is, when constructing $X$, we may equally have taken the quotient first, and resolve the singularities afterwards.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

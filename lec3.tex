@@ -69,10 +69,8 @@ and by looking at an orthonormal basis for \eqref{eq:hodge-dec-vs}, we see that 
 Note that the equality \eqref{eq:hodge-vol} now becomes
 %
 \[
-\alpha\wedge*\overline\beta=\langle \alpha,\beta\rangle\text{vol}_{V_\C},
+\alpha\wedge*\overline\beta=\langle \alpha,\beta\rangle\text{vol}_{V_\C}.
 \]
-%	
-where $\text{vol}_{V_\C}:=(e_1+\iota e_1)\wedge(e_1-\iota e_1)\wedge\cdots\wedge (e_n+\iota e_n)\wedge(e_n-\iota e_n)$.
 
 \subsection{Harmonic forms}
 From now on, $(X,h)$ is a Kähler manifold and $g=\fR\fe(h)$ is the compatible Riemannian metric associated to $h$. We will write $\langle -,-\rangle$ for the hermitian metric induced by $h$ on $T^*_\R X$. We have the real volume form
@@ -409,7 +407,7 @@ so that
 is positive-definite.
 \end{proof}	
 %
-\begin{corollary}[Hodge index theorem]
+\begin{corollary}[Hodge index theorem]\label{cor:hdg-ind}
 	Let $X$ be a compact Kähler surface. Then, the signature of the Poincaré intersection pairing $Q_2$ on $H^2(X,\R)$ is 
 	\[
 	(2h^{2,0}+1,h^{1,1}-1).
@@ -455,19 +453,45 @@ It is a fact that the induced connecting homomorphism $\delta$ in the long exact
 \[
 \cdots\to H^1(X,\Z)\to H^1(X,\cO_X)\to \text{Pic}(X)\xrightarrow{\delta}H^2(X,\Z)\to H^2(X,\cO_X)\to \cdots
 \]	
-is the opposite of the first chern map: $\delta=-c_1$.
-\begin{theorem}[Lefschetz theorem on $(1,1)$ classes]
-	If $X$ is compact Kähler, then the first chern map $c_1$ is surjective onto $H^{1,1}(X,\Z)$.
+is related to the Chern map $c_1:\Pic(X)\to H^2(X,\C)$: after composing $\delta$ with the map $H^2(X,\Z)\to H^2(X,\C)$ (which kills torsion), we have $\delta(\cL)=-c_1(\cL)$, where $\cL\in\Pic(X)$.
+\begin{theorem}[Lefschetz theorem on $(1,1)$ classes]\label{thm:lef-11}
+	If $X$ is compact Kähler, then the first chern map $c_1$ composed with $H^2(X,\Z)\to H^2(X,\C)$ is surjective onto $H^{1,1}(X,\Z)$.
 \end{theorem}
 \begin{proof}
-	Note that the first chern map is indeed valued in $H^{1,1}(X,\Z)$ by definition of the Chern class (indeed, the $(2,0)$ and $(0,2)$ part of the curvature of the Chern connection vanish). The map $H^2(X,\Z)\to H^2(X,\cO_X)$ factors as
-	\[
-	H^2(X,\Z)\hookrightarrow H^2(X,\C)\to H^{2,0}(X,\C)\simeq H^2(X,\cO_X),
-	\]
-	and thus vanishes on $(1,1)$ classes, so that $(1,1)$ classes are in the kernel of this map, and equivalently in the image of $c_1=-\delta$. 
+	Note that the compositio is indeed valued in $H^{1,1}(X,\Z)$ by definition of the Chern class (indeed, the $(2,0)$ and $(0,2)$ part of the curvature of the Chern connection vanish). The map $H^2(X,\Z)\to H^2(X,\cO_X)$ factors as
+	\begin{equation*}
+	H^2(X,\Z)\to H^2(X,\C)\to H^{0,2}(X,\C)\simeq H^2(X,\cO_X),
+	\end{equation*}
+	%
+	where the middle arrow is the projection onto the $(2,0)$ part.
+This can be seen as follows: the map $\Z\to\cO_X$ factors as $\Z\to\C\to\cO_X$, and the map in cohomology $H^2(\C,X)\to H^2(X,\cO_X)$ may be computed by considering the map between the resolutions
+\[
+\begin{tikzcd}
+	0\ar[r]&\C\ar[r]\ar[d]&\cA^1(\C)\ar[d]\ar[r,"d"]&\cA^2(\C)\ar[d]\ar[r,"d"]&\cdots\\
+	0\ar[r]&\cO_X\ar[r]&\cA^{0,1}\ar[r,"\op"]&\cA^{0,2}\ar[r,"\op"]&\cdots,
+\end{tikzcd}
+\]
+where the vertical arrows are projections.	Thus, the map $H^2(X,\Z)\to H^2(X,\cO_X)$  vanishes on $(1,1)$ classes, so that $(1,1)$ classes are in the kernel of this map, and equivalently in the image of $c_1=-\delta$. 
 \end{proof}
+%
+\begin{definition}
+	We define the \tbf{Néron-Severi} group of $X$, denoted $\NS(X)$, to be the image of $c_1$ in $H^2(X,\Z)$. We note that $\NS(X)/\text{torsion}=H^{1,1}(X,\Z)$, as $H^{1,1}(X,\Z)$ is defined to be the intersection of $H^{1,1}(X)$ with the image of $H^2(X,\Z)$ in $H^2(X,\C)$.
 	
-	
+	We define the rank $\rho(X)$ of $\NS(X)$ (or equivalently of $H^{1,1}(X,\Z)$) to be the \tbf{Picard number}.  To motivate this terminology, note that there is an exact sequence
+	\[
+	0\to \Pic^0(X)\to\Pic(X)\to \NS(X)\to 0,
+	\]
+	where $\Pic^0(X)$ is the connected component of the identity.
+\end{definition}
+%
+\begin{remark}
+	The integral Hodge conjecture, which has been proven to be false, states that the map
+	\begin{align*}
+	\{\text{algebraic $\Z$-cycles of dimension $k$}\}&\to H^{(k,k)}(X,\Z)\\
+	Z&\mapsto [Z]
+	\end{align*}
+	is surjective. Nevertheless, the Lefschetz theorem on $(1,1)$ classes shows that it is true for $k=1$. The rational Hodge conjecture, notoriously unsolved, asks whether taking this map over $\Q$-coefficients is surjective.
+\end{remark}	
 	
 	
 	
