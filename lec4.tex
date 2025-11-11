@@ -13,7 +13,7 @@ We now focus on K3 surfaces, which are the fundamental examples in dimension 2 a
 	\end{enumerate}
 \end{definition}
 
-K3 surfaces are exactly strict Calabi-Yau manifolds of dimension $2$. To show this, we introduce a second definition of K3 surfaces, which we will show are equivalent.
+K3 surfaces are exactly the strict Calabi-Yau manifolds of dimension $2$. To show this, we introduce a second definition of K3 surfaces, which we will show is equivalent to the one above.
 
 \begin{definition}[Weak definition]\label{def: K3 weak}
 	A K3 surface is a compact, connected Kähler surface $S$ such that
@@ -24,7 +24,7 @@ K3 surfaces are exactly strict Calabi-Yau manifolds of dimension $2$. To show th
 \end{definition}
 
 \begin{proposition}
-	The two definitions (\autoref{def: K3 strong} and \autoref{def: K3 weak}) are equivalent. In particular, K3 surfaces are exactly strict Calabi-Yau manifolds surfaces.
+	The two definitions (\autoref{def: K3 strong} and \autoref{def: K3 weak}) are equivalent. In particular, K3 surfaces are exactly the two dimensional strict Calabi-Yau manifolds.
 \end{proposition}
 \begin{proof}
 	(\ref{def: K3 strong} $\implies$ \ref{def: K3 weak}): Assume $S$ satisfies the strong definition. We need to show $H^1(S,\cO_S)=0$. Since $S$ is simply connected, $H_1(S,\C)$ and hence $H^1(S,\C)=H_1(S,\C)^\vee$ vanish. Since $S$ is Kähler, the Hodge decomposition gives $H^1(S,\bC)=H^{1,0}(S)\oplus H^{0,1}(S)$. Thus $H^{0,1}(S)\simeq H^1(S,\cO_S)=0$.
@@ -38,7 +38,7 @@ K3 surfaces are exactly strict Calabi-Yau manifolds of dimension $2$. To show th
 		&= 1 - 0 + 1 = 2.
 	\end{align*}
 
-	We apply the Beauville-Bogomolov decomposition theorem (\autoref{thm: BG decomp}) to conclude that there exists an étale cover $\pi: \tilde{S}\to S$ where $\tilde S$ is either a complex torus, a Hyperkähler surface,  a strict Calabi-Yau surface, or a product of two elliptic curves. Suppose first that $\tilde S$ is either a product of two elliptic curves or of a complex torus. Then,
+	We apply the Beauville-Bogomolov decomposition theorem (\autoref{thm: BG decomp}) to conclude by dimension reasons that there exists an étale cover $\pi: \tilde{S}\to S$ with $\tilde S$ either a complex torus, a Hyperkähler surface, a strict Calabi-Yau surface, or a product of two elliptic curves. Suppose first that $\tilde S$ is either a product of two elliptic curves or a complex torus. Then,
 	%
 	\[
 	\chi(\tilde S,\cO_{\tilde S})=\int_{\tilde S} ch(\cO_S)\cup td(S)=\int_{\tilde S}\frac{c_1^2(S)+c_2(S)}{12}=0
@@ -48,7 +48,7 @@ K3 surfaces are exactly strict Calabi-Yau manifolds of dimension $2$. To show th
 	Therefore, $\tilde S$ is either a strict Calabi-Yau or a Hyperkähler manifold (we will see \emph{a posteriori} that these two conditions coincide for surfaces), and in particular is simply connected. Thus, $\deg(\pi)=1$ and $S=\tilde S$ is simply connected.
 \end{proof}
 \begin{remark}
-	Importantly, it is also true that K3 surfaces are exactly Hyperkähler manifolds of dimension $2$, but we shall see this later.
+	Importantly, it is also true that a two dimensional Hyperkähler manifold is nothing but a K3 surface, but we shall see this later.
 \end{remark}
 % Plan: State the main theorem about the integral cohomology of K3 surfaces and provide the proof. Mention the Hodge diamond and the Picard group.
 
@@ -229,7 +229,7 @@ We have
 \begin{remark}
 	Such a cyclic cover has a $\mu_m$-action, acting transitively on the fibers, which can be seen from the $\mu_m$-graded structure on $f_*\cO_X$. Conversely, it can be shown that any cover that has such a $\mu_m$-action arises as a cyclic covering as constructed above. 
 	
-	Note that not every finite covering $f:X\to Y$ of degree $m$ that is a cyclic covering. However, in characteristic coprime to $m$, we can say the following.  The exact sequence 
+	Note that not every finite covering $f:X\to Y$ of degree $m$ is a cyclic covering. However, in characteristic coprime to $m$, we can say the following.  The exact sequence 
 	\[
 	0\to \cO_Y\to f_*\cO_X\to\text{coker}\to 0
 	\]
@@ -265,7 +265,7 @@ We have
 	\]
 	Since $f$ is finite, 
 	\[
-	H^1(X,\cO_X)\simeq H^1(\bP^2,f*\cO_X)=H^1(\bP^2,\cO_{\bP^2})\oplus H^1(\bP^2,\cO(-3))=0.
+	H^1(X,\cO_X)\simeq H^1(\bP^2,f_*\cO_X)=H^1(\bP^2,\cO_{\bP^2})\oplus H^1(\bP^2,\cO(-3))=0.
 	\]
 	Since $B$ was chosen to be smooth, so is $X$, which is also connected since it is smooth and a ramified cover. Thus, $X$ is a K3 surface.
 \end{example}
@@ -284,7 +284,7 @@ We have
 	\end{tikzcd}
 	\] 
 	and so the diagonal arrow lifts to $\tilde i$ since the total transform of the $16$ points under the diagonal arrow is a Cartier divisor.
-	Incidentally, the fixed locus of $\tilde{i}$ is exactly the union of the exceptional divisors $\bigcup E_i$. This implies that the quotient $X=\tilde A/\tilde i$, which we define to be the \tbf{Kummer surface} of $A$, is smooth because the fixed locus has codimension $1$. $X$ is Kähler since it isthe quotient of a Kähler surface by a finite group. In order to check that it is a K3 surface, there are two conditions to check: that the canonical bundle is trivial, and that $H^1(X,\cO_X)=0$.
+	Incidentally, the fixed locus of $\tilde{i}$ is exactly the union of the exceptional divisors $\bigcup E_i$. This implies that the quotient $X=\tilde A/\tilde i$, which we define to be the \tbf{Kummer surface} of $A$, is smooth because the fixed locus has codimension $1$. $X$ is Kähler since it is the quotient of a Kähler surface by a finite group. In order to check that it is a K3 surface, there are two conditions to check: that the canonical bundle is trivial, and that $H^1(X,\cO_X)=0$.
 	
 	We first show that $H^1(X,\cO_X)=0$. Let $f:\tilde A\to \tilde A/\tilde i$ be the quotient map. Since $f$ is finite, we have that the pullback $f^*:H^1(X,\C)\to H^1(\tilde A,\C) $ is injective; indeed this is seen easily as for a given $\alpha\in H^1(X,\C)$, the projection formula (singular cohomology version) gives
 	\[
