@@ -80,11 +80,11 @@ K3 surfaces are exactly the strict Calabi-Yau manifolds of dimension $2$. To sho
 
 	To compute the rank $b_2(S)$, we use the topological Euler characteristic $e(S)$.
 	\[
-	\chi_{top}(S) = \sum (-1)^i b_i(S) = 1-0+b_2(S)-0+1 = 2+b_2(S).
+	e(S) = \sum (-1)^i b_i(S) = 1-0+b_2(S)-0+1 = 2+b_2(S).
 	\]
 	By the Gauss-Bonnet theorem, we have 
 	\[
-	\chi_{top}(S)=\int_S c_2(S).
+	e(S)=\int_S c_2(S).
 	\]
 	 However, Hirzebruch-Riemann-Roch theorem gives us
 	 \[
@@ -228,7 +228,8 @@ We have
 \end{proof}
 \begin{remark}
 	Such a cyclic cover has a $\mu_m$-action, acting transitively on the fibers, which can be seen from the $\mu_m$-graded structure on $f_*\cO_X$. Conversely, it can be shown that any cover that has such a $\mu_m$-action arises as a cyclic covering as constructed above. 
-	
+	\end{remark}
+	\begin{remark}
 	Note that not every finite covering $f:X\to Y$ of degree $m$ is a cyclic covering. However, in characteristic coprime to $m$, we can say the following.  The exact sequence 
 	\[
 	0\to \cO_Y\to f_*\cO_X\to\text{coker}\to 0
@@ -241,7 +242,7 @@ We have
 	\[
 	X\hookrightarrow\bV(\cT)
 	\]
-	over $Y$. $\cT$ is called the \emph{Tschirnhausen} bundle, and we have shown that any finite map (under characteristic assumptions) factors through its Tschirnhausen bundle. It is to be expected that this bundle would have rank $m-1$. Indeed, if we take $m$ points in a very big vector space, the affine space they span has dimension $m-1$.
+	over $Y$. $\cT$ is called the \emph{Tschirnhausen} bundle, and we have shown that any finite map (under characteristic assumptions) factors through its Tschirnhausen bundle. It is to be expected that this bundle would have rank $m-1$. Indeed, if we take $m$ points in a very big vector space, the affine space they span has dimension $m-1$. In particule, any degree $2$ covering factors through (the total space of) a line bundle, and one sees readily that this recovers the cyclic covering trick.
 \end{remark}
 \begin{remark}\label{rem:an-case}
 	The only subtlety in the analytic case is that the total space of the line bundle $\cL$ has more functions than $\text{Sym}^\bullet\cL^\vee$. But we can circumvent this e.g. by constructing directly the $\cO_Y$-algebra structure on 
