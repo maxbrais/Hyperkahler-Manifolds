@@ -166,11 +166,11 @@ In particular, in light of what we found in \autoref{eg: HRR curves}, we recover
 	\end{enumerate}	
 \end{remark}
 \begin{definition}
-	We say that a complex manifold $X$ is \tbf{Calabi-Yau} if $c_1(X)=0$, \tbf{Fano} if $c_1(X)$ is positive, of \tbf{general type} (or \tbf{canonically polarised}) if $-c_1(X)$ is positive.
+	We say that a complex manifold $X$ is \tbf{Calabi--Yau-Yau} if $c_1(X)=0$, \tbf{Fano} if $c_1(X)$ is positive, of \tbf{general type} (or \tbf{canonically polarised}) if $-c_1(X)$ is positive.
 \end{definition}
 Note that by Kodaira's embedding theorem, Fano and general type manifolds are projective.
 \begin{caution}
-	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi-Yau manifold admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin76,Yau1978}) proved the same for general type manifolds.
+	It is not because a manifold fits in this trichotomy that it admits a Kähler-Einstein metric. In fact, there exist Fano varieties with no Kähler-Einstein metric. Whether a Fano variety admits such metric is equivalent to $K$-stability, a purely algebro-geometric notion. Nonetheless, Yau (cf. \cite{Yau1978}) proved that any Calabi--Yau-Yau manifold admits a Kähler-Einstein metric, and Aubin--Yau (cf. \cite{Aubin76,Yau1978}) proved the same for general type manifolds.
 	
 	Note also that not all manifolds fit in this trichotomy. 
 \end{caution}
@@ -178,7 +178,7 @@ Note that by Kodaira's embedding theorem, Fano and general type manifolds are pr
 	Let us see how these categories apply to curves.
 	\begin{itemize}
 		\item $g=0$ gives only $\bP^1$. Since it is diffeomorphic to a sphere, we have positive scalar curvature. And indeed, the Fubini-Study metric is Kähler-Einstein with $\lambda=1$. Note also that $\bP^1$ is Fano.
-		\item The $g=1$ case corresponds to elliptic curves. These are Ricci-flat and Calabi-Yau.
+		\item The $g=1$ case corresponds to elliptic curves. These are Ricci-flat and Calabi--Yau-Yau.
 		\item The case $g>1$ are of general type, and there exists a Kähler-Einstein metric with negative scalar curvature.\qedbarhere
 	\end{itemize}
 \end{example}
@@ -190,17 +190,17 @@ For Fano manifolds, here is a summary of the known classifications:
 	\item In dimension $4$, we know there are finitely many families but it remains open to know how many.
 \end{enumerate}
 
-For Calabi-Yau manifolds, there is the following structural theorem.
+For Calabi--Yau-Yau manifolds, there is the following structural theorem.
 \begin{theorem}[Beauville--Bogomolov;\; \citeplain{Bog1974}  and\;\citeplain{Beauville1983}]\label{thm: BG decomp}
-	Let $X$ be Kähler and Calabi-Yau. Then, there exists an étale cover $\tilde X\to X$ such that 
+	Let $X$ be Kähler and Calabi--Yau-Yau. Then, there exists an étale cover $\tilde X\to X$ such that 
 	\[
 	\tilde X=T\times \prod_jX_j\times \prod_i V_i
 	\]
-	where $T$ is a torus, $X_j$ is \tbf{hyperkähler} for all $j$, and $V_i$ are \tbf{strict Calabi-Yau} for all $i$. 
+	where $T$ is a torus, $X_j$ is \tbf{hyperkähler} for all $j$, and $V_i$ are \tbf{strict Calabi--Yau-Yau} for all $i$. 
 \end{theorem}
 We now define the terms.
 \begin{definition}
-	A compact Kähler manifold $V$ is called \tbf{strict Calabi-Yau} if
+	A compact Kähler manifold $V$ is called \tbf{strict Calabi--Yau-Yau} if
 	\begin{itemize}
 		\item $K_V\simeq \cO_V$ is trivial, where $K_V$ denotes the canonical bundle;
 		\item $V$ is simply connected;
@@ -213,7 +213,7 @@ We now define the terms.
 	\end{itemize}
 \end{definition}
 \begin{remark}
-	If $V$ is a strict Calabi-Yau of dimension greater than two, then $h^{2,0}=h^{0,2}=0$. In particular, $H^{1,1}(X,\C)=H^2(X,\C)$, and so $H^{1,1}(X,\R)=H^{2}(X,\R)=H^{1,1}(X,\Z)\otimes_\Z\R$. Since the Kähler cone is not empty by assumption, we conclude that it intersects $H^{1,1}(X,\Z)$, so that $V$ is projective by our discussion on Kodaira's embedding theorem. In dimension $2$, non-projective K3 surfaces yield an example of non-projective strict Calabi-Yau manifolds.
+	If $V$ is a strict Calabi--Yau-Yau of dimension greater than two, then $h^{2,0}=h^{0,2}=0$. In particular, $H^{1,1}(X,\C)=H^2(X,\C)$, and so $H^{1,1}(X,\R)=H^{2}(X,\R)=H^{1,1}(X,\Z)\otimes_\Z\R$. Since the Kähler cone is not empty by assumption, we conclude that it intersects $H^{1,1}(X,\Z)$, so that $V$ is projective by our discussion on Kodaira's embedding theorem. In dimension $2$, non-projective K3 surfaces yield an example of non-projective strict Calabi--Yau-Yau manifolds.
 \end{remark}
 \begin{remark}\label{rem:pow-can-triv}
 \autoref{thm: BG decomp} has an important corollarly. Namely, if $X$ is a Kähler, we have a degree $n$ étale map $f:\tilde X\to X$ with the canonical bunlde $K_{\tilde X}$ of $\tilde X$ trivial. Since $f$ is étale, $f^*K_X=K_{\tilde X}$ is trivial, and so by the projection formula,
@@ -224,7 +224,7 @@ Taking determinants, we have
 \[
 \det(f_*\cO_{\tilde X})=K_X^n\otimes \det(f_*\cO_{\tilde X}),
 \]
-so that $K_X^n=\cO_X$. Hence, the power of the canonical bundle of a Kähler Calabi-Yau is always trivial.
+so that $K_X^n=\cO_X$. Hence, the power of the canonical bundle of a Kähler Calabi--Yau-Yau is always trivial.
 \end{remark}
 
 

@@ -1,0 +1,402 @@
+% !TEX root = main.tex
+\section{Fifth Lecture}
+
+
+\subsection{The Hilbert square of a K3 surface} Let $S$ be a K3 surface. We will construct a new manifold from $S$, called the Hilbert scheme of two points, denoted $S^{[2]}$.
+This is the first example of a hyperkähler manifold of dimension more than $2$ that we shall see.
+
+
+% Construction via blow-up and quotient (Notes p.1-2)
+We start with the product $S^2:=S\times S$. Let $\Delta\subset S^2$ be the diagonal. We consider the blow-up $\tilde{S^{2}}:=\text{Bl}_\Delta(S^{2})$.
+
+\begin{remark}[Blow-ups in the holomorphic category]
+	This is a good place to recall how to deal with blow-ups in the holomorphic category.
+	Let $Z$ be a subvariety regularly embedded\footnote{This means locally as many equations as codimension. If for example $Z$ is smooth, this condition is always satisfied.} in $X$ which is defined by an ideal sheaf $\cI$. By definition of a regular embedding, we can locally on an open set $U\subset X$, find generators $\cI=\langle f_1,\dots,f_k\rangle$. We define a map
+	\begin{align*}
+		\underline{f}:U\setminus (U\cap Z)&\to \bP^{k-1}\\
+		x&\mapsto [f_1(x):\cdots:f_k(x)].
+	\end{align*}
+	The blow-up $\text{Bl}_{Z\cap U}(U)$ is defined as the closure of the graph $\Gamma(\underline{f})$ inside $U\times \bP^{k-1}$.  This picture is local, but naturally glues to the blow-up $\text{Bl}_{Z}(X)$ of $X$ at $Z$.
+	It satisfies the same universal property as in the algebraic case: any map to $X$ whose pre-image of $Z$ is a divisor\footnote{If $X$ is not smooth, one must replace the word ``divisor'' by ``Cartier divisor''.} factors through the blow-up. 
+\end{remark}
+
+Let $\iota:S^2\to S^2$ be the involution $\iota(x,y)=(y,x)$. The \tbf{symmetric product} is the quotient $S^{(2)}:=S^2/\iota$. 
+
+\begin{remark}\label{rem:sing-sym2}
+	The quotient $S^{(2)}$ is singular along the image of the diagonal since the action has stabilisers on the diagonal, which has codimension more than $1$. Indeed, locally around the diagonal, we can use the dimension of the fixed locus to see that $S^{(2)}$ is of the form
+	\[
+	\C^2\times\C^2/\pm. 
+	\]
+	Now, $\C^2/\pm =\Spec\C[x^2,xy,y^2]=\Spec\frac{\C[u,w,z]}{uw-z^2}$, so that the singularities are of the form of those of a cone times $\C^2$. Since blowing up the cone at the origin resolves the singularities, similarly, blowing up $S^{(2)}$ at the image of the diagonal resolves all singularities. 
+\end{remark}
+We define the \tbf{Hilbert Square} of $S$ to be the blow-up $S^{[2]}\xrightarrow{h}S^{(2)}$ at the image of the diagonal, which  is smooth by \autoref{rem:sing-sym2}. The map $h$ is an example of the so-called \emph{Hilbert--Chow} morphism, i.e. the map $\text{Hilb}^n(X)\to \text{Sym}^nX$. It is a theorem by Fogarty (see \cite{Fogarty1968}) that the Hilbert scheme of $n$ points of a surface is smooth, and so that the Hilbert--Chow morphism is a resolution of singularities in those instances.
+\begin{remark}
+	We can also define the Hilbert scheme of $n$ points of $X$ in a functorial way: a map $T\to X^{[n]}$ corresponds to a flat map
+	\[
+	X\times T\supset Y\to T,
+	\]
+	whose fibres $Y_t$ are all zero-dimensional schemes of length $n$ (i.e. embedded deformations of $n$ points in $X$).
+\end{remark}
+
+\begin{remark}
+	The involution $i$ lifts to an involution $\tilde{i}$ on the blow-up $\tilde{S^2}$ of $S^2$ at the diagonal, and a careful analysis of the local form of this action and of the singularities of $S^{(2)}$ shows that $S^{[2]}$ is also the quotient of $\tilde S^2$ by $\tilde i$. In particular, we have a Cartesian diagram
+	\[
+	\begin{tikzcd}
+		\tilde{S^2}\arrow[loop left, "\tilde i"] \arrow[d, "\pi"'] \arrow[r, "q"] & S^{[2]} \arrow[d, "h"] \\
+		S^2\ar[loop left, "i"] \arrow[r, "p"]                               & S^{(2)}
+	\end{tikzcd}
+	\]
+\end{remark}
+
+Let $E\subset S^{[2]}$ be the exceptional divisor of $h$. The map $q$ is a double cover branched along $E$. In particular, we have a divisor class $\delta$ such that $\cO(\delta)$ is the Tschirnhausen line bundle of this cover. This implies that we have $2\delta =E$.
+%
+\begin{proposition}\label{prop: S[2] HK}
+	Let $S$ be a K3 surface. Then $S^{[2]}$ is a 4-dimensional hyperkähler manifold. Moreover, we have an isomorphism
+	\[
+	H^2(S^{[2]},\Z)\cong H^2(S,\Z)\oplus \Z\delta,
+	\]
+	compatible witth the Hodge structure.
+\end{proposition}
+\begin{remark}
+Taking $S^{[n]}$ also yields a hyperkähler manifold of dimension $2n$. However, it is false that given any hyperkähler manifold $X$, its Hilbert scheme of $n$-points is also Hyperkähler.
+\end{remark}
+
+We sketch the proof of \autoref{prop: S[2] HK}, starting with the fundamental group.
+
+\begin{lemma}\label{lem:pi1-surj}
+ The map $q$ induces a surjection $q_*:\pi_1(\tilde{S^2})\to \pi_1(S^{[2]})$. 
+\end{lemma}
+\begin{proof}
+	This is a property of ramified double covers and more generally of ramified covers such that the preimage of some point in the branched locus is set theoretically one point.
+	
+	We can compute the fundamental group by taking loops based at some point $p\in E$. Given any such path $\gamma:[0,1]\to S^{[2]}$, we can deform it so that only $\gamma(0)=\gamma(1)=p$ are in $E$. Since $\tilde S^2\setminus q^{-1}(E)\to S^{[2]}\setminus E$ is étale, we can lift the path $\gamma:(0,1)\to S^{[2]}\setminus E$ to a path $\tilde \gamma: (0,1)\to \tilde S^2\setminus q^{-1}(E)$, and by continuity, the limits $\tilde\gamma(0)$ and $\tilde \gamma(1)$ must lie in the (set-theoretical) preimage of $p$. But since $q$ is a double cover, this set-theoretical image is only one point, and  so $\gamma$ lifts to a path $\tilde \gamma$.
+	\end{proof}
+	We shall also make use of the following fact.
+	\begin{lemma}\label{lem: pi1 codimension}
+		Let $X$ be a real manifold and $Z\subset X$ a subvariety of (real) codimension $c$. The map $\pi_1(X\setminus Z)\to \pi_1(X)$ induced by inclusion is surjective if $c\geq 1$ and an isomorphism if $c\geq 2$.
+	\end{lemma}
+	\begin{proof}
+		If $c\geq 1$, we can move loops to avoid $Z$, and if $c\geq 2$, we can also move homotopies between those loops to avoid $Z$.
+	\end{proof}
+	
+	\begin{proposition}
+		$S^{[2]}$ is simply connected.
+	\end{proposition}
+	\begin{proof}
+		Since $S$ is simply connected, $S^2$ is also simply connected. Let $\Delta\subset S^2$ be the diagonal. By \autoref{lem: pi1 codimension}, $S^2\setminus \Delta\simeq \tilde S^2\setminus q^{-1}(\Delta)$ is also simply connected, and by \autoref{lem: pi1 codimension} again, $\tilde S^2$ is simply connected (the exceptional divisor has real codimension $2$). Thus, by \autoref{lem:pi1-surj}, we conclude that $S^{[2]}$ is simply connected.
+	\end{proof}
+	\begin{lemma}
+		$S^{[2]}$ is Kähler.
+	\end{lemma}
+	\begin{proof}
+		$S^2$ is Kähler, and the blow-up of $\tilde S^2$ is again Kähler; see \cite[Proposition 3.24]{Voisin1998}.  Let $\omega$ be a Kähler form on $\tilde S^2$. We claim the form $q_*\omega$ is Kähler. Indeed, by a criterion of Demailly and Paun (see \cite{DemaillyPaun2004}), to show that $q_*\omega$ is Kähler, it suffices to show that for all analytic subvariety $Y\subset S^{[2]}$, we have
+		\[
+		\int_Y q_*\omega^{\dim Y}=\int_{S^{[2]}} q_*\omega^{\dim Y}\cup [Y]>0,
+		\]
+		and that $-\omega$ is not Kähler.\footnote{This second condition is only present to avoid pathologies with complex manifolds that have no odd-dimensional complex subvarieties.} But by the projection formula, we have that
+		\[
+		\int_{S^{[2]}} q_*\omega^{\dim Y}\cup [Y]=\int_{\tilde S^2}\omega^{\dim{f^{-1}(Y)}}\cup [f^{-1}(Y)]=\int_{f^{-1}(Y)}\omega^{\dim(f^{-1}(Y))}>0
+		\]
+		since $\omega$ is Kähler. Since $S^{[2]}$ has a divisor $E$, it is clear that $-\omega$ is not Kähler, as
+		\[
+		\int_{E}(-\omega)^3=-\int_E\omega^3<0
+		\]
+		by what we have shown.
+ 	\end{proof}
+ 	\begin{proposition}
+ 		$S^{[2]}$ has trivial canonical bundle
+ 	\end{proposition}
+ 	\begin{proof}
+ 		 Since $K_{S^2}$ is trivial, we have
+ 		\[
+ 		K_{\tilde S^2}=\cO(\tilde E).
+ 		\]
+ 		Similarly, using Hurwitz formula, we have
+ 		\[
+ 		K_{\tilde S^2}=\cO(E)\otimes q^*K_{S^{[2]}},
+ 		\]
+ 		so that $q^*K_{S^{[2]}}=\cO_{\tilde S^2}$. Pushing forward, we see that $K_{S^{[2]}}$ is $2$-torsion, and using that $q$ is a cyclic covering, we have moreover an isomorphism
+ 		\[
+ 		K_{S^{[2]}}\oplus K_{S^{[2]}}(-\delta)\simeq \cO_{S^{[2]}}\oplus \cO(-\delta).
+ 		\]
+ 		This isomorphism must be given by a matrix of the type
+ 		\[
+ 		\begin{pmatrix}
+ 			H^0(K_{S^{[2]}}^\vee)& H^0(K^\vee_{S^{[2]}}(\delta))\\H^0(K_{S^{[2]}}^\vee(-\delta))&H^0(K_{S^{[2]}}^\vee).
+ 		\end{pmatrix}
+ 		\]
+ 		Now, if $K_{S^{[2]}}\not\simeq\cO_{S^{[2]}}$, we have $H^0(K_{S^{[2]}}^\vee)=0$ since $K_{S^{[2]}}=K_{S^{[2]}}^\vee$. This implies we must have an isomorphism $K^\vee_{S^{[2]}}(-\delta)\simeq \cO_{S^{[2]}}$, i.e. that $K_{S^{[2]}}\simeq \cO(\delta)$, and so taking the square, $\cO_{S^{[2]}}\simeq \cO(E)$, which is impossible since $E$ is an effective divisor. Thus, we must have $K_{S^{[2]}}\simeq \cO_{S^{[2]}}$.
+ 	\end{proof}
+	We are now ready to prove that $S^{[2]}$ is hyperkähler.
+\begin{proof}[Proof of \autoref{prop: S[2] HK}]
+	By the Künneth formula, we have that 
+	\[
+	H^2(S^2,\Q)=p_1^*H^2(S,\Q)\oplus p_2^*H^2(S,\Q)\simeq H^2(S,\Q)\oplus H^2(S,\Q),
+	\]
+	where $p_i:S^2\to S$ are the projections. The involution $i ^*$ acts on this space by switching both summands, and so we see that
+	\[
+	H^2(S^2,\Q)^{\mu_2}=\{p_1^*\alpha+p_2^*\alpha:\alpha\in H^2(S,\Q)\},
+	\]
+	and so we have an isomorphism
+	\begin{align}
+		H^2(S,\Q)&\xrightarrow{\sim}H^2(S^2,\Q)^{\mu_2}\label{eq:inv-coh}\\
+		\alpha&\mapsto p_1^*\alpha+p_2^*\alpha=:\tilde \alpha.\notag
+	\end{align}
+  We now recall some facts from topology. First, 
+ 	over $\Q$ the cohomology of the quotient by a free action is given exactly by the invariant cohomology classes. Therefore, we have an isomorphism
+ 	\[
+ 	H^2(S^{[2]}\setminus E,\Q)=H^2(S^{(2)}\setminus p(\Delta),\Q)=H^2(S^2\setminus \Delta,\Q)^{\mu_2}.
+ 	\]
+ 	Now, from the long exact sequence in relative cohomology, and the identification $H^k(S^2,S^2\setminus \Delta;\Q)=H^{k-4}(\Delta,\Q)$ (since $\Delta$ has codiemension $4$) we have
+ 	\[
+ 	\cdots\to H^{-2}(\Delta,\Q)\to H^2(S^2,\Q)\to H^2(S^2\setminus\Delta,\Q)\to H^{-1}(\Delta,\Q)\to \cdots
+ 	\]
+ 	Thus, the left and right terms vanish, and so pullback gives an isomorphism $H^2(S^2,\Q)\simeq H^2(S^2\setminus \Delta,\Q)$, and in particular,
+ 	\[
+ 	H^2(S,\Q)\simeq H^2(S^2,\Q)^{\mu_2}\simeq H^2(S^2\setminus\Delta,\Q)^{\mu_2}\simeq H^2(S^{[2]}\setminus E,\Q).
+ 	\]
+ 	The exact same argument also shows that 
+ 	\[
+ 	H^2(S^{(2)},\Q)\simeq H^2(S^{(2)}\setminus p(\Delta),\Q)=H^2(S^2\setminus\Delta,\Q)^{\mu_2}=H^2(S^2,\Q)^{\mu_2}.
+ 	\]
+ 	%
+ 	We now use the long exact sequence in relative cohomology for the pair $(S^{[2]},S^{[2]}\setminus E)$:
+ 	\[
+ 	\cdots\to H^1(S^{[2]}\setminus E,\Q)\to H^0(E,\Q)\to H^2(S^{[2]},\Q)\to H^2(S^{[2]}\setminus E,\Q)\to H^1(E,\Q)\to \cdots
+ 	\]
+ 	Recall that $E$ is the projectivisation of the normal bundle of $\Delta\subset S\times S$, i.e. the projectivisation of the tangent bundle $\cT_S$. We have a formula for the cohomology of such projectivisation:
+ 	\[
+ 	H^\bullet(E,\Q)=H^\bullet(\bP(\cT_S),\Q)=\frac{H^\bullet(S,\Q)[\zeta ]}{(\xi^2+c_1(\cT_S)\zeta+c_2(\cT_S))},
+ 	\]
+ 	where $\zeta$ is the first Chern class of $\cO_{\bP(\cT_X)}(1)$, and so has degree $2$. Since $S$ is simply connected, we see from the formula that $H^1(E,\Q)=0$.  Moreover, by \autoref{lem: pi1 codimension}, $S^{[2]}\setminus E$ is simply connected, and therefore $H^1(S^{[2]}\setminus E,\Q)=0$ by the universal coefficient theorem. Thus, we have a short exact sequence
+ 	\begin{equation}
+ 	0\to H^0(E,\Q)\to H^2(S^{[2]},\Q)\to H^2(S^{[2]}\setminus E,\Q)\to 0\label{eq:ses-exc},
+ 	\end{equation}
+ 	Or equivalently by what we shown,
+ 	\[
+ 	0\to H^0(E,\Q)\to H^2(S^{[2]},\Q)\to H^2(S^{(2)},\Q)\to 0.
+ 	\]
+ 	Since we are over $\Q$, this sequence splits, ad we have
+ 	\[
+ 	H^2(S^{[2]},\Q)=H^2(S^{(2)},\Q)\oplus [E]\Q= H^2(S,\Q)\oplus \delta\Q.
+ 	\]
+ 	Now suppose we have an integral form
+ 	\[
+ 	\omega\in H^2(S^{[2]},\Z).
+ 	\] 
+ 	Since $S^{[2]}$ is simply connected, $H^2(S^{[2]},\Z)$ has no torsion. We can therefore split $\omega=a\tilde \alpha + b\delta$ where $\alpha\in H^2(S,\Z)$ is assumed not to be divisible and $a,b\in \Q$. Let $s\in S$ and consider the rational line $l$ lying over $s\in S\simeq p(\Delta)\subset S^{(2)} $ in the exceptional divisor. Here, we must recall $\tilde E\simeq E$ and that $\tilde E=\bP(\cN_{\Delta/S^2})=\bP(\cT_S) $ as $\tilde S^2\to S^2$ is a smooth blow-up. Note that 
+ 	\[
+ 	\int_l\tilde \alpha=0
+ 	\]
+ 	since $l$ is a fibre and $\tilde \alpha$ is pulledback from $H^2(S^{(2)},\Z)$. On the other hand, we have
+ 	%
+ 	\[
+ 	2\int_l \delta=\int_{f^{-1}(l)}\tilde E.
+ 	\]
+ 	But $f^{-1}(l)=2l'$, where $l'$ is the reduced pre-image of $l$ along $q$, and so
+ 	\[
+ 	\int_l\delta=\int_{l'}\tilde E.
+ 	\] 
+ 	Since $\tilde S^2\to S^2$ is a blow-up, we have $\cO(\tilde E)|_{\tilde E}=\cO_{\bP(\cT_S)}(-1)$ (this generalises the well-known case of the blow-up of a point and is seen directly by looking at the Rees algebra), and so we have $\cO(\tilde E)|_{l'}=\cO_{l'}(-1)$, and thus
+ 	\[
+ 	\int_l\delta=-1.
+ 	\]
+ 	Therefore, we have
+ 	\[
+ 	\int_l\omega=a\int_l\tilde\alpha+b\int_l\delta=-b.
+ 	\]
+ 	Since $[l]$ is an integral cochomogy class, we conclude that $b\in\Z$. This implies that $b\delta$ is integral, and so that $a\tilde \alpha$ is integral. Now, for any $\gamma\in H^6(S^{(2)},\Z)$, we have
+ 	\[
+ 	\int_{S^{(2)}}a\tilde\alpha\cup\gamma=\int_{S^{[2]}}a\tilde\alpha\cup q^*\gamma
+ 	\]
+ 	since $h$ is birational. Since $q^*\gamma$ is integral, this quantity is an integer. Since the pairing is unimodular and $\tilde \alpha$ is not divisible by assumption, we may pick $\gamma$ so that 
+ 	\[
+ 	\int_{S^{(2)}}\tilde\alpha\cup\gamma=1,
+ 	\]
+ 	so that $a\in \Z$. Thus, we have shown that
+  	
+ 	\begin{equation}
+ 	H^2(S^{[2]},\Z)=\delta\Z\oplus H^2(S,\Z).\label{eq:decomp-h2}
+ 	\end{equation}
+ 	From \eqref{eq:inv-coh}, the map $H^2(S,\Z)\to H^2(S^2,\Z)^{\mu_2}=H^2(S,\Z)$ is induced by sums and pullback, and so respects the Hodge structure. Moreover, $\delta$ is a pure $(1,1)$-class, and so \eqref{eq:decomp-h2} respects the Hodge structure.
+ 	 
+ 	There remains only to show that $H^0(S^{[2]},\Omega_{S^{[2]}}^2)$ is spanned by a symplectic form. Since \eqref{eq:decomp-h2} respects the Hodge decomposition, we know $H^{0}(S^{[2]},\Omega_{S^{[2]}}^2)\simeq H^0(S,\Omega_S^2)$ is one dimensional, and so it suffices to show that there exists a holomoprhic symplectic form on $S^{[2]}$. Let $\sigma$ be a holomorphic symplectic form on $S$. Then, we know there exists a holomorphic $2$-form $\tilde \sigma$ on $S^{[2]}$ whose pullback to $S^2\setminus \Delta$ is of the form
+ 	\[
+ 	p_1^*\sigma+p_2^*\sigma.
+ 	\]
+ 	Now, $\tilde \sigma$ is symplectic if and only if $\tilde \sigma^2\in H^0(S^{[2]},\Omega_{S^{[2]}}^4)$ is a non vanishing section. Since $\Omega_{S^{[2]}}^4=K_{S^{[2]}}=\cO_{S^{[2]}}$, it suffices to show that $\tilde \sigma^2$ does not vanish at a single point, i.e. that $\tilde \sigma$ is symplectic at one point. Thus, we may check this away from $E$, and since $S^2\setminus \Delta\to S^{[2]}\setminus E$ is étale, it suffices to check this for the form $p_1^*\sigma+p_2^*\sigma$ on $S^2\setminus \Delta$, which is trivial (the direct sum of two symplectic forms is symplectic).
+\end{proof}
+
+\subsection{Local systems}
+
+We introduce local systems and holonomy, important concepts in differential geometry.
+
+\begin{definition}
+	Let $B$ be a connected manifold and let $A$ be a ring (e.g., $\Z,\Q,\R,\C$). A \tbf{local system} of $A$-modules on $B$ is a sheaf $\bH$ of $A$-modules which is locally isomorphic to a constant sheaf with fiber $V$, where $V$ is an $A$-module.
+\end{definition}
+
+Given a local system $\bfH$ (over $A=\R$ or $\C$), we can associate a vector bundle
+\[
+\cH:=\bfH\otimes_A \cA^0(B,A),
+\]
+where $\cA^0(B)$ is the sheaf of smooth functions. This bundle has a canonical flat connection
+\[
+\begin{tikzcd}
+	\cH\ar[d,equal]\ar[r,"\nabla"]& \cH\otimes_{\cA^0(B,A)}\cA^1(B,A)\ar[d,equal]\\
+	\bfH\otimes_A \cA^0(B,A)\ar[r]&\bfH\otimes_A \cA^1(B,A)
+\end{tikzcd}
+\]
+defined by $\nabla:=\id_\bfH\otimes_A d$. Indeed, this is a connection: we can write locally a section $s\in\cH$ as 
+\[
+s=e_i\otimes s^i
+\]
+where the elements $e_i$ form a basis of $V$, and we have
+\[
+\nabla(f\cdot s)=e_i\otimes_A d(fs^i)=e_i\otimes_A (fds ^i+(df)s^i)=df \otimes_{\cA^{0}(B,A)} s+f\nabla s
+\]
+
+ This connection is flat; indeed, we have
+ \[
+ \nabla(\nabla(e_i\otimes s^i))=\nabla(e_i\otimes ds^i)=e_i\otimes dds^i+ds^i\wedge \nabla e_i=0
+ \]
+
+% Equivalence between local systems and flat connections (Notes p.7-8)
+\begin{theorem}
+	There is a bijective correspondence between (real or complex) local systems of rank $r$ on $B$ and pairs $(\cE,\nabla)$ where $\cE$ is a (real of complex) vector bundle of rank $r$ on $B$ and $\nabla$ is a flat connection.
+\end{theorem}
+\begin{proof}[Sketch of proof (see {\cite[Chapitre 9]{Voisin1998}})]
+	We have already shown that a local system yields a vector bundle and a flat connection. Conversely, one may show that given a vector bundle and a flat connection, the sheaf of parallel sections yields a local system.
+\end{proof}
+%
+Let $(E,\nabla)$ be a vector bundle with a connection on some manifold $X$. Let $\gamma:[0,1]\to X$ be a path from $x=\gamma(0)$ to $y=\gamma(1)$. The pullback bundle $(\gamma^*E,\gamma^*\nabla)$ on $[0,1]$ is flat for dimension reasons (recall that the curvature is a matrix of $E$-valued $2$-forms). Thus, $(\gamma^*E,\gamma^*\nabla)$ corresponds to a local system $H_\gamma$ on $[0,1]$. Since $[0,1]$ is contractible, any vector bundle is topologically trivial, and therefore this local system is trivial, which provides a canonical isomorphism $E_x\xrightarrow{\sim}E_y$ between the fibers.
+
+\begin{definition}
+	The isomorphism $E_x\xrightarrow{\sim} E_y$ is called the \tbf{parallel transport} along $\gamma$.
+\end{definition}
+
+If $x=y$, we consider the space of loops based at $x$, $\Omega(x)$. The parallel transport defines a map 
+\[ 
+\rho: \Omega(x)\to \text{Aut}(E_x).
+\]
+
+\begin{definition}
+	The \tbf{holonomy group} $\text{Hol}(E,\nabla)\subseteq \text{GL}(E_x)$ of the connection $\nabla$ is the image of $\Omega(x)$ under $\rho$.
+	The \tbf{reduced holonomy group} $\text{Hol}_0(E,\nabla)$ is the image of the subgroup $\Omega_0(x)$ of contractible loops.
+\end{definition}
+
+\begin{remark}
+	If $X$ is connected, $\text{Hol}(E,\nabla)$ does not depend on the choice of $x$ up to isomorphism. Indeed, any path $x\mapsto y$ gives an isomorphism between the holonomy groups at $x$ and at $y$. Note however that this isomorphism is path-dependent. Nonetheless, if there is no reduced holonomy, then this identification is only dependent on paths up to homotopy. Moreover, note that if the connection $\nabla$ is flat, the reduced holonomy is trivial: indeed, any contractible loop lies in a contractible neighbourhood of $x$, which is in particular a neighbourhood where the local system is trivial. Conversely, it is not hard to see that if the reduced holonomy is trivial, then the connection is flat: on a contractible neighbourhood, every fibre is canonically isomorphic. Thus, the connection is flat if and only if the reduced holonomy is trivial. In this case, the morphism $\rho$ descends to a representation
+	\[
+	\overline \rho:\pi_1(X,x)\to \text{GL}(E_x)
+	\]
+	which is called the \tbf{monodromy} of the flat connection $\nabla$ (or of the associated local system).
+\end{remark}
+
+If $(X,g)$ is a Riemannian manifold, we consider the Levi-Civita connection $\nabla$ on the tangent bundle $T_\R X$. Recall that this connection is uniquely determined by two conditions
+\begin{itemize}
+	\item $\nabla g=0$ (i.e. $g$ is parallel, that is, the holonomy commutes with $g$)\footnote{Recall/learn that given a connection on a bundle $E$ (in our case the tangent bundle), we may extend the connection to a $(m,n)$-tensor $\alpha$ by declaring
+	\begin{align*}
+	(\nabla_Z\alpha)(X_1,\dots,X_m,\omega_1,\dots,\omega_m):=Z(\alpha(X_1,\dots,X_m,\omega_1,\dots,\omega_m))&-\sum_{i=1}^m\alpha(X_1,\dots,\nabla_ZX_i,\dots,X_m,\omega_1,\dots,\omega_n)\\&-\sum_{i=1}^n\alpha(X_1,\dots,X_n,\omega_1,\dots,\nabla_Z\omega_i,\dots,\omega_n),
+	\end{align*}
+ where $Z,X_1,\dots,X_m$ are vector fields and $\omega_1,\dots,\omega_n$ are forms. In our situation, we obtain that $(\nabla_Zg)(X_1,X_2)=Z(g(X_1,X_2))-g(\nabla_ZX_1,X_2)-g(X_1,\nabla_ZX_2)$. Thus, $\nabla g=0$ translates to $Z(g(X_1,X_2))=g(\nabla_ZX_1,X_2)+g(X_1,\nabla_ZX_2)$, and this condition is often called compatibiiity of $g$ with the connection.
+}
+	\item The connection has no torsion, i.e. $\nabla_XY-\nabla_YX=[X,Y]$, where the bracket is the Lie bracket.
+\end{itemize}
+An important theorem (see \cite[Theorem 4.17]{Ballmann2006}) states that a complex manifold is Kähler if and only if the (complexification of the) Levi-Civita connection coincides with the Chern connection.\footnote{One ought to be precise here: complexifying the Levi-Civita connection to $T_\C X$ and then restricting to $T^{1,0}X$ yields the Chern connection.} 
+
+We will denote $\text{Hol}(X,g):=\text{Hol}(T_\R X, \nabla)$. A fundamental phenomenon of the theory of connections is the following.
+
+\begin{proposition}[Holonomy Principle]
+	Let $(X,g)$ be a Riemannian manifold. Then, the space of tensors parallel to the Levi-Civita connection
+	\[
+	A_{par}(T X^{\otimes a}\otimes T^*X^{\otimes b}):=\{\alpha\in\Gamma(TX^{\otimes a}\otimes T^*X^{\otimes b})\mid \nabla\alpha=0\}
+	\]
+	is equal to the space of tensors $\alpha$ such that for any $p\in U$, the restriction map
+	\[
+	A_{par}(TU^{\otimes a}\otimes T^*U^{\otimes b})\to T_pU^{\otimes a}\otimes T_p^*U^{\otimes b}
+	\] 
+	is an isomorphism onto the space of holonomy invariant tensors.
+\end{proposition}
+
+\begin{example}\label{eg: hol-CY}
+	Since $g$ is by definition parallel to the Levi-Civita connection, the holonomy commutes with the metric. In other words, $\text{Hol}(X,g)\subset O(n)$. If $X$ is oriented, the natural orientation 
+	\[
+	\sqrt{\det g_{ij}}dx^1\wedge\cdots\wedge x^{n}
+	\]
+	can be computed to be parallel, and so $\text{Hol}_0(X,g)\subseteq SO(n)$.
+	
+	If $X$ is Kähler, one can show that the almost complex structure $I$ is parallel. This implies $Hol(X,g)\subseteq U(m)$, where $m=\dim_\C X$. It is an important theorem (see \cite[Theorem 4.17]{Ballmann2006}) that a Riemannian manifold is Kähler if and only if its holonomy lies in $U(m)$. In other words, Kähler manifolds are exactly those oriented Riemannian manifolds whose parallel transport is $\C$-linear.
+	
+	If $(X,\omega)$ is Kähler and Calabi--Yau of complex dimension $m$ in the stronger sense that $K_X=\cO_X$, then by definition, the tangent bundle is Ricci-flat (with respect to the Chern connection of some Kâhler metric, by the now proved Calabi conjecture). One can compute that this implies that the induced connection on $\det TM$, and dually on $K_X$, is flat. Since the canonical bundle is trivial, the corresponding local system is trivial. We have therefore a global parallel  $(m,0)$-form (i.e. a ``holomorphic orientation''), so that using the holonomy principle, we find that the holonomy lies in $SU(m)$.  
+	
+	Conversely, suppose a Riemannian manifold $X$ has global $SU(m)$ holonomy. One can compute that the parallel transport on the determinant $\det TX$ is given by the (complex) determinant of the parallel transport on $TX$, implying that there is no (global) holonomy. Thus, $\nabla_{\det TX}$ is flat and $\det TX$ moreover corresponds to the trivial local system, and so is topologically trivial. Taking a global parallel smooth $(m,0)$-form $\Omega$, and using that the determinant of the Chern connection is the Chern connection of the determinant, we find that $\nabla_{\det TX}^{0,1}=\op_{\det TX}$. By considering types, we must have $\nabla_{\det TX}^{1,0}\Omega=0$. Thus, $\op_{\det TX}\Omega=0$, i.e. $\Omega$ is holomorphic. This implies that $\det TX$ is holomorphically trivial, and so that $X$ is Calabi--Yau in the stronger sense.
+	
+	In some sense, this shows that Kähler manifolds are the complex analog of Riemannian manifolds, and that Calabi--Yau manifolds are the complex analog of oriented Riemannian manifolds. We will show that this analogy extends to hyperkähler manifolds, which are the complex analog of symplectic manifolds.
+\end{example}
+After this discussion on Calabi--Yau manifolds, it is a good point to introduce the Bochner principle.
+\begin{proposition}[Bochner's Principle]
+	If $(X,\omega)$ is a compact Kähler manifold with $\text{Ric}(\omega)=0$, then all holomorphic tensors are parallel.
+\end{proposition}
+\begin{remark}
+	Note that by the (proven) Calabi--Yau conjecture, if $X$ is Calabi--Yau (i.e. $c_1(X)=0$), then it is possible to find a Kähler metric whose Ricci-curvature is trivial. Therefore, by Bochner's principle, it is always possible to find a Kähler metric on a Calabi--Yau manifold such that all holomorphic tensors are parallel to the corresponding Chern/Levi-Civita connection.
+\end{remark}
+
+We use this principle to give a purely Riemannian geometric characterisation of hyperkähler manifolds. Recall that the complex symplectig group $Sp(m)\subset U(2m)\subset SO(4m)$ is that of endomorphisms preserving a given \emph{complex} symplectic form.
+
+\begin{theorem}\label{thm: HK holonomy}
+	Let $(X,g)$ be a compact Riemannian manifold. Then $X$ is hyperkähler\footnote{Or rather can be endowed with a complex structure making it a hyperkähler manifold.} if and only if $\text{Hol}(X,g)=Sp(m)$.
+\end{theorem}
+\begin{proof}
+	($\Leftarrow$) Assume that $\text{Hol}(X,g)=Sp(m)$. By definition, we can find a holonomy-invariant symplectic complex two form at a point $p\in X$. By the holonomy principle, this extends to a global parallel $(2,0)$-form $\sigma$ on $X$ since $X$ is simply connected. By the definition of the extension of the Levi-Civita connection to forms and using that the Levi-Civita connection is torsion-free, we have
+	\[
+	(d\sigma)(X_1,X_2,X_3)=(\nabla_{X_1}\sigma)(X_2,X_3)-(\nabla_{X_2}\sigma)(X_1,X_3)+(\nabla_{X_3}\sigma)(X_1,X_2)=0,
+	\]
+	so that $\sigma$ is closed. But using $d\sigma=\p\sigma+\op\sigma$ and comparing types, we must have $\op\sigma=0$, i.e. $\sigma\in H^0(X,\Omega_X^2)$ is holomorphic.
+	
+	We must verify that $H^0(X,\Omega_X^2)$ is spanned by $\sigma$. By Bochner's principle, any holomorphic $2$-form $\sigma'$ must be parallel, and using the holonomy principle, this implies that the space of holomorphic $2$-forms is contained in the space of $Sp(m)$ invariant (complex) symplectic forms at a point $p$. But this space is known to be of one (complex) dimension, so that $\sigma'=c\sigma$ for some constant $c$. Moreover, by \autoref{eg: hol-CY}, we know that $X$ is Kähler and $K_X=\cO_X$, so that we conclude $X$ is hyperkähler.
+	
+	($\Rightarrow$) Assume $X$ is hyperkähler. It admits a holomorphic symplectic form $\sigma$ which is parallel by Bochner's principle. By the Holonomy Principle, $\text{Hol}(X,g)$ preserves $\sigma$, so $\text{Hol}(X,g)\subseteq Sp(m)$. One can then use Berger's classification of holonomy groups to show that in fact we have the equality $\text{Hol}x(X,g)=Sp(m)$.
+\end{proof}
+
+\begin{corollary}
+	Let $X$ be a hyperkähler manifold of dimension $2m$. Then
+	\[
+	H^0(X,\Omega_X^k)=\begin{cases}
+		0 & \text{if } k \text{ is odd}\\
+		\C\cdot \sigma^{k/2} & \text{if } k \text{ is even}.
+	\end{cases}
+	\]
+	In particular, the holomorphic Euler characteristic is $\chi(X,\cO_X)=m+1$.
+\end{corollary}
+\begin{proof}
+	By Bochner's principle, holomorphic forms are parallel. By the Holonomy Principle and \autoref{thm: HK holonomy}, they correspond to $Sp(m)$-invariant elements in $\bigwedge^k V^*$. It is a fact from representation theory that the space of $Sp(V,\sigma)$-invariants in $\bigwedge^k V^*$ is spanned by powers of $\sigma$ if $k$ is even, and is zero if $k$ is odd.
+	
+	The Euler characteristic is $\chi(X,\cO_X) = \sum_k (-1)^k h^k(X,\cO_X)$. By Hodge symmetry, $h^k(X,\cO_X)=h^{0,k}(X)=h^{k,0}(X)=h^0(X,\Omega_X^k)$, and so that $\chi(X,\cO_X)=m+1$ follows directly.
+\end{proof}
+%
+Here is a table to remember the different holonomies of the different types of Riemannian manifolds we have discussed. For each row, the condition on holonomy can be given as a purely Riemannian definition of this type of manifold.\\ 
+\[
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|l|c|r|r|}
+		\hline
+		Manifold&Real dimension&Holonomy&Reason\\
+		\hline
+		&&&\\
+		Riemannian& $m$ & contained in $O(m)$& preserves metric\\&&&\\
+		Oriented Riemannian& $m$ & contained in $SO(m)$& preserves orientation\\&&&\\
+		Symplectic & $2m$ & contained\footnotemark\;\;in $Sp(m,\R)\subset SO(2m)$& preserves the symplectic form\\
+		&&&\\
+		Kähler& $2m$& contained in $U(m)$& preserves the complex structure\\&&&\\
+		Calabi--Yau $(K_X=\cO_X)$&$2m$&contained in $SU(m)$& preserves the ``complex orientation''\\
+		&&&(top holomorphic form)\\&&&\\
+		Hyperkähler & $4m$& equal to $Sp(m,\C)\subset SU(2m)$& preserves the holomorphic\\
+		&&&symplectic form\\
+		\hline
+	\end{tabular}
+}
+\]
+\footnotetext{Here, it must be said that contrary to the other manifolds in the list, the holonomy is taken with respect to a ``symplectic'' connection, which is in general not the same as the Levi-Civita connection.}
+\\
+
+These groups are part of Berger's classification of reduced holonomy groups.\footnote{The only other possible reduced holonomy groups of an irreducible Riemannian manifold  that is not locally a symmetric space are $Sp(n)U(1)$, $Spin(7)$ and $G_2$.} In fact, Berger proved that In the case of a Kähler manifold, the reduced holonomy has to be \emph{exactly}  $U(m),SU(m)$ or $Sp(m)$. In particular, a non hyperkähler Calabi--Yau manifold has reduced holonomy \emph{exactly} $SU(m)$, and a non Calabi--Yau Kähler manifold has reduced holonomy \emph{exactly} $U(m)$.
+
