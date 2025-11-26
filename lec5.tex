@@ -296,7 +296,7 @@ If $(X,g)$ is a Riemannian manifold, we consider the Levi-Civita connection $\na
 \begin{itemize}
 	\item $\nabla g=0$ (i.e. $g$ is parallel, that is, the holonomy commutes with $g$)\footnote{Recall/learn that given a connection on a bundle $E$ (in our case the tangent bundle), we may extend the connection to a $(m,n)$-tensor $\alpha$ by declaring
 	\begin{align*}
-	(\nabla_Z\alpha)(X_1,\dots,X_m,\omega_1,\dots,\omega_m):=Z(\alpha(X_1,\dots,X_m,\omega_1,\dots,\omega_m))&-\sum_{i=1}^m\alpha(X_1,\dots,\nabla_ZX_i,\dots,X_m,\omega_1,\dots,\omega_n)\\&-\sum_{i=1}^n\alpha(X_1,\dots,X_n,\omega_1,\dots,\nabla_Z\omega_i,\dots,\omega_n),
+	(\nabla_Z\alpha)(X_1,\dots,X_m,\omega_1,\dots,\omega_n):=Z(\alpha(X_1,\dots,X_m,\omega_1,\dots,\omega_m))&-\sum_{i=1}^m\alpha(X_1,\dots,\nabla_ZX_i,\dots,X_m,\omega_1,\dots,\omega_n)\\&-\sum_{i=1}^n\alpha(X_1,\dots,X_n,\omega_1,\dots,\nabla_Z\omega_i,\dots,\omega_n),
 	\end{align*}
  where $Z,X_1,\dots,X_m$ are vector fields and $\omega_1,\dots,\omega_n$ are forms. In our situation, we obtain that $(\nabla_Zg)(X_1,X_2)=Z(g(X_1,X_2))-g(\nabla_ZX_1,X_2)-g(X_1,\nabla_ZX_2)$. Thus, $\nabla g=0$ translates to $Z(g(X_1,X_2))=g(\nabla_ZX_1,X_2)+g(X_1,\nabla_ZX_2)$, and this condition is often called compatibiiity of $g$ with the connection.
 }
@@ -398,5 +398,6 @@ Here is a table to remember the different holonomies of the different types of R
 \footnotetext{Here, it must be said that contrary to the other manifolds in the list, the holonomy is taken with respect to a ``symplectic'' connection, which is in general not the same as the Levi-Civita connection.}
 \\
 
-These groups are part of Berger's classification of reduced holonomy groups.\footnote{The only other possible reduced holonomy groups of an irreducible Riemannian manifold  that is not locally a symmetric space are $Sp(n)U(1)$, $Spin(7)$ and $G_2$.} In fact, Berger proved that In the case of a Kähler manifold, the reduced holonomy has to be \emph{exactly}  $U(m),SU(m)$ or $Sp(m)$. In particular, a non hyperkähler Calabi--Yau manifold has reduced holonomy \emph{exactly} $SU(m)$, and a non Calabi--Yau Kähler manifold has reduced holonomy \emph{exactly} $U(m)$.
+These groups are part of Berger's classification of reduced holonomy groups.\footnote{The only other possible reduced holonomy groups of an irreducible Riemannian manifold  that is not locally a symmetric space are $Sp(n)U(1)$, $Spin(7)$ and $G_2$.} In fact, Berger proved that In the case of a non-flat reduced\footnote{i.e. not a product as a Riemannian manifold.} Kähler manifold, the reduced holonomy has to be \emph{exactly}  $U(m),SU(m)$ or $Sp(m)$. In particular, a non hyperkähler Calabi--Yau manifold has reduced holonomy \emph{exactly} $SU(m)$, and a non Calabi--Yau Kähler manifold has reduced holonomy \emph{exactly} $U(m)$.
 
+Note also that the classification of these reduced holonomies is precisely how Beauville--Bogomolov decomposition arose: flat corresponds to complex tori, $SU(m)$ corresponds to strict Calabi--Yau manifolds, and $Sp(m)$ to hyperkähler manifolds.
