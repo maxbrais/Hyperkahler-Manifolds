@@ -38,10 +38,10 @@ Let $E_1$ and $E_2$ be vector bundles with respective (complex) connections $\na
 	\[
 	d\langle s,\phi\rangle=\langle\nabla s,\phi\rangle+\langle s,\nabla^\vee \phi\rangle.
 	\]
-	Let us try to compare the two curvatures. Given $s_i$ and $t_j$ frames of $E$, we consider the connection form $A=(A_i^{\;j})$ satisfying $\nabla s_i=A_i^{\;j}\otimes t_j$. Let $s^i$ and $t^j$ be the dual frames. We obtain
+	Let us try to compare the two curvatures. Given $s_i$ a frame of $E$, we consider the connection form $A=(A_i^{\;j})$ defined $\nabla s_i=A_i^{\;j}\otimes s_j$. Let $s^i$ be the dual frame of $E^\vee$. We obtain
 	\begin{align*}
-		d\langle s_i,t^j\rangle=0&=\langle \nabla s_i,t^j\rangle+\langle s_i,\nabla^\vee t^j\rangle\\
-		&=\langle A_i^{\;k}\otimes t_k,t^j\rangle+\langle s_i,B^j_{\;k}\otimes s^k\rangle\\
+		d\langle s_i,s^j\rangle=0&=\langle \nabla s_i,s^j\rangle+\langle s_i,\nabla^\vee s^j\rangle\\
+		&=\langle A_i^{\;k}\otimes s_k,s^j\rangle+\langle s_i,B^j_{\;k}\otimes s^k\rangle\\
 		&=A_i^{\;j}+B^j_{\; i},
  	\end{align*}
 	where $B=(B^j_{\; i})$ is the connection form of $\nabla^\vee$. And so we have $B=-A^t$ as sections of $\cA^2(End(E),\C)=\cA^2(End(E^\vee),\C)$. Using Cartan's formula for the curvature of a connection, we conclude

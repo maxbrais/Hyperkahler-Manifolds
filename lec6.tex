@@ -1,0 +1,332 @@
+% !TEX root = main.tex
+\section{Sixth lecture: deformation theory}
+
+Today, we will set up the necessary constructions to tackle the deformation theory of hyperkähler manifolds. To motivate this, let us first look at an crucial example, \emph{twistor lines}.
+%
+\subsection{Twistor lines}\label{sec:twistor-lines}
+%
+Recall that the \tbf{quaternion algebra} $\bH$ are a non-commutative algebra over $\R$. In terms of generators, we have
+\[
+\bH=\frac{\R\langle 1,i,j,k\rangle}{\langle i^2=j^2=k^2=-1, ijk=-1\rangle},
+\] 
+i.e. the quaternion algebra are the group ring of the quaternion group $Q_8$. For a hyperkähler manifold $(X,g)$, we claim there is a natural action of $\bH$ on the tangent bundle. Let us see how this arises.
+
+Recall that as a Riemannian manifold, a hyperkähler manifold is characterised by having  $Sp(n)$ holonomy. Let $(V,I)$ be a real vector space of dimension $4n$ with $I$ a complex structure. Let $h$ be a hermitian metric on $(V,I)$ and let $\Omega$ be a complex non degenerate symplectic form on $(V,I)$.
+
+So far, we have defined 
+\[
+Sp(n)=U(2n)\cap Sp(2n,\C),
+\]
+that is, as the real endomorphisms of $V$ which preserve $I$, $h$ and $\Omega$. 
+
+We can decompose 
+\[
+\Omega=\alpha +i\beta
+\]
+into real and complex parts. Let $\omega=-\fI \fm(h)$ be real $(1,1)$ on $V$ induced by $h$. Since $\omega$ is non-degenerate, we may define the real endomorphisms $J$ and $K$ of $V$ via asking
+%
+\[
+\omega(u,Jv)=\alpha(u,v)\hspace{1cm} \text{and}\hspace{1cm} \omega(u,Kv)=\beta(u,v) 
+\]
+for all $u,v\in V$. 
+Let $A\in Sp(n)$. Since $\Omega(u,v)=\Omega(Au,Av)$, we have that $\alpha(u,v)=\alpha(Au,Av)$. This gives
+\[
+\alpha(u,Jv)=\omega(Au,JAv),
+\]
+and since $A$ preserves $\omega$, we also have
+\[
+\omega(u,Jv)=\omega(Au,AJv).
+\]
+Since $\omega$ is non degenerate, this equality holding for all $v\in V$ implies that $JA=AJ$, and the same argument shows $AK=KA$, so that elements of $Sp(n)$ preserve all of the three endomorphisms $I,J,K$. 
+
+Since $\Omega$ is complex, we have $\Omega(Iu,Iv)=-\Omega(u,v)$. We compute
+\begin{align*}
+\omega(u,JIv)+i\omega(u,KIv)=\Omega(u,Iv)=i\Omega(u,v)=-\omega(u,Kv)+i\omega(u,Jv).
+\end{align*}
+which gives the relations
+\[
+JI=-K\hspace{1cm} \text{and }\hspace{1cm} KI=J.
+\]
+Similarly, computing
+\[
+-\omega(u,IJv)-i\omega(u,IKv)=\omega(Iu,Jv)+i\omega(Iu,Kv)=\Omega(Iu,v)=i\Omega(u,v)=-\omega(u,Kv)+i\omega(u,Jv)
+\]
+gives the relations
+\[
+IJ=K\hspace{1cm} \text{and }\hspace{1cm} IK=-J.
+\]
+Since we already know $I^2=-1$, in order to verify that $I,J,K$ satisfy the quaternionic relations, it remains to show
+\[
+J^2=K^2=-\id,
+\]
+which is the hardest, since these equality do not hold yet and we will need to rescale $J$ and $K$. 
+
+First, notice that since $\Omega(u,v)=-\Omega(v,u)$, we have
+\begin{equation}
+\omega(u,Jv)=-\omega(v,Ju)=\omega(Ju,v),\label{eq:slf-adj-om}
+\end{equation}
+
+Moreover, we have
+\[
+K^2=(IJ)(IJ)=I(-K)J=J^2,
+\]
+and this endomorphism commutes with $I$:
+\[
+K^2I=-KIK=IK^2.
+\]
+Letting $g=\fR\fe(h)=\omega(I-,-)$, we see that $J^2=K^2$ is self adjoint for the inner product $g$ by using \eqref{eq:slf-adj-om} and that it commutes with $I$. By the spectral theorem, $J^2=K^2$ must be diagonalisable.
+Since $Sp(n)$ commutes with the endomorphism $J^2=K^2$, it preserves the corresponding decomposition into eigenspaces. On the other hand, one can show using the symplectic form $\Omega$ that this representation of $Sp(n)$ is irreducible, and so there is a unique eigenspace, implying that
+\[
+J^2=K^2=\mu\cdot \id,
+\]
+for some $0\neq \mu\in\R$ (here, $J$ and $K$ are viewed as real operators on $V$). Suppose $\mu>0$. Since $J^2=K^2$ has non-zero eigenvalues, we know that $J$ and $K$ are diagonalisable with $\pm\sqrt\mu$ eigenspaces (here, we use that $\pm\sqrt\mu$ is real). But using again that we have an irreducible representation, this implies that $J,K=\pm\mu\cdot\id$. But whatever choice we make for $J$ and $K$, this contradicts the relations that we have found, as $J$ and $K$ anti-commute:
+\[
+JK=KIIJ=-KJ.
+\] 
+Thus, $\mu<0$. Up to rescaling $\Omega$ by $\sqrt{\frac{1}{-\mu}}$, we obtain $J^2=K^2=-\id$.
+
+This way, we see $Sp(n)$ commutes with the action of the three complex structures $I,J,K$ on $V$ which, together, induce an action of $\bH$ on $V$.  One can also show that we can go the other way, given an action of $\bH$ on a vector space $V$ which preserves a quaternionic hermitian metric, which is equivalent to an inner product $g$ which is compatible with the three complex structures:
+\[
+g(-,-)=g(I-,I-)=g(J-,J-)=g(K-,K-),
+\]
+then we can recover the complex hermitian metric on $V$ by defining
+\[
+h(-,-)=g(-,-)+ig(-,I-),
+\]
+and the symplectic two form via
+\[
+\Omega(-,-)=g(I-,J-)+ig(I-,K-).
+\]
+These tensors being defines using $g$ and the complex structures, they are all preserved by $Sp(n)$. Therefore, $Sp(n)$ may equally be defined as the endomorphisms preserving a prescribed quaternionic structure on a vector space of (real)
+ dimension $4n$. 
+ 
+Coming back to the hyperkähler situation, given a hyperkähler manifold $(X,g,I)$\,---\,here we assume that our choice of metric $g$ induces $Sp(n)$ holonomy\,---\,there is an iduced action of $\bH$ on the tangent bundle by the holonomy principle. In other words, we have two other complex structures $J,K$ that satisfy the quaternionic relations together with $I$. By construction, these three complex structures are all parallel, and so $(X,g)$ may be seen as a Kähler manifold with respect of each one. Moreover, let
+\[
+L=aI+bJ+cK, 
+\] 
+where $a^2+b^2+c^2=1$ and $a,b,c\in\R$. Then, using the quaternionic relations,
+\[
+L^2=(a^2I+b^2J+c^2K)=-\id, 
+\]
+so that $L$ is also a parallel complex structure, meaning that $(X,g)$ is equally a Kähler manifold with respect to $L$ (in particular $L$ is integrable). In this situation, the Kähler form is given by $\omega_L(-,-)=g(L-,-)$.
+
+We thus get a sphere $\bS^2\simeq \bP^1$ of integrable complex structure, called a \tbf{twistor line}.
+\begin{remark}\label{rem:hyp-vs-irr-symp}
+	This is a good place to make precise another terminology found in the literature, that of an \emph{irreducible symplectic manifold}. This terminology is sometimes use to refer to hyperkähler manifolds seen as a complex manifold, i.e. as the object $(X,I)$, while the term \emph{hyperkähler manifold} is sometimes reserved to the Riemannian view point, i.e. to the object $(X,g)$\,---\,again, our choice of $g$ here must give $Sp(n)$ holonomy. 
+	
+	Starting from the Riemannian manifold $(X,g)$, and using the $Sp(n)$ holonomy as above, we find a full sphere $\bS^2$ worth of parallel complex structures.  By choosing different complex structures in this sphere, one gets non-isomorphic complex manifolds.
+	
+	Conversely, if we start with the complex manifold $(X,I)$, we do not yet have a Riemannian metric $g$, and so we do not yet have an associated twistor line. In fact, choosing a Riemannian metric $g$ such that $(X,g)$ has $Sp(n)$ holonomy amounts to choosing a Ricci-flat Kähler metric, as Bochner's principle ensures that the non-degenerate holomorphic-symplectic $2$-form is parallel to the induced Chern (Levi-Civita) connection. By Yau's theorem (Calabi's conjecture), there is a unique such Kähler metric in every Kähler class, so that the Kähler cone $\cK_X\subset H^{1,1}(X,\R)$ parametrises twistor lines ``passing through'' $(X,I)$. We shall use this fact at a later point to show that the deformation theory of hyperkähler manifolds is unobstructed (i.e. that the Kuranishi (deformation) space is smooth).
+\end{remark}
+
+Given a hyperkähler manifold $(X,I,\omega)$, we have a $C^\infty$-submersion
+\[
+X\times \bS^2\to \bS^2
+\]
+given by projection onto the second factor. Since $\bS^2\simeq \bP^1$ parametrises the complex structures compatible with $g=\omega(-,I-)$, we can endow these spaces of complex structures making this map holomorphic. In particular, we endow $X\times \bS^2$ with an almost complex structure by defining
+\begin{align*}
+\bI&\in \text{End}(T_\R X\oplus T_\R \bP^1)\\
+\bI_{(x,t)}(u,v)&=(I_t(u),I_{\bP^1}(v)),
+\end{align*}
+where $I_t$ is the complex structure on $X$ represented by $t\in\bS^2\simeq \bP^1$, and $I_{\bP^1}$ is the complex structure on $\bP^1$.
+One may use the Nijenhuis tensor coupled with the quaternionic relations to show that this almost complex structure is integrable. We will denote this complex manifold by $T_\omega(X):=(X\times \bS^2,\bI)$, and call it the \tbf{twistor space}. The subscript $\omega$ comes from the fact that, as explained in \autoref{rem:hyp-vs-irr-symp}, given the complex manifold $(X,I)$ , the choice of a twistor line is equivalent to the choice of a Kähler class. By looking at our complex structure $\bI$, it is evident that the proper and submersive map
+\[
+T_\omega(X)\to \bP^1
+\]
+is holomorphic, in other words, a deformation of $(X,I)$.
+
+ One must be careful: while the fibers $(X,I_t)$ are all Kähler ($I_t$ is parallel), the twistor space $T_\omega(X)$ is not Kähler. This is easy to see using parallel transport. As a Riemannian manifold $T_\omega(X)=X\times \bS^2$ is just a product. Therefore, the parallel transport from $(x,1)$ to $(x,-1)$ takes the complex structure $\bI_{(x,1)}=(I,I_{\bP^1})$ to $(I,I_{\bP^1})=-\bI_{(x,-1)}$, meaning that $\bI$ is not parallel. Thus, $T_\omega(X)$ is not Kähler.
+%
+\subsection{Deformation theory of complex manifolds}
+%
+In algebraic geometry, one typically studies deformation of schemes using deformation functors. Given a scheme $X$ over $\C$, its deformation functor is of the form
+\begin{align*}
+	\cD ef_X:\mbf{Art}_\C&\to \mbf{Set}\\
+	A&\longmapsto\brc{\pa{
+			\begin{tikzcd}
+				\cX\ar[d,"f"]\\ \text{Spec}A
+				\end{tikzcd}
+			,\phi}: \substack{f\text{ is proper and flat}\\ \text{and }\phi:\cX_0\to X\\ \text{ is an isomorphism}}
+		}/\sim,
+\end{align*}
+where $\mbf{Art}_\C$ is the category of local Artinian algebras over $\C$, and $\cX_0$ denotes the special fiber. Here, the equivalence $\sim$ identifies two families $(\cX,\phi)$ and $(\cX',\phi')$  if they are isomorphic over $\text{Spec}A$ in such a way that the restriction to the special fibre commutes with $\phi$ and $\phi'$.
+The functor $\cD ef_X$ is \tbf{representable} whenever there exists a scheme $\text{Spec} A_{univ}$ such that $\cD ef_X$ is naturally isomorphic to the Hom functor $\Hom(A_{univ},-)$.
+
+This transports well to the analytic setting. Instead of working with local artinian algebras, we work with germs of complex analytic spaces. Note that complex analytic spaces generalise complex manifold as they may\,---\,very importantly\,---\,have singularities and even be non-reduced. The \tbf{germ} $(B,0)$ of a complex manifold $B$ at a point $0$ is an equivalence class of all complex manifold $(B',p')$ such that $p'$ as a neighbourhood isomorphic to a neighbourhood of $0$ in $B$. This is a way to speak of the local ring without having to pass to the algebra side. If $X$ is a comlex manifold, the anaytic deformation functor is the following:
+\[
+\cD ef_X^{an}: (B,0) \longmapsto\brc{\pa{
+		\begin{tikzcd}
+			\cX\ar[d,"f"]\\ B
+		\end{tikzcd}
+		,\phi}: \substack{f\text{ is proper and flat}\\ \text{and }\phi:\cX_0\to X\\ \text{ is an isomorphism}}
+}/\sim,
+\]
+where two objects $(f:\cX\to B,\phi)$, $(f':\cX'\to B,\phi')$ are equivalent if, after changing $B$ for a small enough neighbourhood of $0$, there exists an isomorphism $\tilde X\to \tilde X'$ over $B$ which commutes with $\phi$ and $\phi'$ after restricting to $0$. 
+%
+\begin{definition}
+	We say that $\cD ef_X^{an}$ is \tbf{representable} if there exists a germ $(B_{univ},0)$ such that $\cD ef_X^{an}$ is naturally isomorphic to the Hom functor $\Hom(-,(B_{univ},0))$ (this functor has source in the category of germs of complex analytic spaces).
+\end{definition}
+Note that if we have such a germ $(B_{univ},0)$, then the identity $(B_{univ},0)\to (B_{univ},0)$ represents a \tbf{universal} family
+\[
+\begin{tikzcd}
+	\cX_{univ}\ar[r]&B_{univ}\\
+	X\ar[u,hook]\ar[r]&\{0\}\ar[u,hook].
+	\end{tikzcd}
+\]
+With a bit of diagram chasing, we see that if an element $e\in \cD ef_X^{an}((B,0))$ represents the morphism $f:(B,0)\to (B_{univ},)$, then the corresponnding family over $(B,0)$ is $f^*\cX_{univ}$.
+
+Sometimes, we do not have a universal family at our disposal, but other intermediate notions exist. A family $\cX\to (B,0)$ is \tbf{versal} if any deformation $\cX'\to (B',0)$ arises from a map $f:(B',0)\to (B,0)$, and is \tbf{semi-universal} if moreover, while $f$ is not necessarily unique, its differenital at $0$ is.
+
+We are now ready to state the crucial theorem at the basis of deformation of complex manifolds. We recommend \cite{Catanese2011Superficial} for details. We stop specifying every time, but all the deformation spaces and families considered are germs of analytic spaces.
+%
+\begin{theorem}[Kuranishi]
+	Let $X$ be a complex manifold.
+	There exists an open neighbourhood $U\subset H^1(X,\cT_X)$ and a holomorphic map 
+	\[
+	K:U\to H^2(X,\cT_X),
+	\]
+	called the \tbf{Kuranishi map}\footnote{An explicit Taylor series for this map may be obtaiend by considering the Schouten bracket.} such that the \tbf{Kuranishi space} $(\cB_X,0):=K^{-1}(0)$ admits a family $\cX_{kur}\to (\cB_X,0)$, called the \tbf{Kuranishi family}, which satisfies the following properties.
+	\begin{itemize}
+		\item The differential of $K$ vanishes at the origin; in particular $T_0\cB_X=H^1(X,\cT_X)$;
+		\item The Kuranishi family is semi-universal;
+		\item If $h^0(X,\cT_X)=0$ (i.e. if there is no infinitesimal automorphisms), then $\cX_{kur}$ is universal;
+		\item (Wavrik) if $\cB_X$ is reduced and $h^0(\cX_{kur,t},\cT_{\cX_{kur,t}})$ is constant in a neighbourhood of the origin, then the Kuranishi family is universal.
+	\end{itemize}
+\end{theorem}
+%
+\begin{remark}
+	It is conceptually no surprise why $h^0(X,\cT_X)$ is an obstruction to the universality of the Kuranishi family: recall that it is a recurring theme in moduli theory that automorphisms implies the existence of non-isomorphic families nevertheless with isomorphic fibers, preventing the possibility of a fine moduli space, i.e. of a universal family. Since we are considering germs, only infinitesimal automorphisms pose a problem.
+\end{remark}
+\begin{remark}
+	There is no hope for scheme theory to detect the Kuranishi space. Indeed, the Kuranishi map is holomorphic and not algebraic. In the algebraic setting, the deformation functor $\cD ef_X$ is typically not representable, but rather \emph{pro-representable}.
+\end{remark}
+
+Note that in the hyperkähler case, $h^0(X,\cT_X)=h^0(X,\Omega_X)=h^{1,0}=0$ since $X$ is simply connected, and so the Kuranishi family is indeed universal in this case.
+\begin{definition}
+	Assume the Kuranishi family is universal. Let $\cX\to (B,0)$ be a deformation. It corresponds to a unique map $(B,0)\to (\cB_X,0)$. The \tbf{Kodaira--Spencer} map of $\cX\to (B,0)$ is its differential $T_0B\to H^1(X,\cT_X)$ at the origin.
+\end{definition}
+%
+\begin{remark}
+	There are many ways to view the Kodaira--Spencer map; we sketch some of the view-points here.
+	Assume $B$ is smooth. Since $\cX\to (B,0)$ is flat, it is submersive (i.e. smooth), as we consider germs. Therefore, $\cX$ is a germ of a smooth variety, and so $X\subset \cX$ is regularly embedded, so that we may consider the normal exact sequence:
+	\[
+	0\to \cT_X\to \cT_{\cX|_X}\to \cN_{X/\cX}\to 0.
+	\]
+	Since we are considering germs, we have $\cN_{X/\cX}=T_0B\otimes \cO_X$. Thus, the connecting homomorphis in cohomology gives a map
+	\[
+	H^0(X,\cN_{X/\cX})=T_0B\to H^1(X,\cT_X),
+	\]
+	which coincides with the Kodaira--Spencer map.
+	
+	Similarly, one may show with explicit \v{C}ech cocycles that an infinitesimal deformation $\cX\to \text{Spec} \C[\epsilon]/\epsilon^2$ corresponds to a cohomology class $H^1(X,\cT_X)$, which is the image of the Kodaira--Spencer map. 
+	
+	Using the Dolbeault--\v{C}ech correspondence, the resolution
+	\[
+	0\to \cT_X \to \cA^0(\cT_X)\xrightarrow{\op}\cA^{0,1}(\cT_X)\xrightarrow{\op}\cA^{0,2}(\cT_X)\xrightarrow{\op}\cdots,
+	\]
+	gives an identification
+	\[
+	H^1(X,\cT_X)=\frac{\{\text{closed $(0,1)$ forms valued in $\cT_X=T^{1,0}X$\}}}{\{\text{exact $(0,1)$ forms valued in $T^{1,0}X$}\}},
+	\]
+	and a natural question is to ask for the description of the Kodaira--Spencer map in this setting. Here is the answer. Let $f:\cX\to (B,0)$ be a deformation,
+	which we assume to be small enough so that $f$ is submersive. In particular, this implies that $f$ is a trivial $C^\infty$-fibration (this is Ehresmann's theorem), i.e., that it is the map $X\times B\to (B,0)$ if we forget the complex structures. Let $b\in B$ be a point in the base. By our assumtions, we have a canonical idenitfication $T_\C X_b=T_\C X$. In particular, considering the complex structure at $b$ gives a subspace 
+	\[
+	T_b^{0,1}X\subset T_\C X.
+	\]
+Now, we have a projection map $P_b^{0,1}:TX\to T^{0,1}_bX$ obtained from the decomposition
+\[
+T_\C X=T_b^{1,0} X\oplus T^{0,1}_b X.
+\]
+We can restrict this projection $P^{0,1}_b$ to $T^{0,1}X$.  Post-composing with the map $P^{1,0}$, we get a map of sheaves
+\[
+\alpha_b=P^{1,0}\circ P_b^{0,1}: T^{0,1}X\to T^{1,0}X.
+\]
+Now let $v$ be a tangent vector in $T_0 B$ and $v(b)$ be a curve $[0,1]\to B$ integrating this vector. It turns out that the association
+\[
+v\mapsto \frac{d}{db}\alpha_{v(b)}|_{b=0}
+\]
+is the Kodaira--Spencer map. We can get a better expression. Note that 
+\[
+P_b^{0,1}= \frac{1}{2}(\id + iI_b),
+\]
+where $I_b$ is the complex structure at the fiber at $b$.  Taking the derivative as above, we see that the Kodaira--Spencer map is the association
+\[
+v\to \frac{i}{2}\brk{\frac{d}{db}I_{v(b)}|_{b=0}}^{1,0}, 
+\]
+that is, the $(1,0)$ part of the infinitesimal deformation of the complex structure.
+\end{remark}
+
+\begin{example}[Kodaira--Spencer for twistor lines] We follow \cite{lebruntwistors} and adapt to our conventions.
+	Let $X$ be hyperkähler and let $T_\omega(X)\to \bP^1$ be the twistor space induced by a Ricci-flat metric $\omega$. We put a coordinate $t$ on $\bP^1$, and consider the tangent vector $\frac{\p}{\p t}$. We want to understand how the Kodaira--Spencer map act on this vector.
+	
+	We will let $I_t$ denote the the complex structure corresponding to $t\in \bP^1$, and let $I= I_0$, $I_1=J$ and $I_{i}=K$. Let us also put a real parametrisation for the sphere $\bS^2\simeq\bP^1$ via $a^2+b^2+c^2=1$. Here, we assume that $0$ corresponds to $(1,0,0)$, $1$ corresponds to $(0,1,0)$ and $i$ corresponds to $(0,0,1)$.
+	
+	We first want to conpute 
+	\[
+	\frac{d}{dt}I_t|_{t=0}
+	\]
+	By considering the standard stereographic coordinates $t=\zeta+i \xi $, where $\zeta = b/(1+a)$ and $\xi=c/(1+a)$, we find that
+	\[
+	\frac{d}{d\zeta}I_\zeta =2J\hspace{2cm}\frac{d}{d\xi}I_\xi = 2K,
+	\]
+	and so 
+	\[
+	\frac{d}{dt}I_t=J-iK.
+	\]
+	Let $u\in T^{0,1}X$. We compute the image of $v$ along the Kodaira--Spencer map to be that which associates to $u$ 
+	\begin{align*}
+\frac{i}{2}\brk{\frac{d}{dt}I_t(u)}^{1,0}&=\frac{i}{2} \brk{(J-iK)(u)}^{1,0}\\
+&=\frac{i}{2}\brk{J+iJI(u)}^{1,0}	\\
+&=\frac{i}{2}\brk{J+i(-i)J(u)}^{1,0}\\
+&=i \brk{J(u)}^{1,0}=i J(u),
+	\end{align*}
+	where the last inequality holds because $J$ anti-commutes with $i$, ans so switches its eigenspaces.
+	
+	Note that on $(1,0)$ vectors, we have that  $\sigma:= \omega_J+i\omega_K=i (\omega_I(-,J-)+i\omega_I(-,K-))=i\Omega$, where $\Omega$ is a holomorphic symplectic form defined as in \autoref{sec:twistor-lines}. Thus, $\sigma$ is a non-degenerate holomorphic symplectic form, and it defines an isomorphism
+	\[
+	\sigma: \cT_X\to \Omega_X,
+	\]
+	by contraction and so induces an isomorphism
+	\begin{equation}
+	H^1(X,\cT_X)\simeq H^1(X,\Omega_X).\label{eq:contr-h1}
+	\end{equation}
+	
+	Let us investigate what this isomorphism does to the Kodaira--Spencer map. we must conpute the contraction	
+	\begin{align*}
+	iJ\lrcorner\;\sigma&=ig((J+iK)J-,-)\\
+	&= i g((-\id - iI) -,- )\\
+	&= g(I-,-)=\omega_I(-,-),
+	\end{align*}
+	where the last line comes from the fact that $ig(-id -,-)$ is applied via our identifications to a $(0,1)$ vector, so that it does not contribute to the $(1,1)$ form that we get along \eqref{eq:contr-h1}.
+	
+	In other words, with our choice of symplectic form for the contraction, the image along the Kodaira--Spencer map of the tangent vector of the twistor line yields the Kähler class that induces the twistor line. This has the following important corrolary
+\end{example}
+\begin{corollary}
+	Let $X$ be a hyperkähler manifold. Then its Kuranishi space is smooth.
+\end{corollary}
+\begin{proof}
+	Note that clearly, if a complex analytic space $\cB$ has a set of smooth complex curves passing through some point $p$ such that the corresponding tangent lines span the tangent space at $p$, then $X$ is smooth at $p$. For $X$ hyperkähler, by what we have shown, the line tangent to the twistor line in the Kuranishi space of $X$ is spanned by the corresponding Kähler class along the identification $T_0\cB_X=H^{1,1}(X)$ induced by our choice of symplectic form. Since all the Kähler classes induce a twistor line (recall this is discussed in \autoref{sec:twistor-lines}), the tangent space spanned by the twistor lines contains the Kähler cone, which is open in $H^{1,1}(X,\R)$. Thus, the subspace of $H^{1,1}(X)$ spanned by the twistor lines contains $H^{1,1}(X,\R)$. Note that $\dim_\R H^{1,1}(X,\R)=\dim_\C H^{1,1}(X)$, since conjugation acts on $H^{1,1}(X)$. Thus, $H^{1,1}(X,\R)$ spans $H^{1,1}(X)$ (i.e., contains a basis), and so the twistor lines span $H^{1,1}(X)\simeq T_0\cB_X$.
+\end{proof}
+
+We also note here that a more general statement holds true.
+
+\begin{theorem}[Bogomolov--Tian--Todorov]
+	Let $X$ be a compact Calabi--Yau manifold (in the stricter sense that $K_X$ is trivial). Then, its Kuranishi space is smooth.
+\end{theorem}
+\begin{proof}[Proof idea]
+	The original proof uses the Maurer--Cartan equations, which we have not introduced; see \cite{Tian1987} for the original proof and \cite[Chapter 6]{Huybrechts2005} for a nice exposition.
+	
+	We will give an idea of why this is true, assuming that the Kuranishi space is reduced\,---\,which is certainly a non-trivial assumption, it is in general a hard question whether a given moduli space is reduced.
+	
+	Let $\cX\to \cB_X$ be the Kuranishi family and suppose $\cB_X$ is reduced. Note that for any $b$ in any neighbourhood of $0\in\cB_X$ (here $\cX_0=X$), we have $T_b\cB_X=H^1(\cX_b,\cT_{\cX_b})$.
+	
+	Note also that by considering the isomorphism
+	\[
+	\cT_X=\cT_X\otimes \omega_X\xrightarrow{\sim}\Omega_X^{\dim X-1},
+	\]
+	$h^{1}(X,\cT_X)=h^{1,\dim X-1}$ is a Hodge number. It is a standard fact (though hard to prove) that small deformations of a Kähler manifold are Kähler; see \cite[Théorème 9.23]{Voisin1998}. Therefore, in a suitable neighobourhood of $0$, all the manifolds $\cX_b$ are Kähler, so that Hodge decomposition holds. Since $X$ is smooth and we consider germs, the Kuranishi family is submersive (i.e. smooth), and so the Betti number
+	\begin{equation}
+	b_{\dim X}(\cX_b)=\sum_{p+q=\dim X} h^{p,q}(\cX_b)\label{eq:betti-hodge}
+	\end{equation}
+	 is constant (this follows from Ehresmann theorems on submersive maps). By the upper-semicontinuity theorem, the hodge numbers in \eqref{eq:betti-hodge} can only go down in a neighbourhood of $0$. But this cannot happen, since the Betti number is constant. Thus, $h^{1,\dim X}$ is constant in a suitable neighbourhood of $0$, and so\,---\,since we assume its reduceness\,---\,$\cB_X$ is smooth.
+\end{proof}
