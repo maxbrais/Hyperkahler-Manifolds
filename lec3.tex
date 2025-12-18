@@ -351,10 +351,10 @@ H^k(X,\C)\times H^{2n-k}(X,\C)&\to\C\\
 %
 This pairing is skew symmetric for $k$ odd and symmetric for $k$ even. We use the polarisation $\omega$ to turn this into a pairing on $H^k(X,\C)$ for $k\leq n$:
 %
-\begin{align*}
-	Q_k:H^k(X,\C)\times H^k(X,\C)&\to \C\\
-	(\alpha,\beta)\mapsto \int_X\alpha \wedge L_\omega^{n-k}(\beta).
-\end{align*}
+\begin{align}
+	\label{eq:poinc-lefschetz-pairing} Q_k:H^k(X,\C)\times H^k(X,\C)&\to \C\\
+	(\alpha,\beta)\mapsto \int_X\alpha \wedge L_\omega^{n-k}(\beta).\notag
+\end{align}
 	%
 We now define the hermitian pairing $H_k(\alpha,\beta):=\iota^kQ_k(\alpha,\overline\beta)$ called the \tbf{Hodge--Riemann bilinear form}.
 %
@@ -378,7 +378,7 @@ We now define the hermitian pairing $H_k(\alpha,\beta):=\iota^kQ_k(\alpha,\overl
 \[
 H_k(\alpha,\beta)=\iota^k\int_X\alpha\wedge\omega^{n-k}\wedge\overline{\beta},
 \]
-but the form $\alpha\omega^{n-k}\wedge \wedge\overline{\beta}$ is of degree $2n$ but not of type $(n,n)$. Hence it vanishes, implying that the integral vanishes.
+but the form $\alpha\omega^{n-k}\wedge\overline{\beta}$ is of degree $2n$ but not of type $(n,n)$. Hence it vanishes, implying that the integral vanishes.
 
 (2) Let $\alpha'=L_\omega^r(\alpha)$ for $\alpha\in H^{k-2r}(X)_{\text{prim}}$ and $\beta'=L_\omega^s(\beta)$ for $\beta\in H^{k-2s}(X)_{\text{prim}}$. Without loss of generality, assume $r>s$. We have that
 \[
@@ -408,40 +408,43 @@ is positive-definite.
 \end{proof}	
 %
 \begin{corollary}[Hodge index theorem]\label{cor:hdg-ind}
-	Let $X$ be a compact Kähler surface. Then, the signature of the Poincaré intersection pairing $Q_2$ on $H^2(X,\R)$ is 
+	Let $X$ be a compact Kähler manifold. Then, the signature of the Poincaré intersection pairing $Q_2$ on $H^2(X,\R)$ is 
 	\[
 	(2h^{2,0}+1,h^{1,1}-1).
 	\]
 \end{corollary}
 \begin{proof}
-Let $\alpha\in H^2(X,\R)$. We may decompose into types: $\alpha=\alpha^{2,0}+\alpha^{1,1}+\alpha^{0,2}$. The fact that $\alpha=\overline \alpha$ forces $\alpha^{1,1}\in H^{1,1}(X,\R)$, and $\alpha^{2,0}=\overline{\alpha^{2,0}}$. 
-We thus have the decomposition
-\[
-H^2(X,\R)=((H^{2,0}(X)\oplus H^{0,2})\cap H^2(X,\R))\oplus H^{1,1}(X,\R),
-\]
-which we know to be orthogonal with respect to the Poincaré pairing. Any $\alpha\in(H^{2,0}(X)\oplus H^{0,2}(X))\cap H^2(X,\R)$ is primitive for degree reasons: taking the cup product with $\omega$ yields types $(3,1)$ or $(1,3)$. Thus, we have
-\[
-Q_2(\alpha,\alpha)=\int_X\alpha\wedge\alpha=\int_X\alpha^{2,0}\wedge\overline{\alpha^{2,0}},
-\]
-which is positive by \autoref{thm:hdg-rie}(3). Now, we have the Lefschetz decomposition
-%
-\[
-H^{1,1}(X,\R)=H^{1,1}(X,\R)_{\text{prim}}\oplus L_\omega H^0(X,\R)=H^{1,1}(X,\R)_{\text{prim}}\oplus \R[\omega].
-\]
-This decomposition is orthogonal: if $\alpha\in H^{1,1}(X,\R)_{\text{prim}}$, then
-\[
-Q_2(\omega,\alpha)=\int_X\omega\wedge\alpha=0
-\]
-as $\omega\wedge\alpha=0$ by definition of primitive cohomology. We have
-%
-\[
-Q_2(\omega,\omega)=\int_X\omega^2=2\cdot\text{vol}(X)>0.
-\]
-There remains to compute $Q_2$ on real $(1,1)$ primitive classes. But by \autoref{thm:hdg-rie}, 
-\[
-\int_X\alpha^2<0,
-\]
-and so we obtain the right count for the index of the pairing.
+	Let $\omega$ be a Kähler form. By the Lefschetz decomposition, we have
+	\[
+	H^2(X,\R)= \R\omega\oplus H^2(X,\R)_{prim}.
+	\]
+	Now, by definition, this decomposition is orthogonal for $Q_2$ and  since $\omega$ is Kähler, $Q_2(\omega,\omega)>0$.
+	
+	Let $\alpha\in H^2(X,\R)_{prim}$.  Since $\alpha$ is real, we have
+	\[
+	\alpha=\alpha^{2,0}+\alpha^{1,1}+\overline{\alpha^{2,0}},
+	\]
+	where $\alpha^{1,1}$ is real.
+	
+	We thus have a decomposition
+	\[
+	H^{2}(X,\R)_{prim}=(H^{2,0}(X)\oplus H^{0,2}(X)\cap H^2(X,\R))\oplus H^{1,1}(X,\R)_{prim},
+	\]
+	which we already know is orthogonal with respect to $Q_2$.
+	
+	Now, for $\alpha\in (H^{2,0}(X)\oplus H^{0,2}(X))\cap H^2(X,\R)$, by considering types, we have
+	%
+	\[
+	Q_2(\alpha,\alpha)=\int_X\alpha\wedge\alpha\wedge \omega^{n-2}=2\int_X\alpha^{2,0}\wedge\overline{\alpha^{2,0}}\wedge\omega^{n-2}>0
+	\] 
+	by \autoref{thm:hdg-rie} (3). On the other hand, is $\alpha\in H^{1,1}(X,\R)$, we have
+	\[
+	Q_2(\alpha,\alpha)=\int_X\alpha\wedge\alpha\wedge \omega^{2n-2}=\int_X\alpha\wedge\overline{\alpha}\wedge \omega^{n-2}<0
+	\]
+	by \autoref{thm:hdg-rie} (3). And so we conclude that the signature of $Q_2$ is 
+	\[
+	(2h^{2,0}+1,h^{1,1}-1).\qedhere
+	\]
 \end{proof}
 %
 \subsection{(1,1) classes}

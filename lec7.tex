@@ -1,0 +1,368 @@
+% !TEX root = main.tex
+\section{Seventh Lecture: the period map}
+
+In this lecture, we introduce the theory of period maps for families of hyperkähler manifolds. We will establish the holomorphicity of the period map, prove the Local Torelli theorem, and describe the global period domain using the Beauville--Bogomolov--Fujiki form.
+
+\subsection{Period maps}
+
+Let $f:\cX\to B$ be a deformation of $\cX_0\simeq X$ which we assume to be submersive (i.e. smooth in the context of algebraic geometry). We have already used the following theorem, but let us state it for clarity.
+\begin{theorem}[Ehresmann]
+	Let $\cX\to B$ be a proper submersive map of smooth manifolds. Then, it is a fibre bundle.
+\end{theorem}
+In particular, if we have a deformation of complex manifold (assumed to be submersive as above), then all the fibers are diffeomorphic. One must however be careful, as it is not true that $\cX\to B$ is a holomorphic fibre bundle\,---\,indeed, the fibres need not be biholomoprhic, and that is the point behind the study of deformations.
+
+Consider the higher direct image
+\[
+\bH^k:=R^kf_*\C
+\]
+of the constant sheaf $\C$ on $\cX$. By Ehresmann's theorem, around any boint $b\in B$, we may find a contractible neighbourhood $U$ over which the map $f$ is of the form $X\times U\to U$ as a map of smooth manifolds. In particular, for any open $V\subset U$, we have
+%
+\[
+\bH^k(V) = H^k(X\times V,\C)=H^k(X,\C),
+\]
+so that $\bH^k$ is locally constant, i.e. a local system.
+%
+We will denote by
+%
+\[
+\cH^k:=\bH^k \otimes_\C\cO_B
+\]
+the associated sheaf of holomorphic sections. Note that by our previous study of local systems, we know that we have a flat connection associated to this local system, which is called the \emph{Gauss-Manin} connection, although we will not be using it.
+
+Assume now $\cX\to B$ is a submersive deformation of a hyperkähler manifold $X$ and that $B$ is smooth and simply connected. Assume moreover that all the fibers are hyperkähler.
+ Note that this implies that the local system $\bH^2$ is trivial, as there is no monodromy. This way, we have a canonical identification of each fibre with $H^2(X,\C)$ via parallel transport.
+\begin{definition}[Period map]
+	We define the period map to be the association
+	\begin{align*}
+	P:B&\to \bP(H^2(X,\C))\\
+	t&\mapsto [H^{2,0}(X_t)].
+	\end{align*}
+\end{definition}
+%
+For integers $p$ and $q$, we define the corresponding \tbf{Hodge bundle} to be
+\[
+\cH^{p,q}:=R^qf_*\Omega^p_{\cX/B}.
+\]
+\begin{lemma}\label{lem:hodge-comm-w-b-c}
+$\cH^{p,q}$ is locally free and commutes with base change for the map $\cX\to B$.	
+\end{lemma}
+\begin{proof}
+	By Grauert's theorem, since the base $B$ is reduced, it suffices to show that the dimension of $H^q(X_t,\Omega_{X_t}^p)$ is constant. But since all the fibers are assumed to be Kähler, this follows from the proof idea of \autoref{thm:b-t-t-smooth}.
+\end{proof}
+We have not yet shown that the period map is holomorphic. It is an easy corollary of the following lemma.
+%
+\begin{lemma}
+	There is a natural inclusion 
+	\[
+\cH^{2,0}\subset \cH^2	
+	\]
+	of holomorphic vector bundles.\footnote{This is stronger than demanding an injeciton of sheaves; we want to have an inclusion at the level of fibres.}
+\end{lemma}
+\begin{proof}
+	Consider the quasi-isomorphism of complexes of sheaves
+	\begin{equation}
+	f^{-1}\cO_B \xrightarrow{\sim}\brk{\cO_{\cX}\xrightarrow{d}\Omega_{\cX/B}\xrightarrow{d}\cdots\xrightarrow{d}\Omega^{\dim X}_{\cX/B}}=\Omega_{\cX/B}^\bullet.\label{eq:qis}
+	\end{equation}
+	By considering the truncation, we have a map
+	%
+	\[
+	\Omega_{\cX/B}^{\geq 2}\to \Omega_{\cX/B}^\bullet,\]
+	and taking the second higher direct image, we obtain
+	\[
+	R^2f_*\Omega_{\cX/B}^{\ge 2}\to R^2f_*\Omega_{\cX/B}^\bullet.
+	\]
+	Using the quasi-isomorphism \eqref{eq:qis}, we have
+	\begin{equation}\label{eq:sec-coh-is}
+	R^2f_*\Omega_{\cX/B}^\bullet\simeq R^2f_*f^{-1}\cO_B
+	\end{equation}
+	Now recall that in the category of sheaves of complex vector spaces, we have an adjunction $f^{-1}\dashv f_*$ and a corresponding projection formula, sot that the right hand side of \eqref{eq:sec-coh-is} is isomorphic to
+	\[
+	R^2f_*(f^{-1}\cO_B\otimes_\C\C)\simeq R^2f_*\C\otimes_\C \cO_B=\cH^2
+	\]
+	We have therefore constructed a map $R^2f_*\Omega_{\cX/B}^{\geq 2}\to \cH^2$. Now, consider the exact triangle
+	\[
+	\Omega_{\cX/B}^{\geq 3}\to \Omega_{\cX/B}^{\geq 2}\to \Omega_{\cX/B}^2[-2]\to \Omega_{\cX/B}^{\geq 3}[1].
+	\] 
+	Apprying $Rf_*$ and taking the long exact sequence in cohomology, we obtain
+	\[
+	0\to R^2f_*\Omega_{\cX/B}^{\geq 2} \to R^0f_*\Omega_{\cX/B}^2\to R^3f_*\Omega_{\cX/B}^{\geq 3}\to \cdots
+	\]
+	We wish to show that the map $R^2f_*\Omega_{\cX/B}^{\geq 2}\to R^0f_*\Omega_{\cX/B}^2$ is an isomorphism, and so it suffices to show that the map 
+	\begin{equation}
+		R^0f_*\Omega_{\cX/B}^2\to R^3f_*\Omega_{\cX/B}^{\geq 3} \label{eq:map-to-show-zero}
+	\end{equation}
+	 is zero. Consider the exact triangle
+	\[
+	\Omega_{\cX/B}^{\geq 4}\to \Omega_{\cX/B}^{\geq 3}\to \Omega_{\cX/B}^3[-3]\to \Omega_{\cX/B}^{\geq 4}[1].
+	\]
+	Taking $Rf_*$ and the long exact sequence in cohomology, we obtain an injection
+	\[
+	0\to R^3f_*\Omega_{\cX/B}^{\geq 3}\to R^0f_*\Omega_{\cX/B}^3.
+	\] 
+	Thus, in order to show \eqref{eq:map-to-show-zero} is zero, it suffices to show that the composition
+	\[
+	R^0f_*\Omega_{\cX/B}^2\to R^3f_*\Omega_{\cX/B}^{\geq 3}\to R^0f_*\Omega_{\cX/B}^3
+	\]
+	is zero. But tracing through the quasi-isomorphism and looking at the level of fibres, this map is the differential
+	\begin{equation}\label{eq:d-r-diff-res}
+	d:H^0(\cX_t,\Omega_{\cX_t}^2)\to H^0(\cX_t,\Omega_{\cX_t}^3).
+	\end{equation}
+	Since $\cX_t$ is assumed to be hyperkähler (and so in particular Kähler), and the Kähler identities implies that $(p,0)$ holomorphic forms are $d$-closed (since holomorphic $(p,0)$ forms are $\p$-closed and $\op^*$-closed). Therefore, \eqref{eq:d-r-diff-res} is zero, implying by \autoref{lem:hodge-comm-w-b-c} that \eqref{eq:map-to-show-zero} is zero.
+	
+	Thus, we have an isomorphism $R^2f_*\Omega_{\cX/B}^{\ge 2}\simeq R^0f_*\Omega_{\cX/B}^2$, meaning that we obtain a map
+	\[
+	\cH^{2,0}=R^0f_*\Omega_{\cX/B}^2\to \cH^2.
+	\]
+	By Grauert's theorem, $\cH^2$ also commutes with base change, and so to show that this map is an inclusion of subbundles, it suffices to show that the map
+	\[
+	H^0(\cX_t,\Omega_{\cX_t}^2)\to H^2(\cX_t,\C)
+	\]
+	is injective. But tracing through the quasi-isomorphisms and exact triangles, this map is just the inclusion induced by Hodge decomposition, which concludes the proof.
+\end{proof}
+\begin{corollary}
+	The period map is holomorphic
+\end{corollary}
+\begin{proof}
+	Recall that holomorphic maps to a projective space $B\to \bP(V)$, where $V$ is some vector space, are parametrised by the holomorphic sub-line bundles of $V\otimes \cO_B$; clearly, the period map is induced by the holomorphic sub-line bundle $\cH^{2,0}\subset \cH^2$.
+\end{proof}
+\begin{remark}
+	In general, the period map is not algebraic, even if the map $\cX\to B$ is assumed to be, while the map
+	\[
+	B\to \bP(\cH^2)
+	\]
+	to the projective bundle is algebraic. The reason is that, in order to obtain the period map, one must find flat sections of the local system $\bH^2$, and that this can only be done anatically\,---\,even though the Gauss--Manin connection may be defined algebraically. Indeed, $\bH^2$ is a local system in \emph{the analytic topology}; taking instead the higher direct image
+	\[
+	R^2f_*\C
+	\]
+	in the Zariski topology yields the zero sheaf, as constant sheaves are acyclic in the Zariski topology.
+\end{remark}
+%
+\begin{remark}[Griffith's transversality]\label{rem:griff-trans}
+	The differential of the period map can be characterised as the following composition:
+\begin{align*}
+T_0B\to H^1(X,\cT_X)\xrightarrow{\sim} \Hom(H^{2,0}(X),H^{1,1}(X))&\subset \Hom(H^{2,0}(X),H^2(X,\C)/H^{2,0}(X))\\&=T_{[H^{2,0}(X)]}\bP(H^2(X,\C)),
+\end{align*}
+where the first map is the Kodaira--Spencer map and the second is the map
+\begin{align*}
+	H^1(X,\cT_X)&\to  \Hom(H^{2,0}(X),H^{1,1}(X))\\
+	\alpha&\mapsto \pa{\sigma\mapsto\alpha\lrcorner \sigma},
+\end{align*}
+where by $\lrcorner\sigma$, we mean the isomorphism
+\[
+H^1(X,\cT_X)\to H^1(X,\Omega_X)
+\]
+obtained by contraction by $\sigma$.
+
+For general period maps (in the case of a deformation of a Kähler manifold whose fibres are all Kähler), Griffith's transversality can be described as follows.  The Hodge filtration can be globalised to a filtration of local systems
+\[
+\cH^k=F^0\cH^k\supset\cdots F^k\cH^k\supset 0
+\]
+where 
+\[
+F^p\cH^k:=R^kf_*\Omega_{\cX/B}^{\geq p}.
+\]
+is also a local system with fibre at $t$ is the $p$thfiltered-piece $F^pH^k(X_t,\C)=\bigoplus_{n\geq p}H^{n,k-n}(X_t)$ in the Hodge filtration, whose dimension we set to be $b^{p,k}$. Upon assuming $B$ is simply-connected (or that the local systems are trivialised), the period map is defined to be the map
+\begin{align*}
+	P^{p,k}:B&\to \text{Grass}(b^{p,k},H^k(X,\C))=:\cG\\
+	b&\mapsto \brk{F^pH^k(X_b,\C)}.
+\end{align*}
+Griffith's transversality asserts that the differential
+\[
+dP^{p,k}:T_0B\to \Hom(F^pH^k(X,\C),H^k(X,\C)/F^pH^k(X,\C))=T_{\brk{F^pH^k(X,\C)}}\cG
+\]
+is actually valued in the subspace
+\[
+\Hom(F^pH^k(X,\C),F^{p-1}H^k(X,\C)/F^pH^k(X,\C))=\Hom(F^pH^k(X,\C),H^{p-1,k-p+1}(X)).
+\]
+Moreover, by studying the flag corresponding to the hodge filtration, one can even show that the differential $dP^{p,k}$ is valued in the subspace
+\[
+\Hom(F^pH^k(X,\C)/F^{p+1}(X,\C),H^{p-1,k-p+1}(X))=\Hom(H^{p,k-p}(X),H^{p-1,k-p+1}(X)).
+\]
+\end{remark}
+In algebraic geometry, we call Torelli theorems those thoerems stating that a given variety (within some class of varieties) is determined by a certain set of invariants. So far, we do not have the tools to state the global Torelli theorem for hyperkählers, but we can instead prove that a hyperkähler $X$ is determined by the complex line $H^{2,0}(X)\subset H^2(X,\C)$ in a small enough neighbourhood of its Kuranishi space. 
+\begin{proposition}[Infinitesimal Torelli for hyperkählers]
+	Let $(\cB_X,0)$ be the Kuranishi space of a hyperkähler manifold $X$. The period map
+	\[
+	\cB_X\to \bP(H^2(X,\C))
+	\]
+	is an immersion, and the image is the germ of a hypersurface.
+\end{proposition}
+\begin{proof}
+	We need to show that the differential is injective $0$, and this follows directly from our description of the period map in \autoref{rem:griff-trans} and the fact that the Kodaira--Spencer map is an isomorphism in the case of the Kuranishi space.
+	
+	The image has dimension $h^1(X,\cT_X)=h^{1,1}$, and we have
+	\[
+	\dim\bP(H^2(X,\C))=b^2-1=2h^{2,0}+h^{1,1}-1=h^{1,1}+1	\qedhere
+	\]
+\end{proof}
+%
+Since the period map is holomorphic and a priori not algebraic, there is no garanty that the Zariski closure of the image $\cD_X$ of $\cB_X$ is also a hypersurface (i.e. not the whole space). The Zariski closure of $\cD_X$ turns out to be a quadric, which follows from the next theorem.
+%
+\begin{theorem}[Beauville--Bogomolov--Fujiki]
+	Let $X$ be a hyperkähler manifold of dimension $2n$. Then, there exists a unique quadratic form $q: H^2(X,\C)\to \Z$ and $\lambda=\lambda_X\in\Q$ satisfying the following three properties
+	\begin{itemize}
+		\item $\int_X\alpha^{2n}=\lambda q(\alpha)^n$;
+		\item $q$ is indivisible (i.e., the image of $q$ is $\Z$);
+		\item $q$ is positive on the Kähler cone.
+	\end{itemize}
+\end{theorem}
+\begin{proof}
+	Consider the function
+	\[
+	f(\alpha)=\int_X\alpha^{2n}.
+	\]
+	Upon identifying $H^{4n}(X,\C)\simeq \C$, this is a polynomial function; indeed, the cup-product
+	\[
+	H^2(X,\C)^{\otimes 2n}\to H^{4n}(X,\C)=\C
+	\]
+	is multi-linear, and so taking the $2n$th power with respect to the cup product yields a polynomial of degree $2n$, homogeneous by linearity of the integral. Note that by the universal coefficient theorem, the cup product is defined over $\Q$, and so $f$ has rational coefficients (upon choosing a rational basis to $H^2(X,\C)$).
+	
+	 Taking the projective vanishing locus $V_+(f)\subset \bP(H^2(X,\C)$, we obtain a subscheme of degree $2n$.
+	On the other hand, for a small deformation $\cX_t$ of $X$, the image $[\sigma_t]$ of the point corresponding to $\cX_t$ along the period map is in $V_+(f)$, as $\sigma_t^{2n}$ is of type $(4n,0)$ with respect to the Hodge decomposition of $H^2(\cX_t,\C)\simeq H^2(X,\C)$, hence vanishes.
+	
+	Let $\beta\in H^2(X,\C)$ and consider
+	\begin{equation}
+	f(\sigma_t+s\beta)\label{eq:f-van-d}
+	\end{equation}
+	as a polynomial in $s\in\C$. Expanding, we have
+	%
+	\[
+	\int_X(\sigma_t+s\beta)^{2n}=\sum_i\binom{2n}{i}\int_X\sigma_t^i s^{2n-i}\beta^{2n-i}.
+	\]
+	Now, the coefficient
+	\[
+	\binom{2n}{i}\int_X \sigma_t^i s^{2n-i}\beta^{2n-i}=0
+	\]
+	if $i>n$, as in that case $\sigma_t^i=0$ by considering types. Thus, \eqref{eq:f-van-d} vanishes to order at least $n$ at $\sigma_t$, meaning that $\overline{\cD_X}\subset V_+(f)$ is a component with multiplicity at least $n$. Since $V_+(f)\subset \bP(H^2(X,\C))$ is of degree $2n$, $\overline{\cD_X}\subset \bP(H^2(X,\C))$ is either of degree $1$ or $2$.
+	
+	Suppose $\cD_X$ is of degree $1$, that is, suppose it is a hypersurface. Then, it is equal to its tangent space, seen as a hyperplane of $\bP(H^2(X,\C))$. By using Griffith's transversality, this means that $\overline{\cD_X}=\bP(H^{2,0}(X)\oplus H^{1,1}(X))$. But this is impossible, as $f$ does not vanish on the Kähler cone inside of $H^{1,1}(X)$.
+	
+	thus, $\overline{\cD_X}$ is a quadric; that is, it is equal to $V_+(q)\subset \bP(H^2(X,\C))$ for some quadratic homogeneous polynomial $q$ on $H^2(X,\C)$. Note that
+	\[
+	f=\lambda q^{n}
+	\]
+	for some coefficient $\lambda\in\C$. Fix coordinates $x_1,\cdots,x_m$ on $H^2(X,\C)$. We can write
+	\[
+	q=\sum_{i\leq j\leq m}a_{i,j}x_i x_j,
+	\]
+	and we can assume without loss of generality that the coefficient $a_{k,l}=1$ for some $k,l$ after rescaling and reordering our coordinates. Then, in the coefficients of $q^n$, there will be one coefficient of the form
+	\[
+	\binom{n}{n-1}a_{k,l}^{n-1}a_{i,j}=\binom{n}{n-1}a_{i,j}
+	\]
+	for all $i\leq j\leq m$. Therefore, the coefficient $\lambda \binom{n}{n-1}a_{i,j}$ apprears in $f$. Since $f$ has rational coefficients (in a  rational basis of $H^2(X,\C)$), we conclude that we can choose $\lambda$ to be rational and $q$ to have rational coefficients. Since $q$ has rational coefficients, the image of
+	\[
+	H^2(X,\Z)
+	\]
+	along $q$ is a subgroup of $\Q$, generated by a finite number of non-zero elements. This subgroup is therefore of the form $\frac{1}{d}\Z$, and upon rescaling $\lambda$ by $d$, we may assume that the image of $H^2(X,\Z)$ along $q$ is exactly $\Z$, i.e. that $q$ is indivisible.
+	
+	Finally, since the Kähler classes form a cone $\cK_X\subset H^{1,1}(X,\R)$ and that $q$ does not vanish on any Kähler class, for any two Kähler classes $\alpha$ and $\beta$, by considering the line in $H^{1,1}(X,\R)$ connecting those two classes, we see that $\sgn(q(\alpha))=\sgn(q(\beta))$. Therefore, upon scaling $\lambda$ by $\pm 1$, we can assume that $q$ is positive on the Kähler classes. Clearly, our constraints on $\lambda$ and $q$ have now uniquely determined them.
+\end{proof}
+%
+\begin{definition}
+	We call $q$ the \tbf{Beauville--Bogomolov} form of $X$.
+\end{definition}
+\begin{remark}
+	Note that by the usual correspondence between quadratic forms and symmetric bilinear forms, $q$ is induced by a unique symmetric form\,---\,also denoted $q$\,---\,defined by 
+	\[
+	q(\alpha,\beta)=\frac{1}{2}(q(\alpha+\beta-q(\alpha)-q(\beta)))
+	\]
+\end{remark}
+\begin{theorem}
+	The Beauville--Bogomolov form satisfies the following
+	\begin{enumerate}
+		\item It is non-degenerate of signature $(3,b_2-3)$;
+		\item if $[\sigma_t]\in \cD_X$, then $q(\sigma_t)=0$ and $q(\sigma_t,\overline\sigma_t)>0$;
+		\item With respect to $q$, we have the following orthogonal decomposition for all $t\in \cB_X$:
+		\[
+		H^2(X,\R)=(((H^{2,0}(X)\oplus H^{0,2}(X))\cap H^2(X,\R))\oplus^\perp H^{1,1}(X,\R)
+		\]
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $\alpha,\beta\in H^2(X,\R)$. Consider the polynomial
+	\[
+	\int_X(\alpha+s\beta)^{2n}=\lambda q(\alpha+s\beta)^n
+	\]
+	as a function of $s\in\C$. Taking the coefficient of the linear term $s$, we get
+	\[
+	2n\int_X\alpha^{2n-1}\beta
+	\]
+	on the left-hand side. But this corresponds to taking the derivative of the right-hand side in $s$ at $s=0$, which yields
+	\begin{equation}
+	n\lambda q(\alpha)^{n-1}\cdot\pa{ \frac{d}{ds}q(\alpha+s\beta)|_{s=0}}.\label{eq:der-form}
+	\end{equation}
+	Since $q(\alpha+s\beta)=q(\alpha)+2s(q(\alpha,\beta))+q(\beta)$, we obtain that \eqref{eq:der-form} is equal to
+	\[
+	2n\lambda q(\alpha)^{n-1}q(\alpha,\beta).
+	\]
+	Therefore, 
+	\[
+	\int_X\alpha^{2n-1}\beta=\lambda q(\alpha)^{n-1}q(\alpha,\beta).
+	\]
+	Suppose that $\alpha\in \cK(X)$. Then, $\lambda q(\alpha)^{n-1}>0$. 
+	We therefore see that $\beta$ is primitive for the Lefschetz decomposition induced by the Kähler class $\alpha$, i.e.
+	\[
+	\int_X\alpha^{2n-1}\beta=0,
+	\]
+	if and only if $q(\alpha,\beta)=0$. Thus, we have that 
+	\[
+	\alpha^\perp= H^2(X,\R)_{prim},
+	\]
+	where the orthogonal complement is taken with respect to $q$.
+	
+	Suppose now that $\beta,\gamma\in H^2(X,\R)_{prim}=\alpha^\perp$. Consider the polynomial in $s$ and $t$
+	\[
+	\int_X(\alpha+t\beta+s\gamma)=\lambda q(\alpha+t\beta+s\gamma)^n
+	\]
+	Taking the coefficient of the monomial $ts$ yields
+	\[
+	(2n)(2n-1)\int_X\alpha^{2n-2}\beta\gamma
+	\]
+	on the left-hand side, and on the right hand side, we must differentiate with respect to $s$ and $t$, which gives
+	\begin{equation}
+	n(n-1)\lambda q(\alpha)^{n-2}\cdot\pa{\frac{\p}{\p t\p s}q(\alpha+t\beta+s\gamma)|_{s=t=0}}.\label{eq:der-form-2}
+	\end{equation}
+	Now, using that
+	\[
+	q(\alpha+t\beta+s\gamma)=q(\alpha)+2q(\alpha+t\beta,s\gamma)+q(s\gamma)=q(\alpha)+2s(q(\alpha,\gamma)+tq(\beta,\gamma))+s^2q(\gamma),
+	\]
+	we see that \eqref{eq:der-form-2} is equal to 
+	\[
+	2n(n-1)q(\beta,\gamma),
+	\]
+	so that
+	\[
+	(2n-1)\int_X\alpha^{2n-2}\beta\gamma =(n-1) \lambda q(\alpha)^{2n-2}q(\beta,\gamma).
+	\]
+	%
+	Thus, on $H^2(X,\R)_{prim}$, $q$ is proportional to the Poincaré pairing $Q_2$ from \eqref{eq:poinc-lefschetz-pairing}, and so (1) and (3) follows directly from the \hyperref[thm:hdg-rie]{Hodge index theorem} and its proof.
+	
+	Now, let $t\in\cB_X$. By how we have defined $q$, it vanishes on $\sigma_t$. Consider now $\alpha=\sigma_t+\overline\sigma_t$. We have
+	\[
+	\int_X\alpha ^n=\binom{2n}{n}\int_X(\sigma_t\overline\sigma_t)^n=\lambda_X q(\alpha)^n.
+	\]
+	But $\sigma_t\overline\sigma_t>0$, and so this quantity is positive. On the other hand, we have that
+	\[
+	q(\sigma_t,\overline\sigma_t)=\frac{1}{2}(q(\alpha)-q(\sigma_t)-q(\overline\sigma_t)).
+	\]
+	But as for $\sigma_t$, we have
+	\[
+	0=\int_X \overline\sigma_t^n=\lambda_Xq(\overline\sigma_t)
+	\]
+	by considering types. Therefore,
+	\[
+	q(\sigma_t,\overline\sigma_t)=\frac{1}{2}q(\alpha)>0,
+	\]
+	which proves (2).
+\end{proof}
+\begin{remark}
+	There is an easy way to test whether a class $\alpha\in H^{2}(X,\Z)$ is $(1,1)$, i.e. whether it is in $NS(X)$ (recall, $H^2(X,\Z)$ does not have torsion for hyperkählers). Namely, we claim such $\alpha$ is $(1,1)$ if and only if  $q(\alpha,\sigma)=0$. We can see this as follows. Over $\R$, we decompose $\alpha=\alpha_{prim}+c\omega$, where $c\in \R$ is some constant and $\omega$ is the Kähler form. We then have
+	\[
+	q(\alpha,\sigma)=q(\alpha_{prim},\sigma)
+	\]
+	since $\omega$ is orthogonal to $\sigma$. Since $\alpha_{prim}$ is real, we can further decompose $\alpha_{prim}=a \sigma+ \alpha_{prim}^{1,1}+\overline a\overline\sigma$. Since $q(\sigma)=0$ and $q(\sigma,\overline\sigma)>0$, we get
+	\[
+	q(\alpha,\sigma)=q(\alpha_{prim}^{1,1},\sigma)+\overline a q(\overline\sigma,\sigma)
+	\]
+	Now, both $\sigma$ and $\alpha_{prim} ^{1,1}$ are primitive and so by the proof of the last theorem, $q(\alpha_{prim}^{1,1},\sigma)$ is proportional to $Q_2(\alpha_{prim}^{1,1},\sigma)$, and so is zero.\footnote{In the proof of the last theorem, we worked over $\R$ but this also works over $\C$ (note $\sigma$ is not real).} Thus, $q(\alpha,\sigma)=0$ if and only if $a=0$, which shows the claim.
+\end{remark}
